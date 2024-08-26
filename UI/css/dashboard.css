@@ -80,9 +80,11 @@ aside nav a{
     align-items: flex-start;
     gap: .5rem;
     padding: .5rem 1rem;
+    border-radius: 1rem;
 }
 aside nav a:is(:hover,.active){
-    color: var(--primary);
+    /* color: var(--primary); */
+    background-color: var(--border-color-2);
 }
 aside nav a span{
     font-size: 1.1rem !important;
