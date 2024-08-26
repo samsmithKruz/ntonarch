@@ -69,6 +69,9 @@ aside.hide{
     left: -100%;
     position: absolute;
 }
+aside.hide + .content{
+    margin-inline: 1rem;
+}
 aside nav{
     user-select: none;
     display: flex;
