@@ -1,3 +1,17 @@
+// Element.prototype.optimizeEvent = function (eventType, callback, propagate = false) {
+//     const eventMap = {
+//         'click': ['click', 'touchstart'],
+//         'mousemove': ['mousemove', 'touchmove'],
+//         'mouseenter': ['mouseenter', 'touchstart'],
+//         'mouseleave': ['mouseleave', 'touchend'],
+//         'mousedown': ['mousedown', 'touchstart'],
+//         'mouseup': ['mouseup', 'touchend'],
+//     }
+//     const eventsToBind = eventMap[eventType] || [eventType];
+//     eventsToBind.forEach(event => {
+//         this.addEventListener(event, callback, propagate)
+//     })
+// }
 // Select all tilt containers
 const tiltContainers = document.querySelectorAll('.tilt-container');
 

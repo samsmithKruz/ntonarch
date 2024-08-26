@@ -21,8 +21,13 @@ header .menu {
 
 header nav {
     display: flex;
+    flex-wrap: wrap;
 }
-
+@media (max-width: 425px) {
+    header{
+        position: relative;
+    }
+}
 header nav .link {
     font-size: .9rem;
     font-weight: 700;
