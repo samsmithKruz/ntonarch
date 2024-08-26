@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage :: Ntonarch</title>
+    <link rel="shortcut icon" href="./assets/fav.svg" type="image/x-icon" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/market.css" />
+    <script src="./js/swiper-bundle.min.js"></script>
+  </head>
+  <body style="background-color: #fafafaee;">
+    <header>
+      <a href="./" class="logo">
+        <img src="./assets/logo.svg" alt="Ntonarch" />
+      </a>
+      <div class="menu">
+        <nav>
+          <a href="./" class="active link">HOME</a>
+          <a href="./about.html" class="link">ABOUT</a>
+          <div class="link dropdown">
+            SERVICES
+            <div class="items">
+              <a href="#">Blogs & Media</a>
+              <a href="#">Market</a>
+              <a href="#">Engineering</a>
+              <a href="#">Computer</a>
+              <a href="#">Foundation</a>
+            </div>
+          </div>
+          <a href="./about.html#team" class="link">CONTACT US</a>
+        </nav>
+      </div>
+    </header>
+    <form id="search" class="container">
+      <div class="input">
+
+        <input type="text" placeholder="X52 Mobile Phone Cooler">
+        <a href="#" class="i_icon">&#xF002;</a>
+      </div>
+    </form>
+    <main class="container" >
+      <div class="box">
+        <h3>Popular Items</h3>
+        <div class="cards">
+          <a href="#" class="card">
+            <img src="./assets/about.png" alt="">
+            <h4>X52 Mobile Phone Cooler</h4>
+            <h3 class="price">
+              <span class="old">N 7,900</span>
+              <span >N 7,900</span>
+            </h3>
+            <h5>Uyo, Nigeria</h5>
+          </a>
+          <a href="#" class="card">
+            <img src="./assets/about.png" alt="">
+            <h4>X52 Mobile Phone Cooler</h4>
+            <h3 class="price">
+              <span class="old">N 7,900</span>
+              <span >N 7,900</span>
+            </h3>
+            <h5>Uyo, Nigeria</h5>
+          </a>
+          <a href="#" class="card">
+            <img src="./assets/about.png" alt="">
+            <h4>X52 Mobile Phone Cooler</h4>
+            <h3 class="price">
+              <span class="old">N 7,900</span>
+              <span >N 7,900</span>
+            </h3>
+            <h5>Uyo, Nigeria</h5>
+          </a>
+          <a href="#" class="card">
+            <img src="./assets/about.png" alt="">
+            <h4>X52 Mobile Phone Cooler</h4>
+            <h3 class="price">
+              <span class="old">N 7,900</span>
+              <span >N 7,900</span>
+            </h3>
+            <h5>Uyo, Nigeria</h5>
+          </a>
+        </div>
+        <a href="#" class="btn primary">See more</a>
+      </div>
+      <div class="box products">
+        <div class="filter">
+          <div class="filter_menu">
+            <h3>CATEGORY</h3>
+            <form action="#">
+              <label for="all">
+                <input type="checkbox" name="all" id="all">
+                <span>All</span>
+              </label>
+              <label for="cloth">
+                <input type="checkbox" name="cloth" id="cloth">
+                <span>Cloth</span>
+              </label>
+              <label for="food">
+                <input type="checkbox" name="food" id="food">
+                <span>food</span>
+              </label>
+              <label for="appliances">
+                <input type="checkbox" name="appliances" id="appliances">
+                <span>appliances</span>
+              </label>
+              <label for="electronics">
+                <input type="checkbox" name="electronics" id="electronics">
+                <span>electronics</span>
+              </label>
+              <label for="phones">
+                <input type="checkbox" name="phones" id="phones">
+                <span>phones</span>
+              </label>
+              <label for="others">
+                <input type="checkbox" name="others" id="others">
+                <span>others</span>
+              </label>
+              <input type="submit" class="btn" value="Save">
+            </form>
+          </div>
+        </div>
+        <div class="product">
+          <div class="head">
+            <span>Showing 1-12 of 240 Results</span>
+            <form action="#">
+              <label for="sort">
+                Sort by:
+              </label>
+              <select name="sort" id="sort">
+                <option value="date">Date</option>
+                <option value="date">low to high</option>
+                <option value="date">high to low</option>
+              </select>
+              <a href="#" class="filter_icon i_icon">&#xF0b0;</a>
+              <script>
+                let closeModal = e =>{
+                  if(!e.target.closest(".filter_menu")){
+                    document.querySelector(".filter").classList.remove("show");
+                  }
+                }
+                document.querySelector(".filter").addEventListener("click",e=>{
+                  closeModal(e);
+                })
+                document.querySelector(".filter").addEventListener("touch",e=>{
+                  closeModal(e);
+                })
+                document.querySelector(".filter_icon").onclick = (e)=>{
+                  e.preventDefault();
+                  document.querySelector(".filter").classList.toggle("show");
+                }
+              </script>
+            </form>
+          </div>
+          <div class="cards">
+            <a href="#" class="card">
+              <img src="./assets/about.png" alt="">
+              <h4>X52 Mobile Phone Cooler</h4>
+              <h3 class="price">
+                <span class="old">N 7,900</span>
+                <span >N 7,900</span>
+              </h3>
+              <h5>Uyo, Nigeria</h5>
+            </a>
+            <a href="#" class="card">
+              <img src="./assets/about.png" alt="">
+              <h4>X52 Mobile Phone Cooler</h4>
+              <h3 class="price">
+                <span class="old">N 7,900</span>
+                <span >N 7,900</span>
+              </h3>
+              <h5>Uyo, Nigeria</h5>
+            </a>
+            <a href="#" class="card">
+              <img src="./assets/about.png" alt="">
+              <h4>X52 Mobile Phone Cooler</h4>
+              <h3 class="price">
+                <span class="old">N 7,900</span>
+                <span >N 7,900</span>
+              </h3>
+              <h5>Uyo, Nigeria</h5>
+            </a>
+            <a href="#" class="card">
+              <img src="./assets/about.png" alt="">
+              <h4>X52 Mobile Phone Cooler</h4>
+              <h3 class="price">
+                <span class="old">N 7,900</span>
+                <span >N 7,900</span>
+              </h3>
+              <h5>Uyo, Nigeria</h5>
+            </a>
+          </div>
+          <a  class="btn">Loading...</a>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <a href="#" class="logo">
+          <img src="./assets/logo-white.svg" alt="Ntonarch" />
+        </a>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Market</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">Motivation</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">Our Policy</a></li>
+          <li><a href="#">Hub</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="bottom">
+        <div class="container">
+          <p>&copy; 2024. All rights reserved | Developed by Smith Kruz</p>
+          <div class="socials">
+            <a href="#" class="i_icon">&#xF09A;</a>
+            <a href="#" class="i_icon">&#xF099;</a>
+            <a href="#" class="i_icon">&#xF199;</a>
+            <a href="#" class="i_icon">&#xF0e1;</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./js/tilt.js"></script>
+    <script src="./js/shareAPI.js"></script>
+  </body>
+</html>

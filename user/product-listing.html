@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage :: Ntonarch</title>
+    <link rel="shortcut icon" href="../assets/fav.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/dataTables.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/dataTables.js"></script>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+  <body style="background-color: #fafafaee;">
+    <header>
+      <div>
+        <a href="#" class="side-nav i_icon">&#xE5d2;</a>
+        <a href="#" class="logo">
+          <img src="../assets/logo.svg" alt="" />
+        </a>
+        <script>
+          document.querySelector(".side-nav").onclick = (e) => {
+            e.preventDefault();
+            document.querySelector("main aside").classList.toggle("hide");
+          };
+        </script>
+      </div>
+      <div class="dropdown">
+        <div class="user">John <span class="i_icon">&#xE853;</span></div>
+        <div class="items">
+          <a href="#">Menu 1</a>
+          <a href="#">Menu 1</a>
+          <a href="#">Menu 1</a>
+          <a href="#">Menu 1</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <aside>
+        <nav>
+          <a href="#" class=" active">
+            <span class="i_icon">&#xE871;</span>
+            Dashboard
+          </a>
+          <a href="#" class="">
+            <span class="i_icon">&#xe7f0;</span>
+            Manage Roles
+          </a>
+          <div class="group">
+            <div class="head">
+              Content Management
+            </div>
+            <a href="#" class="">
+              <span class="i_icon">&#xe03b;</span>
+              Post Blogs
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe051;</span>
+              Edit Blogs
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe0b7;</span>
+              Comments
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe02f;</span>
+              Drafts (For Editors)
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe01b;</span>
+              Pending Reviews (For Editors)
+            </a>
+          </div>
+          <a href="#" class="">
+            <span class="i_icon">&#xe85d;</span>
+            Product Listings
+          </a>
+          <div class="group">
+            <div class="head">
+              Approval Queue
+            </div>
+            <a href="#" class="">
+              <span class="i_icon">&#xe86e;</span>
+              Blogs
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe86e;</span>
+              Products
+            </a>
+          </div>
+          <a href="#" class="">
+            <span class="i_icon">&#xe887;</span>
+            Support & Help
+          </a>
+          <a href="#" class="">
+            <span class="i_icon">&#xe890;</span>
+            Logout
+          </a>
+        </nav>
+      </aside>
+      <div class="content">
+        <div class="box products" style="padding: 0;">
+          <div class="filter">
+            <div class="filter_menu">
+              <h3>CATEGORY</h3>
+              <form action="#">
+                <label for="all">
+                  <input type="checkbox" name="all" id="all">
+                  <span>All</span>
+                </label>
+                <label for="cloth">
+                  <input type="checkbox" name="cloth" id="cloth">
+                  <span>Cloth</span>
+                </label>
+                <label for="food">
+                  <input type="checkbox" name="food" id="food">
+                  <span>food</span>
+                </label>
+                <label for="appliances">
+                  <input type="checkbox" name="appliances" id="appliances">
+                  <span>appliances</span>
+                </label>
+                <label for="electronics">
+                  <input type="checkbox" name="electronics" id="electronics">
+                  <span>electronics</span>
+                </label>
+                <label for="phones">
+                  <input type="checkbox" name="phones" id="phones">
+                  <span>phones</span>
+                </label>
+                <label for="others">
+                  <input type="checkbox" name="others" id="others">
+                  <span>others</span>
+                </label>
+                <input type="submit" class="btn" value="Save">
+              </form>
+            </div>
+          </div>
+          <div class="product">
+            <div class="head">
+              <span>Showing 1-12 of 240 Results</span>
+              <form action="#">
+                <label for="sort">
+                  Sort by:
+                </label>
+                <select name="sort" id="sort">
+                  <option value="date">Date</option>
+                  <option value="date">low to high</option>
+                  <option value="date">high to low</option>
+                </select>
+                <a href="#" class="filter_icon i_icon"></a>
+                <script>
+                  let closeModal = e =>{
+                    if(!e.target.closest(".filter_menu")){
+                      document.querySelector(".filter").classList.remove("show");
+                    }
+                  }
+                  document.querySelector(".filter").addEventListener("click",e=>{
+                    closeModal(e);
+                  })
+                  document.querySelector(".filter").addEventListener("touch",e=>{
+                    closeModal(e);
+                  })
+                  document.querySelector(".filter_icon").onclick = (e)=>{
+                    e.preventDefault();
+                    document.querySelector(".filter").classList.toggle("show");
+                  }
+                </script>
+              </form>
+            </div>
+            <div class="cards">
+              <a href="#" class="card">
+                <img src="../assets/about.png" alt="">
+                <h4>X52 Mobile Phone Cooler</h4>
+                <h3 class="price">
+                  <span class="old">N 7,900</span>
+                  <span>N 7,900</span>
+                </h3>
+                <h5>Uyo, Nigeria</h5>
+              </a>
+              <a href="#" class="card">
+                <img src="../assets/about.png" alt="">
+                <h4>X52 Mobile Phone Cooler</h4>
+                <h3 class="price">
+                  <span class="old">N 7,900</span>
+                  <span>N 7,900</span>
+                </h3>
+                <h5>Uyo, Nigeria</h5>
+              </a>
+              <a href="#" class="card">
+                <img src="../assets/about.png" alt="">
+                <h4>X52 Mobile Phone Cooler</h4>
+                <h3 class="price">
+                  <span class="old">N 7,900</span>
+                  <span>N 7,900</span>
+                </h3>
+                <h5>Uyo, Nigeria</h5>
+              </a>
+              <a href="#" class="card">
+                <img src="../assets/about.png" alt="">
+                <h4>X52 Mobile Phone Cooler</h4>
+                <h3 class="price">
+                  <span class="old">N 7,900</span>
+                  <span>N 7,900</span>
+                </h3>
+                <h5>Uyo, Nigeria</h5>
+              </a>
+            </div>
+            <a class="btn">Loading...</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage :: Ntonarch</title>
+    <link rel="shortcut icon" href="./assets/fav.svg" type="image/x-icon" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/market.css" />
+    <script src="./js/swiper-bundle.min.js"></script>
+  </head>
+  <body style="background-color: #fafafaee;">
+    <header>
+      <a href="./" class="logo">
+        <img src="./assets/logo.svg" alt="Ntonarch" />
+      </a>
+      <div class="menu">
+        <nav>
+          <a href="./" class="active link">HOME</a>
+          <a href="./about.html" class="link">ABOUT</a>
+          <div class="link dropdown">
+            SERVICES
+            <div class="items">
+              <a href="#">Blogs & Media</a>
+              <a href="#">Market</a>
+              <a href="#">Engineering</a>
+              <a href="#">Computer</a>
+              <a href="#">Foundation</a>
+            </div>
+          </div>
+          <a href="./about.html#team" class="link">CONTACT US</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <div class="box" style="margin-top: 3rem;" id="product_view">
+        <div class="gallery">
+          <img src="./assets/view_blog.png" alt="" class="main" />
+          <div class="img">
+            <img src="./assets/about.png" alt="" />
+            <img src="./assets/view_blog.png" alt="" />
+            <img src="./assets/fav.svg" alt="" />
+            <img src="./assets/logo.svg" alt="" />
+          </div>
+        </div>
+        <div class="content">
+          <h3 class="price">
+            N 25,000.00
+          </h3>
+          <h2>Trendy Brown Coat</h2>
+          <h5>Uyo, Nigeria</h5>
+          <h4>Date Posted: 10.04.2024</h4>
+          <div class="btn-group">
+            <a href="tel:112" class="btn primary">Contact Seller</a>
+            <a
+              href="#"
+              class="share btn"
+              data-url="#"
+              data-title="Title"
+              data-text="#"
+            >
+              <span>Share</span>
+              <span class="i_icon" style="transform: rotateY(180deg);"
+                >&#xE15E;</span
+              >
+            </a>
+          </div>
+          <h2>Description</h2>
+          <p>
+            Washing/Spinning Capacity[7.5kg]: The Hisense washing machine has a washing and spinning capacity of 7.5kg. This means that it can accommodate a maximum weight of 7.5 kilograms of laundry for both washing and spinning cycles. The capacity is suitable for medium-sized households and allows you to wash a significant amount of clothes in a single load.
+          </p>
+        </div>
+      </div>
+      <div class="box">
+        <h3>Popular Items</h3>
+        <div class="cards">
+          <a href="#" class="card">
+            <img src="./assets/about.png" alt="" />
+            <h4>X52 Mobile Phone Cooler</h4>
+            <h3 class="price">
+              <span class="old">N 7,900</span>
+              <span>N 7,900</span>
+            </h3>
+            <h5>Uyo, Nigeria</h5>
+          </a>
+          <a href="#" class="card">
+            <img src="./assets/about.png" alt="" />
+            <h4>X52 Mobile Phone Cooler</h4>
+            <h3 class="price">
+              <span class="old">N 7,900</span>
+              <span>N 7,900</span>
+            </h3>
+            <h5>Uyo, Nigeria</h5>
+          </a>
+          <a href="#" class="card">
+            <img src="./assets/about.png" alt="" />
+            <h4>X52 Mobile Phone Cooler</h4>
+            <h3 class="price">
+              <span class="old">N 7,900</span>
+              <span>N 7,900</span>
+            </h3>
+            <h5>Uyo, Nigeria</h5>
+          </a>
+          <a href="#" class="card">
+            <img src="./assets/about.png" alt="" />
+            <h4>X52 Mobile Phone Cooler</h4>
+            <h3 class="price">
+              <span class="old">N 7,900</span>
+              <span>N 7,900</span>
+            </h3>
+            <h5>Uyo, Nigeria</h5>
+          </a>
+        </div>
+        <a href="#" class="btn primary">See more</a>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <a href="#" class="logo">
+          <img src="./assets/logo-white.svg" alt="Ntonarch" />
+        </a>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Market</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">Motivation</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">Our Policy</a></li>
+          <li><a href="#">Hub</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="bottom">
+        <div class="container">
+          <p>&copy; 2024. All rights reserved | Developed by Smith Kruz</p>
+          <div class="socials">
+            <a href="#" class="i_icon">&#xF09A;</a>
+            <a href="#" class="i_icon">&#xF099;</a>
+            <a href="#" class="i_icon">&#xF199;</a>
+            <a href="#" class="i_icon">&#xF0e1;</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      let showImg = e=>{
+        let img = e.target.closest("img");
+        if(img){
+          document.querySelector(".gallery .main").setAttribute("src",img.getAttribute("src"));
+          console.log();
+        }
+      }
+      document.querySelector(".gallery .img").addEventListener("click",e=>{
+        showImg(e)
+      })
+      document.querySelector(".gallery .img").addEventListener("touch",e=>{
+        showImg(e)
+      })
+    </script>
+    <script src="./js/tilt.js"></script>
+    <script src="./js/shareAPI.js"></script>
+  </body>
+</html>

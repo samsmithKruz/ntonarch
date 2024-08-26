@@ -1,0 +1,15 @@
+@import url('./theme.css');
+@import url('./header.css');
+@import url('./footer.css');
+
+
+section#introduction{
+    margin: 0!important;
+}
+section#introduction p{
+    margin: 0 0 1rem !important;
+    max-width: 100% !important;
+}
+section#introduction h2{
+    margin-top: 2rem;
+}

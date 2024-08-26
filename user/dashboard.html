@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage :: Ntonarch</title>
+    <link rel="shortcut icon" href="../assets/fav.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+  <body style="background-color: #fafafaee;">
+    <header>
+      <div>
+        <a href="#" class="side-nav i_icon">&#xE5d2;</a>
+        <a href="#" class="logo">
+          <img src="../assets/logo.svg" alt="" />
+        </a>
+        <script>
+          document.querySelector(".side-nav").onclick = (e) => {
+            e.preventDefault();
+            document.querySelector("main aside").classList.toggle("hide");
+          };
+        </script>
+      </div>
+      <div class="dropdown">
+        <div class="user">John <span class="i_icon">&#xE853;</span></div>
+        <div class="items">
+          <a href="#">
+            <span class="i_icon">&#xf085;</span>
+            Account Settings
+          </a>
+          <a href="#">
+            <span class="i_icon">&#xe890;</span>
+            Logout
+          </a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <aside>
+        <nav>
+          <a href="#" class=" active">
+            <span class="i_icon">&#xE871;</span>
+            Dashboard
+          </a>
+          <a href="#" class="">
+            <span class="i_icon">&#xe7f0;</span>
+            Manage Roles
+          </a>
+          <div class="group">
+            <div class="head">
+              Content Management
+            </div>
+            <a href="#" class="">
+              <span class="i_icon">&#xe03b;</span>
+              Post Blogs
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe051;</span>
+              Edit Blogs
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe0b7;</span>
+              Comments
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe02f;</span>
+              Drafts (For Editors)
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe01b;</span>
+              Pending Reviews (For Editors)
+            </a>
+          </div>
+          <a href="#" class="">
+            <span class="i_icon">&#xe85d;</span>
+            Product Listings
+          </a>
+          <div class="group">
+            <div class="head">
+              Approval Queue
+            </div>
+            <a href="#" class="">
+              <span class="i_icon">&#xe86e;</span>
+              Blogs
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe86e;</span>
+              Products
+            </a>
+          </div>
+          <a href="#" class="">
+            <span class="i_icon">&#xe887;</span>
+            Support & Help
+          </a>
+          <a href="#" class="">
+            <span class="i_icon">&#xe890;</span>
+            Logout
+          </a>
+        </nav>
+      </aside>
+      <div class="content ">
+        <h1>Welcome !!</h1>
+        <p>
+          We’re excited to have you here. This dashboard is your central hub for managing and overseeing all aspects of the platform. From here, you can easily navigate to key functionalities and get a snapshot of what’s happening in your system.
+        </p>
+        <div class="cards dashboard">
+          <a href="#" class="card">
+            <span class="i_icon">&#xe837;</span>
+            <div class="content">
+              <span class="head">Manage Roles</span>
+              <span class="text">Access role assignments and modifications.</span>
+            </div>
+          </a>
+          <a href="#" class="card">
+            <span class="i_icon">&#xe837;</span>
+            <div class="content">
+              <span class="head">Create Blog</span>
+              <span class="text">Shortcut to create a new blog post.</span>
+            </div>
+          </a>
+          <a href="#" class="card">
+            <span class="i_icon">&#xe837;</span>
+            <div class="content">
+              <span class="head">Manage Blogs</span>
+              <span class="text">Overview and management of all blog posts.</span>
+            </div>
+          </a>
+          <a href="#" class="card">
+            <span class="i_icon">&#xe837;</span>
+            <div class="content">
+              <span class="head">Draft</span>
+              <span class="text">Quick access to manage and edit drafts of blog posts.</span>
+            </div>
+          </a>
+          <a href="#" class="card">
+            <span class="i_icon">&#xe837;</span>
+            <div class="content">
+              <span class="head">Approval Queue</span>
+              <span class="text">Summary of items pending approval (content, products, etc.).</span>
+            </div>
+          </a>
+          <a href="#" class="card">
+            <span class="i_icon">&#xe837;</span>
+            <div class="content">
+              <span class="head">Content Approvals</span>
+              <span class="text">Review and approve content submissions.</span>
+            </div>
+          </a>
+          <a href="#" class="card">
+            <span class="i_icon">&#xe837;</span>
+            <div class="content">
+              <span class="head">Product Listings</span>
+              <span class="text">Quick access to manage and view product listings.</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

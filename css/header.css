@@ -1,0 +1,38 @@
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #fff;
+    padding-top: 1rem;
+}
+
+header .menu {
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header nav {
+    display: flex;
+}
+
+header nav .link {
+    font-size: .9rem;
+    font-weight: 700;
+    color: inherit;
+    border-bottom: .2rem solid transparent;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+header nav .link:is(:hover, .active):not(.dropdown) {
+    border-color: var(--primary);
+}

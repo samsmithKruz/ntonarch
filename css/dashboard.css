@@ -1,0 +1,190 @@
+@import url('./theme.css');
+@import url('./input.css');
+@import url('./product-listing.css');
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    background-color: #fff;
+    display: flex;
+    padding-inline: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 -5px 9px 1px var(--border-color);
+    z-index: 10;
+}
+header .user{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+header .user + .items{
+    width: 250px;
+    padding-bottom: 1rem;
+}
+header .user + .items a{
+    display: flex;
+    align-items: center;
+}
+header .user + .items a span{
+    font-size: 1rem;
+}
+header .side-nav{
+    color: inherit;
+}
+.dropdown .items{
+    right: .5rem;
+    left: unset;
+    top: 100%;
+}
+header div:first-child{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+main{
+    flex: 1 1 auto;
+    margin-top: 1rem;
+    display: flex;
+    position: relative;
+}
+aside{
+    background-color: #fff;
+    width: 15rem;
+    padding: 1rem;
+    padding-top: 2rem;
+    position: relative;
+    transition: left .5s ease;
+    left: 0;
+}
+aside.hide{
+    left: -50%;
+}
+aside nav{
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+aside nav a{
+    color: inherit;
+    display: flex;
+    align-items: flex-start;
+    gap: .5rem;
+    padding: .5rem 1rem;
+}
+aside nav a:is(:hover,.active){
+    color: var(--primary);
+}
+aside nav a span{
+    font-size: 1.1rem !important;
+}
+aside nav .group{
+    margin-bottom: .5rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid #f1f1f1;
+}
+aside nav .group .head{
+    opacity: .7;
+    font-size: .8rem;
+    margin-top: 1rem;
+    padding-left: 1rem;
+}
+main > .content{
+    padding: 1rem 2rem;
+    margin-left: 2rem;
+    background-color: #fff;
+    width: 100%;
+    max-width: 900px;
+}
+p{
+    font-size: clamp(1.1vw,1.1rem,19px);
+    max-width: 80ch;
+}
+main > .content .dashboard.cards{
+    user-select: none;
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+    grid-template-columns: repeat(auto-fill,minmax(210px,1fr));
+}
+main > .content .dashboard.card{
+    display: flex;
+    gap: .5rem;
+    color: inherit;
+    border: 1px solid transparent;
+    background-color: var(--black);
+    padding: 1rem;
+    border-radius: .5rem;
+}
+main > .content .dashboard.card:hover{
+    background-color: var(--primary);
+}
+main > .content .dashboard.card > .content{
+    display: flex;
+    flex-direction: column;
+}
+main > .content .dashboard.card .text{
+    opacity: .8;
+    color: var(--p-white);
+}
+main > .content .dashboard.card .head{
+    font-weight: 600;
+    font-size: clamp(1vw,1.2rem,18px);
+    color: var(--h-white);
+}
+main > .content .dashboard.card .i_icon{
+    color: var(--border-color-2);
+}
+.table{
+    width: 100%;
+    margin-top: 1rem;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;   
+    font-size: clamp(1vw,1rem,18px);
+}
+th{
+    user-select: none;
+    font-weight: 500;
+    padding: .5rem;
+}
+td{
+    user-select: none;
+    vertical-align: top;
+    padding: .5rem 1rem !important;
+}
+thead tr{
+    background-color: var(--black);
+    color: var(--h-white);
+}
+tbody tr:nth-child(even){
+    background-color: #fafafa !important;
+}
+tbody tr:hover{
+    background-color: var(--border-color-2) !important;
+}
+table#user_management :is(td,th):is(:nth-child(3),:nth-child(4),:nth-child(5)){
+    text-align: center !important;
+}
+table#comment_management :is(td,th):nth-child(2){
+    width: 20vw;
+    text-align: center;
+}
+tbody select{
+    padding: .5rem;
+    border: 1px solid var(--border-color-2);
+    cursor: pointer;
+}
+form{
+    max-width: 700px;
+}

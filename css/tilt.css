@@ -1,0 +1,22 @@
+/* Container that holds the tilting items */
+.tilt-container {
+    perspective: 1000px; /* Creates a 3D effect */
+}
+
+/* Item that will tilt */
+.tilt-item {
+    --rotateX: 0deg;
+    --rotateY: 0deg;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease;
+}
+.tilt-container .tilt-item  *{
+    transition: transform .2s ease;
+}
+.tilt-container:hover .tilt-item:hover  *{
+    transform: translateZ(50px); 
+}
+/* Apply the transformation using CSS variables */
+.tilt-container:hover .tilt-item {
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY));
+}

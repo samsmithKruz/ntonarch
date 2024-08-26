@@ -1,0 +1,33 @@
+@import url('./theme.css');
+@import url('./input.css');
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    background-color: #fff;
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+h2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+h2 + p{
+    color: var(--grey);
+    font-size: .7rem;
+    margin: auto;
+}
+

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage :: Ntonarch</title>
+    <link rel="shortcut icon" href="../assets/fav.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+  <body style="background-color: #fafafaee;">
+    <header>
+      <div>
+        <a href="#" class="side-nav i_icon">&#xE5d2;</a>
+        <a href="#" class="logo">
+          <img src="../assets/logo.svg" alt="" />
+        </a>
+        <script>
+          document.querySelector(".side-nav").onclick = (e) => {
+            e.preventDefault();
+            document.querySelector("main aside").classList.toggle("hide");
+          };
+        </script>
+      </div>
+      <div class="dropdown">
+        <div class="user">John <span class="i_icon">&#xE853;</span></div>
+        <div class="items">
+          <a href="#">Menu 1</a>
+          <a href="#">Menu 1</a>
+          <a href="#">Menu 1</a>
+          <a href="#">Menu 1</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <aside>
+        <nav>
+          <a href="#" class="active">
+            <span class="i_icon">&#xE871;</span>
+            Dashboard
+          </a>
+          <a href="#" class="">
+            <span class="i_icon">&#xe7f0;</span>
+            Manage Roles
+          </a>
+          <div class="group">
+            <div class="head">
+              Content Management
+            </div>
+            <a href="#" class="">
+              <span class="i_icon">&#xe03b;</span>
+              Post Blogs
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe051;</span>
+              Edit Blogs
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe0b7;</span>
+              Comments
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe02f;</span>
+              Drafts (For Editors)
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe01b;</span>
+              Pending Reviews (For Editors)
+            </a>
+          </div>
+          <a href="#" class="">
+            <span class="i_icon">&#xe85d;</span>
+            Product Listings
+          </a>
+          <div class="group">
+            <div class="head">
+              Approval Queue
+            </div>
+            <a href="#" class="">
+              <span class="i_icon">&#xe86e;</span>
+              Blogs
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe86e;</span>
+              Products
+            </a>
+          </div>
+          <a href="#" class="">
+            <span class="i_icon">&#xe887;</span>
+            Support & Help
+          </a>
+          <a href="#" class="">
+            <span class="i_icon">&#xe890;</span>
+            Logout
+          </a>
+        </nav>
+      </aside>
+      <div class="content">
+        <h2>Account Settings</h2>
+
+        <form action="#" style="margin-bottom: 2rem;">
+          <div class="err">
+            <span class="i_icon">&#xE001;</span>
+            <span class=""
+              >Lorem ipsum dolor sit, amet consectetur adipisicing elit. A.</span
+            >
+          </div>
+          <h4>Personal Data</h4>
+          <div class="input">
+            <label for="#">Full Name</label>
+            <input type="text" placeholder="Enter your current password." />
+          </div>
+          <div class="input">
+            <label for="#">Role</label>
+            <input type="text" readonly value="Writer" />
+          </div>
+          <div class="input">
+            <input
+              type="submit"
+              class="btn green"
+              style="max-width: fit-content;"
+              value="Update"
+            />
+          </div>
+        </form>
+        <form action="#" style="margin-bottom: 2rem;">
+          <h4>Change Password</h4>
+          <div class="input">
+            <label for="#">Current Password</label>
+            <input type="password" placeholder="Enter your current password." />
+          </div>
+          <div class="input">
+            <label for="#">New Password</label>
+            <input type="password" placeholder="Enter new password." />
+          </div>
+          <div class="input">
+            <label for="#">Confirm Password</label>
+            <input type="password" placeholder="" />
+          </div>
+          <div class="input">
+            <input
+              type="submit"
+              class="btn green"
+              style="max-width: fit-content;"
+              value="Update"
+            />
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

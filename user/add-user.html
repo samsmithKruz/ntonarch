@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage :: Ntonarch</title>
+    <link rel="shortcut icon" href="../assets/fav.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+  <body style="background-color: #fafafaee;">
+    <header>
+      <div>
+        <a href="#" class="side-nav i_icon">&#xE5d2;</a>
+        <a href="#" class="logo">
+          <img src="../assets/logo.svg" alt="" />
+        </a>
+        <script>
+          document.querySelector(".side-nav").onclick = (e) => {
+            e.preventDefault();
+            document.querySelector("main aside").classList.toggle("hide");
+          };
+        </script>
+      </div>
+      <div class="dropdown">
+        <div class="user">John <span class="i_icon">&#xE853;</span></div>
+        <div class="items">
+          <a href="#">Menu 1</a>
+          <a href="#">Menu 1</a>
+          <a href="#">Menu 1</a>
+          <a href="#">Menu 1</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <aside>
+        <nav>
+          <a href="#" class=" active">
+            <span class="i_icon">&#xE871;</span>
+            Dashboard
+          </a>
+          <a href="#" class="">
+            <span class="i_icon">&#xe7f0;</span>
+            Manage Roles
+          </a>
+          <div class="group">
+            <div class="head">
+              Content Management
+            </div>
+            <a href="#" class="">
+              <span class="i_icon">&#xe03b;</span>
+              Post Blogs
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe051;</span>
+              Edit Blogs
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe0b7;</span>
+              Comments
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe02f;</span>
+              Drafts (For Editors)
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe01b;</span>
+              Pending Reviews (For Editors)
+            </a>
+          </div>
+          <a href="#" class="">
+            <span class="i_icon">&#xe85d;</span>
+            Product Listings
+          </a>
+          <div class="group">
+            <div class="head">
+              Approval Queue
+            </div>
+            <a href="#" class="">
+              <span class="i_icon">&#xe86e;</span>
+              Blogs
+            </a>
+            <a href="#" class="">
+              <span class="i_icon">&#xe86e;</span>
+              Products
+            </a>
+          </div>
+          <a href="#" class="">
+            <span class="i_icon">&#xe887;</span>
+            Support & Help
+          </a>
+          <a href="#" class="">
+            <span class="i_icon">&#xe890;</span>
+            Logout
+          </a>
+        </nav>
+      </aside>
+      <div class="content">
+        <h2>New User</h2>
+        <p>Create a new user</p>
+
+        <form action="#">
+          <div class="err">
+            <span class="i_icon">&#xE001;</span>
+            <span class=""
+              >Lorem ipsum dolor sit, amet consectetur adipisicing elit. A.</span
+            >
+          </div>
+          <div class="input">
+            <label for="#">Email</label>
+            <input type="email" placeholder="Enter user email">
+          </div>
+          <div class="input">
+            <label for="#">User Role</label>
+            <select name="" id="">
+              <option value="0">Writer</option>
+              <option value="0">Editor</option>
+              <option value="0">Marketer</option>
+              <option value="0">Admin</option>
+            </select>
+          </div>
+          <div class="input">
+            <label for="#">Default Password</label>
+            <input type="text" readonly value="12345">
+          </div>
+          <div class="input">
+            <input type="submit" class="btn primary" value="Add User" />
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+.err {
+    background-color: #ffdede2f;
+    color: #d36d6dd8;
+    padding: .5rem 1rem;
+    margin: 1rem auto;
+    border: 1px solid #c937372c;
+    display: flex;
+    align-items: flex-start;
+    font-size: .9rem;
+    gap: .4rem;
+}
+
+.err .i_icon {
+    font-size: 1.1rem;
+    user-select: none;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 0;
+    gap: .1rem;
+}
+
+.input label {
+    font-size: 1rem;
+    color: var(--grey);
+    font-weight: 300;
+}
+
+:is(input, select, textarea) {
+    border: 1px solid var(--border-color);
+    padding: .7rem 1.2rem;
+    font-size: 1.1rem;
+    min-width: 0;
+    line-height: 1;
+    color: var(--black-light);
+}
+
+:is(input, select, textarea):focus {
+    outline-color: var(--primary);
+}
+:is(input, select, textarea)[readonly]{
+    background-color: var(--border-color-2);
+}
+select, input[type="file"] {
+    cursor: pointer;
+}
+
+input[type='submit'] {
+    font-weight: 600;
+    padding: .9rem 1rem;
+    color: var(--h-white);
+}
+
+input[type='submit']:hover {
+    background-color: var(--black);
+}
+
+.ck.ck-editor__main>.ck-editor__editable {
+    min-height: 200px;
+}
+
