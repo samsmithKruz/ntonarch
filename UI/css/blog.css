@@ -113,6 +113,10 @@ main{
 .paginations a:is(:hover,.active){
     color: var(--black);
 }
+aside{
+    width: 100%;
+    overflow: hidden;
+}
 aside .cards{
     display: flex;
     flex-direction: column;
