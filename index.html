@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ntonarch :: Index page</title>
+    <link rel="shortcut icon" href="./UI/assets/fav.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="./UI/css/theme.css" />
+    <style>
+      body {
+        min-height: 100vh;
+        background-color: #fafafa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        padding: 2rem;
+        gap: 2rem;
+      }
+      .card {
+        color: inherit;
+        padding: 1rem;
+        font-size: clamp(1.2vw, 1.3rem, 24px);
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--h-white);
+        background-color: var(--black);
+      }
+      .card:hover {
+        background-color: var(--primary);
+      }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 700px;
+        padding: 2rem 1rem;
+        max-width: 100%;
+        margin: 1rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Designed Pages</h1>
+      <p style="font-weight: 300;">
+        These are the Frontend designed pages.
+      </p>
+      <div class="cards">
+      </div>
+    </div>
+
+    <script>
+      let pages = [
+        {
+          text: "Homepage",
+          link: "./UI/homepage.html",
+        },
+        {
+          text: "About",
+          link: "./UI/about.html",
+        },
+        {
+          text: "Blog",
+          link: "./UI/blog.html",
+        },
+        {
+          text: "View Blog",
+          link: "./UI/view_blog.html",
+        },
+        {
+          text: "Market",
+          link: "./UI/market.html",
+        },
+        {
+          text: "View Product",
+          link: "./UI/view_market.html",
+        },
+        {
+          text: "Login",
+          link: "./UI/login.html",
+        },
+        {
+          text: "Reset Password",
+          link: "./UI/forgot.html",
+        },
+        {
+          text: "Dashboard",
+          link: "./UI/user/dashboard.html",
+        },
+        {
+          text: "Add User",
+          link: "./UI/user/add-user.html",
+        },
+        {
+          text: "Blog",
+          link: "./UI/user/blog-management.html",
+        },
+        {
+          text: "Post Blog",
+          link: "./UI/user/post-blog.html",
+        },
+        {
+          text: "Edit Blog",
+          link: "./UI/user/edit-blog.html",
+        },
+        {
+          text: "Comment",
+          link: "./UI/user/comment.html",
+        },
+        {
+          text: "Products",
+          link: "./UI/user/product-listing.html",
+        },
+        {
+          text: "Post Products",
+          link: "./UI/user/post-product.html",
+        },
+        {
+          text: "Product Management",
+          link: "./UI/user/products-management.html",
+        },
+        {
+          text: "Account Settings",
+          link: "./UI/user/settings.html",
+        },
+        {
+          text: "User Management",
+          link: "./UI/user/user-management.html",
+        },
+      ];
+
+
+
+      pages.forEach((page) => {
+        let card = document.createElement("a");
+        card.classList.add("card")
+        card.setAttribute("href", page.link);
+        card.textContent = page.text;
+        document.querySelector(".cards").appendChild(card);
+      });
+    </script>
+  </body>
+</html>

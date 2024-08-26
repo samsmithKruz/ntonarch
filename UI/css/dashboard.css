@@ -116,7 +116,7 @@ main > .content .dashboard.cards{
     margin: 2rem 0;
     grid-template-columns: repeat(auto-fill,minmax(210px,1fr));
 }
-main > .content .dashboard.card{
+main > .content .dashboard .card{
     display: flex;
     gap: .5rem;
     color: inherit;
@@ -125,23 +125,23 @@ main > .content .dashboard.card{
     padding: 1rem;
     border-radius: .5rem;
 }
-main > .content .dashboard.card:hover{
+main > .content .dashboard .card:hover{
     background-color: var(--primary);
 }
-main > .content .dashboard.card > .content{
+main > .content .dashboard .card > .content{
     display: flex;
     flex-direction: column;
 }
-main > .content .dashboard.card .text{
+main > .content .dashboard .card .text{
     opacity: .8;
     color: var(--p-white);
 }
-main > .content .dashboard.card .head{
+main > .content .dashboard .card .head{
     font-weight: 600;
     font-size: clamp(1vw,1.2rem,18px);
     color: var(--h-white);
 }
-main > .content .dashboard.card .i_icon{
+main > .content .dashboard .card .i_icon{
     color: var(--border-color-2);
 }
 .table{
