@@ -55,6 +55,7 @@ footer .bottom .container .socials a{
     }
     footer .bottom .container{
         justify-content: center;
+        text-align: center;
     }
     footer>.container a.logo{
         grid-column-start: 1;
