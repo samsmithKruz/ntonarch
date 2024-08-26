@@ -6,6 +6,8 @@
     <title>Ntonarch :: Index page</title>
     <link rel="shortcut icon" href="./UI/assets/fav.svg" type="image/x-icon" />
     <link rel="stylesheet" href="./UI/css/theme.css" />
+    <link rel="stylesheet" href="./UI/css/preloader.css" />
+    <script src="./UI/js/preloader.js"></script>
     <style>
       body {
         min-height: 100vh;
@@ -44,13 +46,15 @@
     </style>
   </head>
   <body>
+    <div class="preloader">
+      <img src="./UI/assets/logo.svg" alt="" />
+    </div>
     <div class="wrapper">
       <h1>Designed Pages</h1>
       <p style="font-weight: 300;">
         These are the Frontend designed pages.
       </p>
-      <div class="cards">
-      </div>
+      <div class="cards"></div>
     </div>
 
     <script>
@@ -133,11 +137,9 @@
         },
       ];
 
-
-
       pages.forEach((page) => {
         let card = document.createElement("a");
-        card.classList.add("card")
+        card.classList.add("card");
         card.setAttribute("href", page.link);
         card.textContent = page.text;
         document.querySelector(".cards").appendChild(card);
