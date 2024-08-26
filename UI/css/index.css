@@ -240,7 +240,18 @@
 
 @media (max-width: 768px) {
     #about {
+        padding: 2rem;
         grid-template-columns: 1fr;
     }
-
+}
+@media (max-width: 500px) {
+    #about {
+        padding: 2rem;
+        grid-template-columns: 1fr;
+    }
+    #about > img{
+        max-height: 150px;
+        width: auto;
+        margin-right: auto;
+    }
 }
