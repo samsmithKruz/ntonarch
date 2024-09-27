@@ -1,0 +1,282 @@
+@import url('./theme.css');
+@import url('./product-listing.css');
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    background-color: #fff;
+    display: flex;
+    padding-inline: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 -5px 9px 1px var(--border-color);
+    z-index: 10;
+}
+header .user{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+header .user + .items{
+    width: 250px;
+    padding-bottom: 1rem;
+}
+header .user + .items a{
+    display: flex;
+    align-items: center;
+}
+header .user + .items a span{
+    font-size: 1rem;
+}
+header .side-nav{
+    color: inherit;
+}
+.dropdown .items{
+    right: .5rem;
+    left: unset;
+    top: 100%;
+}
+header div:first-child{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+main{
+    flex: 1 1 auto;
+    margin-top: 1rem;
+    display: flex;
+    position: relative;
+    /* align-items: flex-start; */
+    /* border: 1px solid blue; */
+    gap: 1rem;
+}
+aside{
+    background-color: #fff;
+    width: 15rem;
+    max-width: 95%;
+    height: 100%;
+    padding: 1rem;
+    /* padding-top: 2rem; */
+    position: fixed;
+    transition: left .5s ease;
+    left: -100%;
+    top: 0;
+    overflow-y: auto;
+    z-index: 12;
+    
+}
+aside .close{
+    background-color: var(--black);
+    padding: .2rem .4rem;
+    user-select: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.4rem;
+    line-height: 1;
+    border-radius: .5rem;
+    margin: 1.3rem;
+    color: var(--p-white);
+}
+aside.active{
+    left: 0;
+}
+
+aside nav{
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+aside .role{
+    background-color: var(--primary);
+    color: var(--h-white);
+    margin: 0;
+    padding: .6rem 1rem;
+    text-align: center;
+    border-radius: .5rem;
+    font-weight: 400;
+    user-select: none;
+}
+aside nav a{
+    color: inherit;
+    display: flex;
+    align-items: flex-start;
+    gap: .5rem;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+}
+aside nav a:is(:hover,.active){
+    background-color: var(--border-color-2);
+}
+aside nav a span{
+    font-size: 1.1rem !important;
+    color: #b3b3b3;
+}
+aside nav a:is(:hover,.active) span{
+    color: inherit;
+}
+aside nav .group{
+    margin-bottom: .5rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid #f1f1f1;
+}
+aside nav .group .head{
+    opacity: .7;
+    font-size: .8rem;
+    margin-top: 1rem;
+    padding-left: 1rem;
+} 
+main > .content{
+    padding: 1rem 2rem;
+    background-color: #fff;
+    width: 100%;
+    max-width: 900px;
+    /* margin: auto; */
+    align-self: flex-start;
+    flex: 1 1 auto;
+}
+.aside.overlay{
+    background-color: #00000042;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s ease, visibility .4s ease;
+}
+aside.active + .aside.overlay{
+    visibility: visible;
+    opacity: 1;
+}
+@media (min-width:768px) {
+    aside{
+        position: relative;
+        transition: left .5s ease;
+        left: 0;
+        top: 0;
+        overflow-y: auto;
+        z-index: 9;
+        height: unset;
+        flex:0 0 auto;
+    }
+    main > .content{
+        flex:1 1 auto;
+        margin: 0 1rem 0 0;
+    }
+    main .close{
+        display: none;
+    }
+    aside.active + .aside.overlay{
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+
+
+p{
+    font-size: clamp(1.1vw,1.1rem,19px);
+    max-width: 80ch;
+}
+main > .content .dashboard.cards{
+    user-select: none;
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+    grid-template-columns: repeat(auto-fill,minmax(210px,1fr));
+}
+main > .content .dashboard .card{
+    display: flex;
+    gap: .5rem;
+    color: inherit;
+    border: 1px solid transparent;
+    background-color: var(--black);
+    padding: 1rem;
+    border-radius: .5rem;
+}
+main > .content .dashboard .card:hover{
+    background-color: var(--primary);
+}
+main > .content .dashboard .card > .content{
+    display: flex;
+    flex-direction: column;
+}
+main > .content .dashboard .card .text{
+    opacity: .8;
+    color: var(--p-white);
+}
+main > .content .dashboard .card .head{
+    font-weight: 600;
+    font-size: clamp(1vw,1.2rem,18px);
+    color: var(--h-white);
+}
+main > .content .dashboard .card .i_icon{
+    color: var(--border-color-2);
+}
+.table{
+    width: 100%;
+    margin-top: 1rem;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;   
+    font-size: clamp(1vw,1rem,18px);
+}
+th{
+    user-select: none;
+    font-weight: 500;
+    padding: .5rem;
+}
+td{
+    user-select: none;
+    vertical-align: top;
+    padding: .5rem 1rem !important;
+}
+thead tr{
+    background-color: var(--black);
+    color: var(--h-white);
+}
+tbody tr:nth-child(even){
+    background-color: #fafafa !important;
+}
+tbody tr:hover{
+    background-color: var(--border-color-2) !important;
+}
+table#user_management :is(td,th):is(:nth-child(3),:nth-child(4),:nth-child(5)){
+    text-align: center !important;
+}
+table#comment_management :is(td,th):nth-child(2){
+    width: 20vw;
+    text-align: center;
+}
+tbody select{
+    padding: .5rem;
+    border: 1px solid var(--border-color-2);
+    cursor: pointer;
+}
+form{
+    max-width: 700px;
+}
+
+.ck.ck-editor__main>.ck-editor__editable{
+    min-height: 200px;
+}
+@media (min-width:768px) and (max-width: 1006px) {
+    .ck.ck-toolbar.ck-toolbar_grouping>.ck-toolbar__items {
+        flex-wrap: wrap !important;
+    }
+}

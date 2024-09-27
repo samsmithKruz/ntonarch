@@ -1,0 +1,122 @@
+.input {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 0;
+    gap: .1rem;
+    margin-bottom: .5rem;
+}
+
+.input label {
+    font-size: 1rem;
+    color: var(--dark-text);
+    font-weight: 300;
+}
+
+:is(input, select, textarea) {
+    border: 1px solid var(--border-color);
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 300;
+    min-width: 0;
+    line-height: 1;
+    background-color: var(--input-bg);
+    color: var(--black-light);
+    border-radius: .5rem;
+}
+:is(input, select, textarea):-internal-autofill-selected {
+    background-color: var(--input-bg) !important;
+}
+:is(input, select, textarea):focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+:is(input, select, textarea)[readonly] {
+    background-color: var(--border-color-2);
+}
+
+select, input[type="file"] {
+    cursor: pointer;
+}
+
+input[type='submit'] {
+    font-weight: 600;
+    padding: .9rem 1rem;
+    color: var(--h-white);
+    background-color: var(--primary);
+    cursor: pointer;
+    border-color: transparent;
+}
+
+input[type='submit']:hover {
+    background-color: var(--primary-light);
+}
+
+.err {
+    background-color: #ffdede2f;
+    color: #d36d6dd8;
+    padding: .5rem 1rem;
+    margin: 1rem auto;
+    border: 1px solid #c937372c;
+    display: flex;
+    align-items: flex-start;
+    font-size: .9rem;
+    gap: .4rem;
+}
+
+.err .i_icon {
+    font-size: 1.1rem;
+    user-select: none;
+}
+
+.input:has([type="checkbox"]) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+label:has([type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+label:has([type="checkbox"]) span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-right: 8px;
+    position: relative;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+  }
+
+  label:has([type="checkbox"]) span::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary); /* Customize this to your theme color */
+    display: none;
+    border-radius: 2px;
+  }
+  input[type="checkbox"]:checked + span {
+    border-color: var(--primary);
+  }
+  input[type="checkbox"]:checked + span::after {
+    display: block;
+  }
+  label:has([type="checkbox"]):hover span {
+    border-color: var(--primary); /* Customize hover color */
+    background-color: #f0f0f0; /* Optional: background change on hover */
+  }

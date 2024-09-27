@@ -1,0 +1,226 @@
+@import url('./theme.css');
+@import url('./header.css');
+@import url('./footer.css');
+#hero {
+    min-height: 250px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 90px;
+    background-color: var(--primary-dark);
+    background-image: url('../assets/turbine.jpg');
+    background-blend-mode: soft-light;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#hero #banner{
+    background-color: var(--primary);
+    max-width: 80%;
+    margin-inline: auto;
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 1rem;
+    border-radius: 1rem;
+    margin-bottom: -80px;
+}
+#hero #banner h2{
+    font-size: 3rem;
+}
+#touch {
+    background-color: var(--primary-dark);
+    padding-block: 8rem;
+    color: var(--white_70);
+    text-align: center;
+}
+
+#touch h3 {
+    color: var(--white);
+    margin-bottom: .5rem;
+    max-width: 70ch;
+    margin-inline: auto;
+}
+
+#touch p {
+    margin-bottom: 3rem;
+    max-width: 70ch;
+    margin-inline: auto;
+}
+
+#touch>div>div {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    border: 1px solid var(--primary);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+
+
+#touch>div>div img {
+    height: 100%;
+    object-fit: cover;
+}
+
+#touch form {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 6rem;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    #touch>div>div {
+        grid-template-columns: 1fr;
+    }
+
+    #touch form {
+        padding: 2rem;
+    }
+    #touch>div>div img {
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+#touch form :is(input, textarea) {
+    padding: 1rem;
+    resize: none;
+    border: 1px solid var(--primary);
+    outline: none;
+    background-color: transparent;
+    color: var(--white);
+    border-radius: 1rem;
+}
+
+#touch form :is(input, textarea):focus {
+    color: var(--primary);
+    background-color: #ffffff28;
+}
+
+#touch input[type='submit'] {
+    background-color: var(--primary);
+    border-color: transparent;
+}
+
+
+#blog {
+    padding-block: 4rem;
+}
+
+#blog .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 3rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    #blog .top a {
+        display: none;
+    }
+}
+
+#blog #cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 4rem 2rem;
+    margin-bottom: 4rem;
+}
+
+#cards .author {
+    background-color: #dddddd88;
+    display: inline-flex;
+    padding: .5rem 1.2rem;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    user-select: none;
+    font-size: .8rem;
+    border-radius: 2rem;
+    margin-block: 1rem;
+}
+
+#cards .author p {
+    margin: 0;
+    font-weight: 500;
+    font-style: italic;
+}
+
+#cards .author a {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--dark_80);
+}
+
+#cards .author a:hover {
+    color: var(--primary);
+}
+
+#cards .author:has(p) a::after {
+    display: inline-flex;
+    vertical-align: middle;
+    width: .8rem;
+    height: .8rem;
+    border-radius: .8rem;
+    background-color: var(--dark_80);
+    content: ' ';
+    margin-left: .5rem;
+}
+
+#cards .img {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+#cards .img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: scale .3s ease;
+}
+
+#cards .card:has(:hover) img {
+    scale: 1.2;
+}
+
+#blog #cards .card>a {
+    color: var(--black);
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+}
+
+#blog #cards .card>a:hover {
+    color: var(--primary);
+}
+
+#blog #cards .card>p {
+    font-size: 1.2rem;
+}
+
+#blog .mobile {
+    width: fit-content;
+    display: none;
+    margin-inline: auto;
+}
+
+@media (max-width:768px) {
+    #blog .mobile {
+        display: block;
+    }
+}
+section h3 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    font-weight: 500;
+}
+section#introduction{
+    padding-block: 4rem;
+    font-size: 1.2rem;
+}
