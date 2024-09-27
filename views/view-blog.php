@@ -1,168 +1,186 @@
 <?php
-$header_include = "<link rel=\"stylesheet\" href=\"/public/css/blog.css\" />";
-$title = "Ntornach :: Blog";
-$page = "services";
+$header_include = "<link rel=\"stylesheet\" href=\"/public/css/view_blog.css\" />";
+$title = "Ntornarch's Blog";
+$page = "blog";
+
 require_once __DIR__ . "/inc/Header.php";
 
 ?>
-<style>
-    body {
-        background: #fafafa46;
-        font-size: clamp(1.4vw, 1.125rem, 20px);
-    }
-</style>
 
+<div id="hero">
+  <?php require_once __DIR__ . "/inc/nav.php"; ?>
 
+</div>
 <main class="container">
-    <section id="blogs">
-        <div class="head">
-            <h1 style="text-transform: capitalize;">
-                <?= $blog->title; ?>
-            </h1>
-            <div class="info">
-                <div>
-                    <a href="/blog/author/<?= $blog->author_id; ?>" style=" display:inline-flex;align-items:center;gap:.5rem;color: inherit;">
-
-                        <?php if (!empty($blog->avatar)): ?>
-                            <img style="height: 1rem; width:1rem; border-radius:1rem;object-fit:cover;" src="/public/uploads/<?= $blog->avatar; ?>" />
-                        <?php endif ?>
-                        <?= $blog->fullname; ?>
-                    </a>
-                </div>
-                <div>
-                    <span class="i_icon">&#xE01B;</span>
-                    <span> <?= (new DateTime($blog->created_at))->format('d.m.Y'); ?></span>
-                </div>
-                <a
-                    href="#" class="share" data-url="/blog/show/<?= $blog->id; ?>" data-title="/blog/show/<?= $blog->title; ?>" data-text="continue to view this blog content">
-                    <span>Share</span>
-                    <span class="i_icon" style="transform: rotateY(180deg);">&#xE15E;</span>
-                </a>
-            </div>
+  <section id="blogs">
+    <div class="head">
+      <h1>
+        The Difference Between Knowledge And Wisdom In Software Development
+      </h1>
+      <div class="info">
+        <div>
+          <span><b>Author:</b> Smith Kruz</span>
         </div>
-        <div class="content">
-            <img src="/public/uploads/<?=$blog->thumbnail;?>" alt="" class="banner">
-            <?=$blog->content;?>
+        <div>
+          <span class="i_icon"></span>
+          <span> 10.04.2024</span>
         </div>
-        <div class="comments">
-            <h3>Comments <span>(36)</span></h3>
-            <div class="comment">
-                <div>
-                    <div class="info">
-                        <div>
-                            <span class="avatar">S</span>
-                            <span>Smith Kruz</span>
-                        </div>
-                    </div>
-                    <p class="content">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam aliquam totam tenetur praesentium, perferendis iste?
-                        <br><small><em>10.04.2024</em></small>
-                    </p>
-                </div>
-                <div>
-                    <div class="info">
-                        <div>
-                            <span class="avatar">S</span>
-                            <span>Smith Kruz</span>
-                        </div>
-                    </div>
-                    <p class="content">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam aliquam totam tenetur praesentium, perferendis iste?
-                        <br><small><em>10.04.2024</em></small>
-                    </p>
-                </div>
+        <a
+          href="#"
+          class="share"
+          data-url="#"
+          data-title="Title"
+          data-text="#">
+          <span>Share</span>
+          <span class="i_icon" style="transform: rotateY(180deg);"></span>
+        </a>
+      </div>
+    </div>
+    <div class="content">
+      <img src="/public/assets/equip.webp" alt="" class="banner" />
+      <p>
+        Knowledge is to know technology, wisdom is to understand it of
+        whatever you feel like including but this will only serve as a dummy
+        text and I don’t expect you to read this as it makes no meaning but
+        just for testing purpose and content filling
+      </p>
+      <p>
+        Knowledge is to know technology, wisdom is to understand it of
+        whatever you feel like including but this will only serve as a dummy
+        text and I don’t expect you to read this as it makes no meaning but
+        just for testing purpose and content filling
+      </p>
+      <p>
+        Knowledge is to know technology, wisdom is to understand it of
+        whatever you feel like including but this will only serve as a dummy
+        text and I don’t expect you to read this as it makes no meaning but
+        just for testing purpose and content filling
+      </p>
+      <p>
+        Knowledge is to know technology, wisdom is to understand it of
+        whatever you feel like including but this will only serve as a dummy
+        text and I don’t expect you to read this as it makes no meaning but
+        just for testing purpose and content filling
+      </p>
+      <p>
+        Knowledge is to know technology, wisdom is to understand it of
+        whatever you feel like including but this will only serve as a dummy
+        text and I don’t expect you to read this as it makes no meaning but
+        just for testing purpose and content filling
+      </p>
+    </div>
+    <div class="comments">
+      <h3>Comments <span>(36)</span></h3>
+      <div class="comment">
+        <div>
+          <div class="info">
+            <div>
+              <span class="avatar">S</span>
+              <span>Smith Kruz</span>
             </div>
-            <form action="#">
-                <div class="input" style="align-items:center;">
-                    <label for="" style="padding-inline:.5rem; font-weight:500;">Name</label>
-                    <input type="text" placeholder="Enter your name">
-                </div>
-                <div class="input">
-                    <input type="text" placeholder="Enter your comments here">
-                    <input type="submit" value="Comment">
-                </div>
-            </form>
+          </div>
+          <p class="content">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Aperiam aliquam totam tenetur praesentium, perferendis iste?
+          </p>
         </div>
-    </section>
-    <aside class="latest">
-        <h3>READ MORE</h3>
-        <div class="cards">
-            <div class="card">
-                <a href="#">
-                    <img src="./assets/about.png" alt="Latest" />
-                </a>
-                <div class="content">
-                    <a href="#" class="truncate" style="--line: 2;">“She’s the best, Biden urges Democrats to embrace Harris</a>
-                    <div class="info">
-                        <div>
-                            <span class="i_icon">&#xE01B;</span>
-                            <span> 10.04.2024</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <a href="#">
-                    <img src="./assets/about.png" alt="Latest" />
-                </a>
-                <div class="content">
-                    <a href="#" class="truncate" style="--line: 2;">“She’s the best, Biden urges Democrats to embrace Harris</a>
-                    <div class="info">
-                        <div>
-                            <span class="i_icon">&#xE01B;</span>
-                            <span> 10.04.2024</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <a href="#">
-                    <img src="./assets/about.png" alt="Latest" />
-                </a>
-                <div class="content">
-                    <a href="#" class="truncate" style="--line: 2;">“She’s the best, Biden urges Democrats to embrace Harris</a>
-                    <div class="info">
-                        <div>
-                            <span class="i_icon">&#xE01B;</span>
-                            <span> 10.04.2024</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <a href="#">
-                    <img src="./assets/about.png" alt="Latest" />
-                </a>
-                <div class="content">
-                    <a href="#" class="truncate" style="--line: 2;">“She’s the best, Biden urges Democrats to embrace Harris</a>
-                    <div class="info">
-                        <div>
-                            <span class="i_icon">&#xE01B;</span>
-                            <span> 10.04.2024</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <a href="#">
-                    <img src="./assets/about.png" alt="Latest" />
-                </a>
-                <div class="content">
-                    <a href="#" class="truncate" style="--line: 2;">“She’s the best, Biden urges Democrats to embrace Harris</a>
-                    <div class="info">
-                        <div>
-                            <span class="i_icon">&#xE01B;</span>
-                            <span> 10.04.2024</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <form action="#">
+          <div class="input">
+            <input type="text" placeholder="Name" />
+          </div>
+          <div class="input">
+            <input type="text" placeholder="Enter your comments here" />
+            <input type="submit" value="Comment" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section id="blog" class="container">
+    <div class="top">
+      <h3>More from Smith Kruz</h3>
+    </div>
+    <div id="cards">
+      <div class="card">
+        <div class="img">
+          <img src="/public/assets/service_man.webp" alt="" />
         </div>
-    </aside>
+        <div class="author">
+          <a href="#">GreenerFuture</a>
+          <p>10.04.2024</p>
+        </div>
+        <a href="#" class="head truncate" style="--line: 2;">Off-Grid Cabin Renewable Energy Setup</a>
+        <p class="truncate" style="--line: 3;">
+          An off-grid cabin renewable energy setup provides independence,
+          sustainability, and peace of mind by generating power in remote
+          locations.
+        </p>
+      </div>
+      <div class="card">
+        <div class="img">
+          <img src="/public/assets/service_man.webp" alt="" />
+        </div>
+        <div class="author">
+          <a href="#">GreenerFuture</a>
+          <p>10.04.2024</p>
+        </div>
+        <a href="#" class="head truncate" style="--line: 2;">Off-Grid Cabin Renewable Energy Setup</a>
+        <p class="truncate" style="--line: 3;">
+          An off-grid cabin renewable energy setup provides independence,
+          sustainability, and peace of mind by generating power in remote
+          locations.
+        </p>
+      </div>
+      <div class="card">
+        <div class="img">
+          <img src="/public/assets/service_man.webp" alt="" />
+        </div>
+        <div class="author">
+          <a href="#">GreenerFuture</a>
+          <p>10.04.2024</p>
+        </div>
+        <a href="#" class="head truncate" style="--line: 2;">Off-Grid Cabin Renewable Energy Setup</a>
+        <p class="truncate" style="--line: 3;">
+          An off-grid cabin renewable energy setup provides independence,
+          sustainability, and peace of mind by generating power in remote
+          locations.
+        </p>
+      </div>
+      <div class="card">
+        <div class="img">
+          <img src="/public/assets/service_man.webp" alt="" />
+        </div>
+        <div class="author">
+          <a href="#">GreenerFuture</a>
+          <p>10.04.2024</p>
+        </div>
+        <a href="#" class="head truncate" style="--line: 2;">Off-Grid Cabin Renewable Energy Setup</a>
+        <p class="truncate" style="--line: 3;">
+          An off-grid cabin renewable energy setup provides independence,
+          sustainability, and peace of mind by generating power in remote
+          locations.
+        </p>
+      </div>
+      <div class="card">
+        <div class="img">
+          <img src="/public/assets/service_man.webp" alt="" />
+        </div>
+        <div class="author">
+          <a href="#">GreenerFuture</a>
+          <p>10.04.2024</p>
+        </div>
+        <a href="#" class="head truncate" style="--line: 2;">Off-Grid Cabin Renewable Energy Setup</a>
+        <p class="truncate" style="--line: 3;">
+          An off-grid cabin renewable energy setup provides independence,
+          sustainability, and peace of mind by generating power in remote
+          locations.
+        </p>
+      </div>
+    </div>
+    <a href="#" class="btn primary mobile">view more</a>
+  </section>
 </main>
-
-
 <?php
-$footer_include = "<script src=\"/public/js/tilt.js\"></script><script src=\"/public/js/shareAPI.js\"></script>";
+$footer_include = "";
 require_once __DIR__ . "/inc/Footer.php";
 ?>

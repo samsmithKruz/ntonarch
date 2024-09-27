@@ -15,15 +15,15 @@
   <!-- <script src="./js/swiper-bundle.min.js"></script> -->
 </head>
 
-<body style="background-color: #fafafaee;">
+<body>
   <?php require_once __DIR__."/inc/flashMessage.php"; ?>
   <div class="preloader">
-    <img src="<?= asset("assets/logo.svg"); ?>" alt="" />
+    <img  src="<?= asset("assets/logo.svg"); ?>" alt="" />
   </div>
   <form action="/login" method="post">
     <h2>
       <a href="<?= base_url();?>" class="logo">
-        <img src="<?= asset("assets/fav.svg"); ?>" alt="" />
+        <img style="height: 2.5rem !important;" src="<?= asset("assets/fav.svg"); ?>" alt="" />
       </a>
       <span>
         Welcome Back

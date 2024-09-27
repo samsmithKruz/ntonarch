@@ -44,3 +44,6 @@
 [2024-09-21 20:51:26] [WARNING] Undefined variable $blogs in C:\Users\Smith_K\Documents\ntonarch\views\view-blog.php on line 37
 [2024-09-23 10:32:45] [USER ERROR] Method 'manage' not found in ProductController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
 [2024-09-25 13:03:42] [WARNING] Undefined array key "HTTP_ORIGIN" in C:\Users\Smith_K\Documents\ntonarch\Controllers\ApiController.php on line 14
+[2024-09-27 13:56:23] [USER ERROR] Method 'index' not found in ProductController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-09-27 13:56:31] [USER ERROR] Method 'index' not found in ProductController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-09-27 14:25:07] [USER ERROR] Method 'index' not found in ProductController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33

@@ -21,7 +21,7 @@
     line-height: 1;
     background-color: var(--input-bg);
     color: var(--black-light);
-    border-radius: .5rem;
+    border-radius: .5rem !important;
 }
 :is(input, select, textarea):-internal-autofill-selected {
     background-color: var(--input-bg) !important;

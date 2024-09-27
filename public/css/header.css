@@ -1,44 +1,146 @@
 header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background-color: #fff;
     padding-top: 1rem;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    transition: all .2s ease;
 }
 
-header .menu {
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    align-self: stretch;
+header>div {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 header nav {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-}
-@media (max-width: 425px) {
-    header{
-        position: relative;
-    }
-}
-header nav .link {
-    font-size: .9rem;
-    font-weight: 700;
-    color: inherit;
-    border-bottom: .2rem solid transparent;
-    padding: .5rem 1rem;
-    cursor: pointer;
+    gap: .5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
     user-select: none;
 }
 
-header nav .link:is(:hover, .active) {
+header.scrolled {
+    position: fixed;
+    background-color: var(--white);
+    transition: all .2s ease;
+    padding-bottom: 1rem;
+}
+
+header nav .close {
+    cursor: pointer;
+    display: none;
+    user-select: none;
+}
+
+
+header.scrolled nav :is(a, .menu) {
+    color: var(--black);
+}
+
+header nav :is(> *, a, .menu) {
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--white);
+}
+
+header .items {
+    padding: 1.5rem 2rem;
+    width: 300px;
+}
+
+header .items a {
+    color: var(--black);
+    user-select: none;
+}
+
+header .items a::before {
+    display: inline-block;
+    width: 0;
+    height: 2px;
+    content: ' ';
+    background-color: var(--primary);
+    margin-right: 0;
+    transition: width .2s ease;
+}
+
+header .items a:hover::before {
+    margin-right: 1rem;
+    width: 20px;
+}
+
+header .items a:hover {
+    color: var(--primary);
+}
+
+header .cta {
+    display: flex;
+    align-items: center;
+}
+
+header .cta a {
+    color: var(--white);
+    padding: .5rem;
+}
+
+header.scrolled .cta a.mobile {
+    color: var(--black);
+}
+
+.cta .btn {
+    padding-inline: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid transparent;
+}
+
+.cta .btn:hover {
     border-color: var(--primary);
+    background-color: transparent;
+    color: var(--primary);
+    transition: all ease .2s;
+}
+
+.cta .mobile {
+    display: none;
+}
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+    .cta .mobile, header nav .close {
+        display: inline-flex;
+    }
+
+    header nav {
+        color: var(--white);
+        position: fixed;
+        left: 0;
+        height: 100vh;
+        flex-direction: column;
+        background-color: var(--dark_80);
+        width: 100%;
+        z-index: 15;
+        text-align: center;
+        visibility: hidden;
+        top: -100%;
+        opacity: 0;
+        transition: all .6s ease;
+        overflow-y: auto;
+    }
+
+    header nav.active {
+        top: 0;
+        opacity: 1;
+        visibility: visible;
+        transition: top .4s ease, opacity .7s ease;
+    }
+
+    header.scrolled .container nav>a, header.scrolled .container nav .menu {
+        color: var(--white) !important;
+    }
+
 }

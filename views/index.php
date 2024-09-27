@@ -1,199 +1,420 @@
-<?php 
-$header_include = "<link rel=\"stylesheet\" href=\"/public/css/index.css\" />";
-$title = "Ntornach :: Homepage";
-$page = "home";
-require_once __DIR__."/inc/Header.php"; 
-
-?>
-<section id="hero">
-    <!-- Slider main container -->
-    <div class="swiper container">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div  class="swiper-slide slide1 tilt-container">
-                <div class="tilt-item" style="background-image: url('/public/assets/hero1.jpg'); ">
-                    <h1>Empowering Change Through Innovation</h1>
-                    <p>
-                        Innovation is at the heart of Ntonarch’s mission. We harness new
-                        ideas and technologies to drive positive change and create
-                        lasting impact. Explore how we’re leading with our innovative
-                        solutions.
-                    </p>
-                </div>
-            </div>
-            <div class="swiper-slide slide2 tilt-container">
-                <div class="tilt-item" style="background-image: url('/public/assets/hero2.jpg'); ">
-                    <h1>Innovating Today For A Brighter Tomorrow</h1>
-                    <p>
-                        At Ntonarch, we merge cutting-edge technology with creative
-                        solutions to tackle today’s challenges and shape a promising
-                        future. Join us in driving progress and creating new
-                        opportunities.
-                    </p>
-                </div>
-            </div>
-            <div class="swiper-slide slide3 tilt-container">
-                <div class="tilt-item" style="background-image: url('/public/assets/hero3.jpg'); ">
-                    <h1>Shaping the Future with Every Step</h1>
-                    <p>
-                        Every step we take at Ntonarch is geared towards building a
-                        better tomorrow. Discover how our forward-thinking approach and
-                        impactful projects are making a difference.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-btns">
-            <div class="swiper-button-prev g_icon">play_arrow</div>
-            <div class="swiper-button-next g_icon">play_arrow</div>
-        </div>
-        <!-- If we need pagination -->
-        <!-- <div class="swiper-pagination"></div> -->
-
-        <!-- If we need navigation buttons -->
-
-        <!-- If we need scrollbar -->
-        <!-- <div class="swiper-scrollbar"></div> -->
-    </div>
-</section>
-<main style="overflow: hidden;">
-    <section id="about" class="container">
-        <img src="/public/assets/about.jpg" alt="Ntonarch" data-aos="fade-up-right" />
-        <div data-aos="fade-up-left">
-            <h4>About</h4>
-            <h2>Discover Ntonarch</h2>
-            <p>
-                At Ntonarch, we are committed to redefining the future through
-                innovative solutions and collaborative excellence. Our team of
-                dedicated professionals blends cutting-edge technology with creative
-                problem-solving to deliver exceptional results across various
-                sectors. With a focus on driving progress and creating lasting
-                impact, we are your partner in building a brighter tomorrow.
-            </p>
-            <a href="#">See more</a>
-        </div>
-    </section>
-    <section id="mission" class="tilt-container" data-aos="fade-up">
-        <div class="container tilt-item">
-            <h2>Our Mission</h2>
-            <p>
-                Our mission is to address today’s challenges with forward-thinking
-                solutions, ensuring that every project and initiative we undertake
-                contributes to a more promising future.
-            </p>
-            <p>
-                We envision a world where our innovative approach and strategic
-                insights lead to transformative change and success, making a
-                positive difference in every community we touch.
-            </p>
-        </div>
-    </section>
-    <section id="explore" class="container" data-aos="fade-up">
-        <h4>Explore Our Hubs</h4>
-        <h2>Discover Our Specialized hubs</h2>
-        <p>
-            Ntonarch operates through several specialized hubs, each dedicated to
-            delivering exceptional services in its domain. Here’s a snapshot of
-            what each hub offers:
-        </p>
-        <div class="tags">
-            <span data-aos="fade-left" data-aos-delay="0">Media</span>
-            <span data-aos="fade-left" data-aos-delay="100">Market</span>
-            <span data-aos="fade-left" data-aos-delay="200">Engineering</span>
-            <span data-aos="fade-left" data-aos-delay="300">Computer</span>
-            <span data-aos="fade-left" data-aos-delay="400">Foundation</span>
-        </div>
-    </section>
-    <section id="team" class="container">
-        <h4>Our Team of Innovators</h4>
-        <h2>Meet the Team</h2>
-        <p>
-            At Ntonarch, our success is driven by a team of dedicated and talented
-            professionals who are passionate about making a difference. Each
-            member of our team brings a unique set of skills and experiences,
-            contributing to our mission of innovation and excellence. Get to know
-            the individuals who make Ntonarch a leader in our industry.
-        </p>
-        <div class="cards">
-            <div class="card">
-                <img src="/public/assets/about.png" alt="" />
-                <h5>(CEO)</h5>
-                <h3>Mr. John Doe</h3>
-                <h5>example@gmail.com</h5>
-                <h5>(0)903 803 6844</h5>
-            </div>
-            <div class="card">
-                <img src="/public/assets/about.png" alt="" />
-                <h5>(CEO)</h5>
-                <h3>Mr. John Doe</h3>
-                <h5>example@gmail.com</h5>
-                <h5>(0)903 803 6844</h5>
-            </div>
-            <div class="card">
-                <img src="/public/assets/about.png" alt="" />
-                <h5>(CEO)</h5>
-                <h3>Mr. John Doe</h3>
-                <h5>example@gmail.com</h5>
-                <h5>(0)903 803 6844</h5>
-            </div>
-        </div>
-    </section>
-    <section id="join" class="container" data-aos="zoom-in">
-        <h4>Join Us & Support Our Mission</h4>
-        <h2>Get Involved with Ntonarch</h2>
-        <div class="cards tilt-container">
-            <div class="card tilt-item">
-                <p>
-                    We’re always looking for passionate and skilled individuals to
-                    join our dynamic team. If you’re ready to contribute to
-                    cutting-edge projects and be a part of a forward-thinking
-                    organization, we’d love to hear from you.
-                </p>
-                <a href="#" class="btn">
-                    Explore Career Opportunities
-                </a>
-            </div>
-            <div class="card tilt-item">
-                <p>
-                    Support Ntonarch’s mission through donations and involvement in
-                    our community-focused initiatives. Your contribution helps us
-                    drive impactful projects and create positive change.
-                </p>
-                <a href="#" class="btn">
-                    Make a Donation
-                </a>
-            </div>
-        </div>
-    </section>
-</main>
-<script>
-    AOS.init();
-    const swiper = new Swiper(".swiper", {
-        // Optional parameters
-        direction: "horizontal",
-        loop: true,
-        autoplay: true,
-        // If we need pagination
-        // pagination: {
-        //     el: '.swiper-pagination',
-        // },
-
-        // Navigation arrows
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        speed: 600,
-        // spaceBetween: 10,
-
-        // And if we need scrollbar
-        // scrollbar: {
-        //     el: '.swiper-scrollbar',
-        // },
-    });
-</script>
 <?php
-$footer_include = "<script src=\"/public/js/tilt.js\"></script>";
-require_once __DIR__."/inc/Footer.php"; 
+$header_include = "<link rel=\"stylesheet\" href=\"/public/css/index.css\" />";
+$title = "Welcome to Ntornarch";
+$page = "index";
+
+require_once __DIR__ . "/inc/Header.php";
+
 ?>
+
+    <div id="hero">
+      <?php require_once __DIR__."/inc/nav.php"; ?>
+      <section class="hero">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" style="--bg: url('/public/assets/equip.webp');">
+            <div class="overlay"></div>
+            <div class="container">
+              <h2>
+                Powering a <br />
+                <span>Greener Future</span>
+              </h2>
+              <p>
+                Switch to solar today for sustainable energy and a greener
+                tomorrow. Join us in harnessing the powrer of the sun!
+              </p>
+              <a href="#" class="btn secondary">Learn More</a>
+            </div>
+          </div>
+          <div class="swiper-slide" style="--bg: url('/public/assets/choose.webp');">
+            <div class="overlay"></div>
+            <div class="container">
+              <h2>
+                Powering a 2 <br />
+                <span>Greener Future</span>
+              </h2>
+              <p>
+                Switch to solar today for sustainable energy and a greener
+                tomorrow. Join us in harnessing the powrer of the sun!
+              </p>
+              <a href="#" class="btn secondary">Learn More</a>
+            </div>
+          </div>
+          <div
+            class="swiper-slide"
+            style="--bg: url('/public/assets/service_man.webp');"
+          >
+            <div class="overlay"></div>
+            <div class="container">
+              <h2>
+                Powering a 3 <br />
+                <span>Greener Future</span>
+              </h2>
+              <p>
+                Switch to solar today for sustainable energy and a greener
+                tomorrow. Join us in harnessing the powrer of the sun!
+              </p>
+              <a href="#" class="btn secondary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <main>
+      <section id="committed" class="container">
+        <div class="main">
+          <h3>Committed to a Sustainable Future</h3>
+          <p>
+            We are dedicated to providing innovative and sustainable energy
+            solutions that help protect our planet and ensure a cleaner, greener
+            future for generations to come. With a team of passionate experts
+            and a commitment to excellence, we offer cutting-edge renewable
+            energy technologies and services designed to meet the unique needs
+            of our clients
+          </p>
+          <a href="#" class="btn primary">About Us</a>
+        </div>
+        <div class="cards">
+          <div>
+            <h4>120 +</h4>
+            <p>Energy Projects Completed</p>
+          </div>
+          <div>
+            <h4>500 +</h4>
+            <p>Total EnergyGenerated</p>
+          </div>
+          <div>
+            <h4>1M</h4>
+            <p>Carbon Emissions Reduced</p>
+          </div>
+          <div>
+            <h4>98%</h4>
+            <p>Customer Satisfaction Rate</p>
+          </div>
+          <div>
+            <h4>200+</h4>
+            <p>Employee Growth</p>
+          </div>
+          <div>
+            <h4>15+</h4>
+            <p>Years of Experience</p>
+          </div>
+        </div>
+      </section>
+      <section id="services">
+        <div class="container">
+            <h3>Our Services</h3>
+            <div class="t">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                varius enim in eros elementum tristique. Duis cursus, mi quis
+                viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+                vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem
+                imperdiet. Nunc ut sem vitae risus tristique posuere.
+              </p>
+              <a href="#" class="btn primary">Explore Services</a>
+            </div>
+            <div class="f">
+              <div>
+                <div>
+                  <h4>Solar Energy Solutions</h4>
+                  <p>
+                    From expert solar panel installation and custom system design to
+                    advanced energy storage and flexible financing options, we
+                    provide everything you need to transition to sustainable,
+                    renewable energy.
+                  </p>
+                  <a href="#">Read More</a>
+                </div>
+                <div>
+                  <h4>Solar Energy Solutions</h4>
+                  <p>
+                    From expert solar panel installation and custom system design to
+                    advanced energy storage and flexible financing options, we
+                    provide everything you need to transition to sustainable,
+                    renewable energy.
+                  </p>
+                  <a href="#">Read More</a>
+                </div>
+                <div>
+                  <h4>Solar Energy Solutions</h4>
+                  <p>
+                    From expert solar panel installation and custom system design to
+                    advanced energy storage and flexible financing options, we
+                    provide everything you need to transition to sustainable,
+                    renewable energy.
+                  </p>
+                  <a href="#">Read More</a>
+                </div>
+                <div>
+                  <h4>Solar Energy Solutions</h4>
+                  <p>
+                    From expert solar panel installation and custom system design to
+                    advanced energy storage and flexible financing options, we
+                    provide everything you need to transition to sustainable,
+                    renewable energy.
+                  </p>
+                  <a href="#">Read More</a>
+                </div>
+              </div>
+              <img src="/public/assets/service_man.webp" alt="" />
+            </div>
+        </div>
+      </section>
+      <section id="featured">
+        <h3>Featured Projects</h3>
+        <p>
+          Explore our showcase of meticulously installed solar panels and
+          precision-placed wind turbines, demonstrating our commitment to
+          advancing renewable energy solutions.
+        </p>
+        <a href="#" class="btn secondary">View All Projects</a>
+        <div class="featured">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div>
+                <img src="/public/assets/turbine.jpg" alt="" />
+                <div class="content">
+                    <h2>Wind Turbine</h2>
+                    <h5>SOLAR</h5>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="/public/assets/turbine.jpg" alt="" />
+                <div class="content">
+                    <h2>Wind Turbine</h2>
+                    <h5>SOLAR</h5>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="/public/assets/turbine.jpg" alt="" />
+                <div class="content">
+                    <h2>Wind Turbine</h2>
+                    <h5>SOLAR</h5>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="/public/assets/turbine.jpg" alt="" />
+                <div class="content">
+                    <h2>Wind Turbine</h2>
+                    <h5>SOLAR</h5>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="/public/assets/turbine.jpg" alt="" />
+                <div class="content">
+                    <h2>Wind Turbine</h2>
+                    <h5>SOLAR</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-btns">
+            <div class="swiper-button-prev g_icon">arrow_back</div>
+            <div class="swiper-button-next g_icon">arrow_forward</div>
+          </div>
+        </div>
+      </section>
+      <section id="choose" class="container">
+        <h3>Why Choose Us?</h3>
+        <p>
+          At Greener Future, we pride ourselves on delivering top-quality,
+          innovative, and sustainable energy solutions that are customized to
+          meet your unique needs.
+        </p>
+        <div>
+          <img src="/public/assets/choose.webp" alt="" />
+          <div>
+            <div>
+              <h4><span class="i_icon"></span> Sustainable Solutions</h4>
+              <p>
+                We are dedicated to helping you transition to renewable energy,
+                contributing to a cleaner and greener planet for future
+                generations.
+              </p>
+            </div>
+            <div>
+              <h4><span class="i_icon"></span> Sustainable Solutions</h4>
+              <p>
+                We are dedicated to helping you transition to renewable energy,
+                contributing to a cleaner and greener planet for future
+                generations.
+              </p>
+            </div>
+            <div>
+              <h4><span class="i_icon"></span> Sustainable Solutions</h4>
+              <p>
+                We are dedicated to helping you transition to renewable energy,
+                contributing to a cleaner and greener planet for future
+                generations.
+              </p>
+            </div>
+            <div>
+              <h4><span class="i_icon"></span> Sustainable Solutions</h4>
+              <p>
+                We are dedicated to helping you transition to renewable energy,
+                contributing to a cleaner and greener planet for future
+                generations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="motivate" >
+        <div class="container" >
+            <div class="motivations">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <p>
+                      “GreenerFuture transformed our office building into an
+                      energy-efficient powerhouse. Their renewable energy solutions have
+                      drastically cut our operational costs and improved our
+                      environmental footprint. ”
+                    </p>
+                    <h5>- Sarah M</h5>
+                  </div>
+                  <div class="swiper-slide">
+                    <p>
+                      “GreenerFuture transformed our office building into an
+                      energy-efficient powerhouse. Their renewable energy solutions have
+                      drastically cut our operational costs and improved our
+                      environmental footprint. ”
+                    </p>
+                    <h5>- Sarah M</h5>
+                  </div>
+                  <div class="swiper-slide">
+                    <p>
+                      “GreenerFuture transformed our office building into an
+                      energy-efficient powerhouse. Their renewable energy solutions have
+                      drastically cut our operational costs and improved our
+                      environmental footprint. ”
+                    </p>
+                    <h5>- Sarah M</h5>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </section>
+      <section id="blog" class="container">
+        <div class="top">
+          <h3>Latest from the Blog</h3>
+          <a href="#" class="btn primary">Visit Blog</a>
+        </div>
+        <div id="cards">
+          <div class="card">
+            <div class="img">
+              <img src="/public/assets/service_man.webp" alt="" />
+            </div>
+            <div class="author">
+              <a href="#">GreenerFuture</a>
+              <p>10.04.2024</p>
+            </div>
+            <a href="#" class="head truncate" style="--line:2;">Off-Grid Cabin Renewable Energy Setup</a>
+            <p class="truncate" style="--line:3;">
+              An off-grid cabin renewable energy setup provides independence,
+              sustainability, and peace of mind by generating power in remote
+              locations.
+            </p>
+            
+          </div>
+          <div class="card">
+            <div class="img">
+              <img src="/public/assets/service_man.webp" alt="" />
+            </div>
+            <div class="author">
+              <a href="#">GreenerFuture</a>
+              <p>10.04.2024</p>
+            </div>
+            <a href="#" class="head truncate" style="--line:2;">Off-Grid Cabin Renewable Energy Setup</a>
+            <p class="truncate" style="--line:3;">
+              An off-grid cabin renewable energy setup provides independence,
+              sustainability, and peace of mind by generating power in remote
+              locations.
+            </p>
+            
+          </div>
+          <div class="card">
+            <div class="img">
+              <img src="/public/assets/service_man.webp" alt="" />
+            </div>
+            <div class="author">
+              <a href="#">GreenerFuture</a>
+              <p>10.04.2024</p>
+            </div>
+            <a href="#" class="head truncate" style="--line:2;">Off-Grid Cabin Renewable Energy Setup</a>
+            <p class="truncate" style="--line:3;">
+              An off-grid cabin renewable energy setup provides independence,
+              sustainability, and peace of mind by generating power in remote
+              locations.
+            </p>
+            
+          </div>
+          <div class="card">
+            <div class="img">
+              <img src="/public/assets/service_man.webp" alt="" />
+            </div>
+            <div class="author">
+              <a href="#">GreenerFuture</a>
+              <p>10.04.2024</p>
+            </div>
+            <a href="#" class="head truncate" style="--line:2;">Off-Grid Cabin Renewable Energy Setup</a>
+            <p class="truncate" style="--line:3;">
+              An off-grid cabin renewable energy setup provides independence,
+              sustainability, and peace of mind by generating power in remote
+              locations.
+            </p>
+            
+          </div>
+          <div class="card">
+            <div class="img">
+              <img src="/public/assets/service_man.webp" alt="" />
+            </div>
+            <div class="author">
+              <a href="#">GreenerFuture</a>
+              <p>10.04.2024</p>
+            </div>
+            <a href="#" class="head truncate" style="--line:2;">Off-Grid Cabin Renewable Energy Setup</a>
+            <p class="truncate" style="--line:3;">
+              An off-grid cabin renewable energy setup provides independence,
+              sustainability, and peace of mind by generating power in remote
+              locations.
+            </p>
+            
+          </div>
+        </div>
+        <a href="#" class="btn primary mobile">Visit Blog</a>
+      </section>
+      <section id="touch">
+        <div class="container">
+          <h3>Get in Touch with Us Today</h3>
+          <p>
+            Contact us today to start your journey towards sustainable energy
+            solutions with Greener Future. Our team is ready to provide
+            personalized support and answer all your questions.
+          </p>
+          <div>
+            <img src="/public/assets/choose.webp" alt="" />
+            <form action="">
+              <input type="text" placeholder="Name" />
+              <input type="text" placeholder="Email" />
+              <textarea name="" rows="9" id="" placeholder="Message"></textarea>
+              <input type="submit" value="Send Message" />
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <?php 
+    $footer_include = "";
+    require_once __DIR__."/inc/Footer.php"; 
+    ?>
+

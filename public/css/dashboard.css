@@ -26,10 +26,11 @@ header .user{
 }
 header .user + .items{
     width: 250px;
-    padding-bottom: 1rem;
+    /* padding-bottom: 1rem; */
 }
 header .user + .items a{
     display: flex;
+    font-size: .9rem;
     align-items: center;
 }
 header .user + .items a span{
@@ -279,4 +280,19 @@ form{
     .ck.ck-toolbar.ck-toolbar_grouping>.ck-toolbar__items {
         flex-wrap: wrap !important;
     }
+}
+
+.dropdown .items {
+    background-color: #fff;
+    border: 1px solid transparent;
+    flex-direction: column;
+    border-radius: 0;
+}
+.dropdown .items * {
+    padding: .6rem;
+    font-weight: 400;
+    color: inherit;
+}
+.dropdown .items *:hover {
+    color: var(--primary);
 }

@@ -1,18 +1,22 @@
 <?php
 $header_include = "<link rel=\"stylesheet\" href=\"/public/css/about.css\" />";
-$title = "Ntornach :: About us";
+$title = "About Ntornarch";
 $page = "about";
+
 require_once __DIR__ . "/inc/Header.php";
 
 ?>
-
-<section id="banner" class="tilt-container">
-  <div class="container tilt-item" style="background-image:url('/public/assets/discover.jpg');background-attachment:fixed;">
-    <h1>Discover Ntonarch</h1>
-  </div>
-</section>
-<main class="container">
-  <section id="introduction">
+<div id="hero">
+  <?php require_once __DIR__ . "/inc/nav.php"; ?>
+  <section class="container tilt-container">
+    <div id="banner" class="tilt-item">
+      <!-- <h4>About Us</h4> -->
+      <h2>Discover Ntonarch</h2>
+    </div>
+  </section>
+</div>
+<main>
+  <section id="introduction" class="container">
     <h2>Introduction</h2>
     <p>
       Welcome to Ntonarch, where innovation meets excellence. As a leading conglomerate dedicated to shaping the future, we pride ourselves on our commitment to driving positive change across various sectors. Our journey is guided by a passion for leveraging technology, fostering collaboration, and delivering tailored solutions that address today’s challenges and anticipate tomorrow’s needs.
@@ -28,40 +32,69 @@ require_once __DIR__ . "/inc/Header.php";
       As you explore our website, you’ll discover how Ntonarch’s hubs collaborate seamlessly to provide comprehensive services that meet diverse needs. Whether you’re looking for advanced market solutions, dynamic media strategies, robust engineering expertise, or meaningful community initiatives, we are here to deliver excellence and make a difference.
     </p>
   </section>
-  <section id="team" class="container">
-    <h4>Our Team of Innovators</h4>
-    <h2>Meet the Team</h2>
-    <p>
-      At Ntonarch, our success is driven by a team of dedicated and talented professionals who are passionate about making a difference. Each member of our team brings a unique set of skills and experiences, contributing to our mission of innovation and excellence. Get to know the individuals who make Ntonarch a leader in our industry.
-    </p>
-    <div class="cards">
+  <section id="blog" class="container">
+    <div class="top">
+      <h3>Meet The Team</h3>
+      <!-- <a href="#" class="btn primary">Visit Blog</a> -->
+    </div>
+    <div id="cards">
       <div class="card">
-        <img src="./assets/about.png" alt="">
-        <h5>(CEO)</h5>
-        <h3>Mr. John Doe</h3>
-        <h5>example@gmail.com</h5>
-        <h5>(0)903 803 6844</h5>
+        <div class="img">
+          <img src="/public/assets/service_man.webp" alt="" />
+        </div>
+        <a href="#" class="head truncate" style="--line:2;">Mr. John Doe</a>
+        <p class="truncate" style="--line:3;">
+          Motion Graphics and Animation Design <br>
+          (234) 903-803-6844
+        </p>
+
       </div>
       <div class="card">
-        <img src="./assets/about.png" alt="">
-        <h5>(CEO)</h5>
-        <h3>Mr. John Doe</h3>
-        <h5>example@gmail.com</h5>
-        <h5>(0)903 803 6844</h5>
+        <div class="img">
+          <img src="/public/assets/service_man.webp" alt="" />
+        </div>
+        <a href="#" class="head truncate" style="--line:2;">Mr. John Doe</a>
+        <p class="truncate" style="--line:3;">
+          Motion Graphics and Animation Design <br>
+          (234) 903-803-6844
+        </p>
+
       </div>
       <div class="card">
-        <img src="./assets/about.png" alt="">
-        <h5>(CEO)</h5>
-        <h3>Mr. John Doe</h3>
-        <h5>example@gmail.com</h5>
-        <h5>(0)903 803 6844</h5>
+        <div class="img">
+          <img src="/public/assets/service_man.webp" alt="" />
+        </div>
+        <a href="#" class="head truncate" style="--line:2;">Mr. John Doe</a>
+        <p class="truncate" style="--line:3;">
+          Motion Graphics and Animation Design <br>
+          (234) 903-803-6844
+        </p>
+
       </div>
     </div>
-
+    <!-- <a href="#" class="btn primary mobile">Visit Blog</a> -->
+  </section>
+  <section id="touch">
+    <div class="container">
+      <h3>Get in Touch with Us Today</h3>
+      <p>
+        Contact us today to start your journey towards sustainable energy
+        solutions with Greener Future. Our team is ready to provide
+        personalized support and answer all your questions.
+      </p>
+      <div>
+        <img src="/public/assets/choose.webp" alt="" />
+        <form action="">
+          <input type="text" placeholder="Name" />
+          <input type="text" placeholder="Email" />
+          <textarea name="" rows="9" id="" placeholder="Message"></textarea>
+          <input type="submit" value="Send Message" />
+        </form>
+      </div>
+    </div>
   </section>
 </main>
-
 <?php
-$footer_include = "<script src=\"/public/js/tilt.js\"></script>";
+$footer_include = "";
 require_once __DIR__ . "/inc/Footer.php";
 ?>
