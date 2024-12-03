@@ -42,7 +42,7 @@
         </a>
       <?php endif; ?>
       <?php if (access([getenv('ADMIN'), getenv('BLOGGER'), getenv('EDITOR')])): ?>
-        <a href="/product/manage" class=" <?= $page == "manage_blogs" ? "active" : ""; ?>">
+        <a href="/blog/manage" class=" <?= $page == "manage_blogs" ? "active" : ""; ?>">
           <span class="i_icon">&#xe85d;</span>
           Manage Blogs
         </a>

@@ -4,25 +4,24 @@ $header_include = "
     <script src=\"/public/js/jquery-3.7.1.min.js\"></script>
     <script src=\"/public/js/dataTables.js\"></script>
 ";
-$title = "Manage Products";
-$page = "manage_products";
+$title = "Manage Blogs";
+$page = "manage_blogs";
 
 require_once __DIR__ . "/inc/userHeader.php";
 
 ?>
 
 <div class="content">
-  <h2>Product Management</h2>
+  <h2>Blog Management</h2>
   <div class="table">
-    <table id="product_management">
+    <table id="blog_management">
       <thead>
         <tr>
           <th>#</th>
           <th>Title</th>
-          <th>Category</th>
-          <th>Price</th>
+          <th>Author</th>
+          <th>Status</th>
           <th>Date</th>
-          <!-- <th>Status</th> -->
           <th>Action</th>
         </tr>
       </thead>
@@ -30,7 +29,7 @@ require_once __DIR__ . "/inc/userHeader.php";
       </tbody>
     </table>
   </div>
-  <a href="/product/add" class="btn primary">Post Product</a>
+  <a href="/blog/add" class="btn primary">Post Blog</a>
 </div>
 
 

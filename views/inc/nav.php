@@ -21,7 +21,11 @@
             <a href="/motivation">Motivation</a>
         </nav>
         <div class="cta">
-            <a href="/login" class="btn primary">Login</a>
+            <?php if (isset($_SESSION[APP]->user)): ?>
+                <a href="/dashboard" class="btn primary">Dashboard</a>
+            <?php else: ?>
+                <a href="/login" class="btn primary">Login</a>
+            <?php endif; ?>
             <a href="#" class="mobile g_icon">menu</a>
         </div>
     </div>

@@ -44,9 +44,9 @@ function redirect($url)
     header('Location: ' . base_url($url));
     exit();
 }
-function back()
+function back($default = "/")
 {
-    header("location:" . $_SERVER['HTTP_REFERER']);
+    header("location:" . ($_SERVER['HTTP_REFERER'] ?? $default));
     exit();
 }
 function sanitize($string)
@@ -90,7 +90,7 @@ function validate_csrf($token)
 }
 function flashMessage($data)
 {
-    $_SESSION[APP]->flashMessage = $data;
+    $_SESSION[APP]->flashMessage = (object)$data;
 }
 
 function access($roles)

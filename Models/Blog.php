@@ -24,10 +24,11 @@ class Blog extends Model
             return ["state" => false, "message" => $thumbnail['message'], "type" => "error"];
         }
         $thumbnail = $thumbnail['filename'];
-        $this->db->query("INSERT INTO blogs(author_id,title,thumbnail,content) values(:author_id,:title,:thumbnail,:content)")
+        $this->db->query("INSERT INTO blogs(author_id,title,thumbnail,content,tags) values(:author_id,:title,:thumbnail,:content,:tags)")
             ->bind(":author_id", $_SESSION[APP]->user->id)
             ->bind(":title", Helpers::get("title"))
             ->bind(":thumbnail", $thumbnail)
+            ->bind(":tags", implode(",", Helpers::get('tags')))
             ->bind(":content", $_POST['editor'])
             ->execute();
         if ($this->db->rowCount() == 0) {
@@ -45,7 +46,67 @@ class Blog extends Model
         $total = $this->db->query("Select count(id) as total from blogs")->single()->total;
         return (object)['total' => intdiv($total, $limit), 'blogs' => $blogs];
     }
-    public function getBlogById($id){
-        return $this->db->query("select blogs.*,users.fullname,users.avatar from blogs left join users on blogs.author_id=users.id where blogs.id=:id")->bind(":id",$id)->single();
+    public function getBlogById($id)
+    {
+        return $this->db->query("select blogs.*,users.fullname,users.avatar from blogs left join users on blogs.author_id=users.id where blogs.id=:id")->bind(":id", $id)->single();
+    }
+    public function updateBlog($blogId)
+    {
+        if (!in_array($_SESSION[APP]->user->role, [getenv('BLOGGER'), getenv('ADMIN')])) {
+            return ["state" => false, "message" => "You don't have permission for this operation, contact admin!!", "type" => "error"];
+        }
+        // Check if the blog exists
+        $currentBlog = $this->db->query("SELECT id, thumbnail FROM blogs WHERE id = :blog_id")
+            ->bind(":blog_id", $blogId)
+            ->single();
+        if ($this->db->rowCount() == 0) {
+            return ["state" => false, "message" => "Blog not found.", "type" => "error"];
+        }
+        // Prepare the fields to update
+        $fields = [];
+        $params = [];
+        // Only update the fields that are provided
+        if (Helpers::get("title")) {
+            $fields[] = "title = :title";
+            $params[':title'] = Helpers::get("title");
+        }
+        if ($_POST['editor']) {
+            $fields[] = "content = :content";
+            $params[':content'] = $_POST['editor'];
+        }
+        if (isset($_POST['tags'])) {
+            $fields[] = "tags = :tags";
+            $params[':tags'] = implode(",", Helpers::get("tags"));
+        } else {
+            $fields[] = "tags = ''";
+        }
+        // Check for image upload if present
+        if (isset($_FILES['thumbnail']) && !empty($_FILES['thumbnail']['name'])) {
+            $images_ = Helpers::uploadFiles('thumbnail');
+            if (!$images_['state'] && $images_['message'] != 'No file found.') {
+                return ["state" => false, "message" => $images_['message'], "type" => "error"];
+            }
+            // Update the 'img' field in the database with the new image list
+            $fields[] = "thumbnail = :thumbnail";
+            $params[':thumbnail'] = $images_['filenames']; // Add the updated image string to the params for the update query
+        }
+        // Build the query
+        if (count($fields) > 0) {
+            $fieldsSql = implode(", ", $fields);
+            $query = "UPDATE blogs SET $fieldsSql WHERE id = :blog_id";
+            $params[':blog_id'] = $blogId;
+
+            // Execute the update
+            $this->db->query($query);
+            foreach ($params as $key => $value) {
+                $this->db->bind($key, $value);
+            }
+            $this->db->execute();
+            if ($this->db->rowCount() > 0) {
+                return ["state" => true, "message" => "Blog updated successfully.", "type" => "success"];
+            }
+            return ["state" => false, "message" => "No changes made to the Blog.", "type" => "info"];
+        }
+        return ["state" => false, "message" => "No valid fields to update.", "type" => "error"];
     }
 }

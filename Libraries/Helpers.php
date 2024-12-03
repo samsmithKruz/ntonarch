@@ -188,7 +188,7 @@ class Helpers
     }
     public static function csrf_request(): void
     {
-        if (!(self::has('csrf')) || !validate_csrf(self::get('csrf'))) {
+        if (!(self::has('csrf')) || !validate_csrf(self::get('csrf')??"")) {
             dd("Invalid Request (Possible CSRF Error detected)");
         }
     }
@@ -220,7 +220,7 @@ class Helpers
             }
 
             $newFileName =  bin2hex(random_bytes(4)) . date('Y_m_d_is') . '.' . $fileExtension;
-            $dest_path = __DIR__."/..".$uploadDir . $newFileName;
+            $dest_path = __DIR__ . "/.." . $uploadDir . $newFileName;
             if (!is_dir($uploadDir)) {
                 mkdir($uploadDir, 0777, true);
             }
@@ -359,6 +359,63 @@ class Helpers
             'state' => true,
             'message' => "Files uploaded successfully.",
             'filenames' => $uploaded
+        ];
+    }
+    public static function deleteFiles($files)
+    {
+        // Define the upload directory
+        $uploadDir = __DIR__ . "/../public/uploads/";
+
+        // Check if the directory exists
+        if (!is_dir($uploadDir)) {
+            return [
+                'state' => false,
+                'message' => "Upload directory does not exist.",
+            ];
+        }
+        // Initialize an array to keep track of files that were successfully deleted
+        $deleted = [];
+
+        // Check if $files is an array, if not, make it an array
+        if (!is_array($files)) {
+            $files = [$files];
+        }
+        // Loop through each file in the array and attempt to delete it
+        foreach ($files as $file) {
+            // Construct the full file path
+            $filePath = $uploadDir . $file;
+
+            // Check if the file exists
+            if (file_exists($filePath)) {
+                // Attempt to delete the file
+                if (unlink($filePath)) {
+                    $deleted[] = $file; // If successful, add to deleted array
+                } else {
+                    return [
+                        'state' => false,
+                        'message' => "Error: Could not delete file '$file'.",
+                    ];
+                }
+            } else {
+                return [
+                    'state' => false,
+                    'message' => "Error: File '$file' does not exist.",
+                ];
+            }
+        }
+        // If no files were deleted, return an error
+        if (empty($deleted)) {
+            return [
+                'state' => false,
+                'message' => "No files were deleted.",
+            ];
+        }
+
+        // If files were successfully deleted
+        return [
+            'state' => true,
+            'message' => "Files deleted successfully.",
+            'deleted' => $deleted, // Return the names of the deleted files
         ];
     }
 }

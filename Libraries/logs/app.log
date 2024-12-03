@@ -1,0 +1,42 @@
+[2024-12-03 10:38:59] [USER ERROR] Method 'index' not found in ProductController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-12-03 11:02:47] [USER ERROR] Method 'index' not found in ProductController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-12-03 11:25:10] [EXCEPTION] Typed property ApiController::$db must not be accessed before initialization in C:\Users\Smith_K\Documents\ntonarch\Controllers\ApiController.php on line 46
+[2024-12-03 11:25:10] [EXCEPTION] Typed property ApiController::$db must not be accessed before initialization in C:\Users\Smith_K\Documents\ntonarch\Controllers\ApiController.php on line 46
+[2024-12-03 11:48:14] [USER ERROR] Method 'index' not found in ProductController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-12-03 12:05:41] [WARNING] Undefined array key "HTTP_REFERER" in C:\Users\Smith_K\Documents\ntonarch\Libraries\helper.php on line 49
+[2024-12-03 12:06:09] [WARNING] Undefined array key "HTTP_REFERER" in C:\Users\Smith_K\Documents\ntonarch\Libraries\helper.php on line 49
+[2024-12-03 12:06:11] [WARNING] Undefined array key "HTTP_REFERER" in C:\Users\Smith_K\Documents\ntonarch\Libraries\helper.php on line 49
+[2024-12-03 12:06:23] [WARNING] Attempt to read property "type" on array in C:\Users\Smith_K\Documents\ntonarch\views\inc\flashMessage.php on line 16
+[2024-12-03 12:06:30] [WARNING] Attempt to read property "type" on array in C:\Users\Smith_K\Documents\ntonarch\views\inc\flashMessage.php on line 16
+[2024-12-03 12:06:32] [WARNING] Attempt to read property "type" on array in C:\Users\Smith_K\Documents\ntonarch\views\inc\flashMessage.php on line 16
+[2024-12-03 12:06:52] [WARNING] Attempt to read property "type" on array in C:\Users\Smith_K\Documents\ntonarch\views\inc\flashMessage.php on line 16
+[2024-12-03 12:06:58] [WARNING] Attempt to read property "type" on array in C:\Users\Smith_K\Documents\ntonarch\views\inc\flashMessage.php on line 16
+[2024-12-03 12:08:20] [WARNING] Attempt to read property "type" on array in C:\Users\Smith_K\Documents\ntonarch\views\inc\flashMessage.php on line 16
+[2024-12-03 12:08:25] [WARNING] Attempt to read property "type" on array in C:\Users\Smith_K\Documents\ntonarch\views\inc\flashMessage.php on line 16
+[2024-12-03 12:08:50] [WARNING] Attempt to read property "type" on array in C:\Users\Smith_K\Documents\ntonarch\views\inc\flashMessage.php on line 16
+[2024-12-03 12:08:54] [WARNING] Attempt to read property "type" on array in C:\Users\Smith_K\Documents\ntonarch\views\inc\flashMessage.php on line 16
+[2024-12-03 12:10:32] [USER ERROR] Method 'index' not found in ProductController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-12-03 12:24:55] [WARNING] Trying to access array offset on value of type null in C:\Users\Smith_K\Documents\ntonarch\Controllers\ProductController.php on line 37
+[2024-12-03 12:31:09] [EXCEPTION] Unsupported operand types: array + stdClass in C:\Users\Smith_K\Documents\ntonarch\Controllers\ProductController.php on line 41
+[2024-12-03 12:34:12] [EXCEPTION] implode(): Argument #2 ($array) must be of type ?array, string given in C:\Users\Smith_K\Documents\ntonarch\Controllers\ProductController.php on line 42
+[2024-12-03 14:20:10] [WARNING] Undefined array key "order" in C:\Users\Smith_K\Documents\ntonarch\Controllers\ApiController.php on line 48
+[2024-12-03 14:20:53] [WARNING] Undefined array key "order" in C:\Users\Smith_K\Documents\ntonarch\Controllers\ApiController.php on line 48
+[2024-12-03 14:21:23] [WARNING] Undefined array key "order" in C:\Users\Smith_K\Documents\ntonarch\Controllers\ApiController.php on line 48
+[2024-12-03 14:23:47] [WARNING] Undefined array key "order" in C:\Users\Smith_K\Documents\ntonarch\Controllers\ApiController.php on line 48
+[2024-12-03 15:03:28] [WARNING] unlink(/public/uploads/fd86f92f2024_12_03_0328.jpg): No such file or directory in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 39
+[2024-12-03 15:14:18] [USER ERROR] Method 'manage' not found in BlogController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-12-03 15:22:38] [USER ERROR] Method 'manage_blogs' not found in ApiController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-12-03 15:29:45] [EXCEPTION] Object of class stdClass could not be converted to string in C:\Users\Smith_K\Documents\ntonarch\Controllers\ApiController.php on line 62
+[2024-12-03 15:31:34] [WARNING] Attempt to read property "total" on bool in C:\Users\Smith_K\Documents\ntonarch\Controllers\ApiController.php on line 64
+[2024-12-03 15:31:59] [WARNING] Attempt to read property "total" on bool in C:\Users\Smith_K\Documents\ntonarch\Controllers\ApiController.php on line 64
+[2024-12-03 16:15:32] [EXCEPTION] Cannot use object of type stdClass as array in C:\Users\Smith_K\Documents\ntonarch\Controllers\BlogController.php on line 73
+[2024-12-03 16:38:10] [WARNING] Undefined variable $tags in C:\Users\Smith_K\Documents\ntonarch\views\post-blog.php on line 36
+[2024-12-03 16:50:04] [WARNING] Undefined array key "tags" in C:\Users\Smith_K\Documents\ntonarch\Libraries\Helpers.php on line 182
+[2024-12-03 16:50:42] [WARNING] Undefined array key "tags" in C:\Users\Smith_K\Documents\ntonarch\Libraries\Helpers.php on line 182
+[2024-12-03 16:51:41] [EXCEPTION] hash_equals(): Argument #2 ($user_string) must be of type string, null given in C:\Users\Smith_K\Documents\ntonarch\Libraries\helper.php on line 89
+[2024-12-03 16:57:55] [WARNING] Undefined array key "tags" in C:\Users\Smith_K\Documents\ntonarch\Libraries\Helpers.php on line 182
+[2024-12-03 16:58:23] [WARNING] Undefined array key "tags" in C:\Users\Smith_K\Documents\ntonarch\Libraries\Helpers.php on line 182
+[2024-12-03 17:05:23] [WARNING] Undefined array key "filenames" in C:\Users\Smith_K\Documents\ntonarch\Models\Blog.php on line 92
+[2024-12-03 17:27:12] [USER ERROR] Method 'toggle_blog' not found in ApiController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-12-03 17:27:29] [USER ERROR] Method 'toggle_blog' not found in ApiController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-12-03 17:32:01] [USER ERROR] Method 'index' not found in ProductController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33

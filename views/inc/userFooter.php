@@ -1,4 +1,4 @@
 </main>
+<?= isset($footer_include) ? $footer_include : "" ?>
   </body>
-  <?= isset($footer_include) ? $footer_include : "" ?>
 </html>

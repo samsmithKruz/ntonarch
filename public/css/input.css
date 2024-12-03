@@ -120,3 +120,11 @@ label:has([type="checkbox"]) span {
     border-color: var(--primary); /* Customize hover color */
     background-color: #f0f0f0; /* Optional: background change on hover */
   }
+  .input .tag label{
+    user-select: none;
+    cursor: pointer;
+  }
+  .input .tag:has(:checked){
+    background-color: var(--primary);
+    color: #f0f0f0;
+  }

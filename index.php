@@ -8,7 +8,7 @@ use Dotenv\Dotenv;
 session_start();
 // Load Composer's autoloader
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__."/Libraries/helper.php";
+require_once __DIR__ . "/Libraries/helper.php";
 
 
 // Load environment variables using vlucas/phpdotenv
@@ -20,6 +20,7 @@ foreach ($_ENV as $key => $value) {
     putenv("$key=$value");
 }
 define("APP", getenv('APP_NAME') ?: "App");
+define('DOMAIN', 'http://localhost:8000');
 $_SESSION[APP] = $_SESSION[APP] ?? new stdClass;
 
 

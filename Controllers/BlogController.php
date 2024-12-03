@@ -3,13 +3,17 @@
 
 use App\Libraries\Controller;
 use App\Libraries\Helpers;
+use Models\Base;
 
 class BlogController extends Controller
 {
+    private $data;
     public function __construct()
     {
         
         $this->model("Blog");
+        $this->data = [];
+        
     }
     public function index()
     {
@@ -23,13 +27,17 @@ class BlogController extends Controller
     public function add()
     {
         Helpers::isLoggedIn();
-        $data = [];
+        $user = Base::loadUser();
+        $this->data['name'] = explode(" ", $user->fullname)[0];
+        $this->data['tel'] = $user->tel;
+        $this->data['avatar'] = $user->avatar;
+
         if (Helpers::getMethod() == "POST") {
             Helpers::csrf_request();
             $response = (object) $this->model->postBlog();
             flashMessage($response);
         }
-        $this->view('post-blog', $data);
+        $this->view('post-blog', $this->data);
     }
     public function show($params)
     {
@@ -43,18 +51,44 @@ class BlogController extends Controller
             redirect('blog');
         }
         // d($blog);
-        $data['blog'] = $blog;
-        $this->view("view-blog", $data);
+        $this->data['blog'] = $blog;
+        $this->view("view-blog", $this->data);
     }
-    public function update()
+    public function update($params)
     {
         Helpers::isLoggedIn();
-        $data = [];
-        // if(Helpers::getMethod() == "POST" ){
-        //     Helpers::csrf_request();
-        //     $response = (object) $this->model->postBlog();
-        //     flashMessage($response);
-        // }
-        $this->view('update-blog', $data);
+        if (!isset($params[0])) {
+            flashMessage(['state' => false, 'message' => "Blog not found", 'type' => "error"]);
+            back("/blog/manage");
+        }
+        if (Helpers::getMethod() == "POST") {
+            Helpers::csrf_request();
+            $response = $this->model->updateBlog(sanitize($params[0]));
+            flashMessage($response);
+        }
+        $user = Base::loadUser();
+        $this->data['name'] = explode(" ", $user->fullname)[0];
+        $this->data['tel'] = $user->tel;
+        $this->data['avatar'] = $user->avatar;
+
+        $blogInfo = $this->model->getBlogById(sanitize($params[0]));
+        if (!$blogInfo) {
+            flashMessage(['state' => false, 'message' => "Blog not found", 'type' => "error"]);
+            back("/blog/manage");
+        }
+        $blogInfo->tags = explode(",",$blogInfo->tags);
+        $blogInfo = (array)$blogInfo;
+        $this->data = $this->data + $blogInfo;
+
+        $this->view('post-blog', $this->data);
+    }
+    public function manage()
+    {
+        Helpers::isLoggedIn();
+        $user = Base::loadUser();
+        $this->data['name'] = explode(" ", $user->fullname)[0];
+        $this->data['tel'] = $user->tel;
+        $this->data['avatar'] = $user->avatar;
+        $this->view('manage-blogs', $this->data);
     }
 }

@@ -14,8 +14,8 @@ class LoginController extends Controller
 
         if(Helpers::isMethod('POST') ){
             Helpers::csrf_request();
-            $response = (object) $this->model->login();
-            if($response->state){
+            $response = $this->model->login();
+            if($response['state']){
                 redirect('/dashboard');
             }
             flashMessage($response);
