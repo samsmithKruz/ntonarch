@@ -40,3 +40,45 @@
 [2024-12-03 17:27:12] [USER ERROR] Method 'toggle_blog' not found in ApiController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
 [2024-12-03 17:27:29] [USER ERROR] Method 'toggle_blog' not found in ApiController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
 [2024-12-03 17:32:01] [USER ERROR] Method 'index' not found in ProductController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-12-03 18:04:39] [WARNING] Undefined variable $total in C:\Users\Smith_K\Documents\ntonarch\views\blogs.php on line 57
+[2024-12-03 18:05:39] [EXCEPTION] Object of class stdClass could not be converted to string in C:\Users\Smith_K\Documents\ntonarch\views\blogs.php on line 58
+[2024-12-03 18:05:42] [EXCEPTION] Object of class stdClass could not be converted to string in C:\Users\Smith_K\Documents\ntonarch\views\blogs.php on line 58
+[2024-12-03 18:09:33] [WARNING] Undefined variable $blog_data in C:\Users\Smith_K\Documents\ntonarch\Controllers\BlogController.php on line 24
+[2024-12-03 18:09:46] [WARNING] Undefined variable $blog_data in C:\Users\Smith_K\Documents\ntonarch\Controllers\BlogController.php on line 24
+[2024-12-03 18:12:04] [WARNING] Attempt to read property "status" on array in C:\Users\Smith_K\Documents\ntonarch\views\blogs.php on line 26
+[2024-12-03 18:21:24] [WARNING] Undefined variable $fullname in C:\Users\Smith_K\Documents\ntonarch\views\view-blog.php on line 22
+[2024-12-03 18:26:56] [USER ERROR] Method 'index' not found in ProductController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-12-06 23:43:25] [WARNING] Array to string conversion in C:\Users\Smith_K\Documents\ntonarch\Libraries\Controller.php on line 13
+[2024-12-06 23:52:49] [WARNING] Trying to access array offset on value of type bool in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 188
+[2024-12-06 23:53:04] [WARNING] Trying to access array offset on value of type bool in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 188
+[2024-12-06 23:53:06] [WARNING] Trying to access array offset on value of type bool in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 188
+[2024-12-06 23:53:37] [WARNING] Trying to access array offset on value of type bool in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 188
+[2024-12-06 23:53:38] [WARNING] Trying to access array offset on value of type bool in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 188
+[2024-12-06 23:53:46] [WARNING] Trying to access array offset on value of type bool in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 188
+[2024-12-06 23:53:47] [WARNING] Trying to access array offset on value of type bool in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 188
+[2024-12-06 23:54:14] [WARNING] Trying to access array offset on value of type bool in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 184
+[2024-12-07 00:02:28] [EXCEPTION] syntax error, unexpected variable "$header_include" in C:\Users\Smith_K\Documents\ntonarch\views\market.php on line 3
+[2024-12-07 00:02:35] [WARNING] Undefined variable $product in C:\Users\Smith_K\Documents\ntonarch\views\market.php on line 2
+[2024-12-07 00:22:13] [WARNING] Attempt to read property "pagination" on array in C:\Users\Smith_K\Documents\ntonarch\views\market.php on line 104
+[2024-12-07 00:22:53] [WARNING] Attempt to read property "pagination" on array in C:\Users\Smith_K\Documents\ntonarch\views\market.php on line 2
+[2024-12-07 18:29:58] [WARNING] Array to string conversion in C:\Users\Smith_K\Documents\ntonarch\Libraries\Controller.php on line 13
+[2024-12-07 18:31:03] [SHUTDOWN] Declaration of ProductController::view($params) must be compatible with App\Libraries\Controller::view($view, $data = []) in C:\Users\Smith_K\Documents\ntonarch\Controllers\ProductController.php on line 56
+[2024-12-07 18:31:27] [SHUTDOWN] Declaration of ProductController::view($params) must be compatible with App\Libraries\Controller::view($view, $data = []) in C:\Users\Smith_K\Documents\ntonarch\Controllers\ProductController.php on line 56
+[2024-12-07 18:39:26] [USER ERROR] Method 'show' not found in ProductController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-12-07 18:39:33] [EXCEPTION] Unsupported operand types: null + array in C:\Users\Smith_K\Documents\ntonarch\Controllers\MarketController.php on line 37
+[2024-12-07 18:46:43] [WARNING] Attempt to read property "data" on array in C:\Users\Smith_K\Documents\ntonarch\Controllers\MarketController.php on line 38
+[2024-12-07 18:46:55] [WARNING] Attempt to read property "data" on array in C:\Users\Smith_K\Documents\ntonarch\Controllers\MarketController.php on line 38
+[2024-12-07 18:53:01] [EXCEPTION] array_filter(): Argument #1 ($array) must be of type array, stdClass given in C:\Users\Smith_K\Documents\ntonarch\Controllers\MarketController.php on line 41
+[2024-12-07 19:43:39] [WARNING] Undefined array key "searchQuery" in C:\Users\Smith_K\Documents\ntonarch\Controllers\MarketController.php on line 18
+[2024-12-07 19:46:33] [WARNING] Undefined array key "searchQuery" in C:\Users\Smith_K\Documents\ntonarch\Controllers\MarketController.php on line 25
+[2024-12-07 20:15:36] [USER ERROR] Method 'loadProducts' not found in ApiController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-12-07 20:15:55] [USER ERROR] Method 'loadProducts' not found in ApiController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-12-07 21:08:06] [WARNING] Undefined array key "search" in C:\Users\Smith_K\Documents\ntonarch\Libraries\Helpers.php on line 182
+[2024-12-07 21:08:42] [WARNING] Undefined array key "search" in C:\Users\Smith_K\Documents\ntonarch\Libraries\Helpers.php on line 182
+[2024-12-07 22:02:29] [WARNING] Attempt to read property "total" on bool in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 221
+[2024-12-07 22:05:18] [EXCEPTION] syntax error, unexpected variable "$countStmt" in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 222
+[2024-12-07 22:06:00] [WARNING] Attempt to read property "total" on bool in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 225
+[2024-12-07 22:17:35] [USER ERROR] Method 'index' not found in ProductController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-12-07 22:19:26] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
+[2024-12-07 22:36:29] [WARNING] Undefined property: stdClass::$user in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 159
+[2024-12-07 22:36:38] [WARNING] Undefined property: stdClass::$user in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 159
