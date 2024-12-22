@@ -36,4 +36,10 @@ class Controller
         $model = "\\Models\\".$model;
         $this->model = new $model();
     }
+    public function modelForeign($model)
+    {
+        require_once __DIR__.'/../Models/' . $model . '.php';
+        $model = "\\Models\\".$model;
+        return new $model();
+    }
 }

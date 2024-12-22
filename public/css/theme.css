@@ -290,3 +290,6 @@ p {
     margin-bottom: 1rem;
     opacity: .8;
 }
+.hide{
+    display: none !important;
+}

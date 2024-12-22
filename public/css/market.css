@@ -1,0 +1,56 @@
+@import url('./theme.css');
+@import url('./header.css');
+@import url('./footer.css');
+@import url('./product-listing.css');
+#hero {
+    min-height: 350px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-dark);
+    background-image: url('../assets/turbine.jpg');
+    background-blend-mode: soft-light;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+}
+#hero h2{
+    color: var(--white);
+    font-size: 4.5rem;
+}
+form#search {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form#search .input {
+    width: 500px;
+    max-width: 100%;
+    border: 1px solid var(--primary);
+    display: flex;
+
+}
+form#search .input:focus-within {
+    box-shadow: 0 0 3px 0px var(--primary);
+}
+form#search .i_icon {
+    color: var(--black);
+    font-size: 1.3em;
+    background-color: transparent;
+    padding: .6rem 1rem;
+    line-height: 1;
+    flex: 0 1 auto;
+    border: none;
+    cursor: pointer;
+}
+form#search input {
+    min-width: 0;
+    flex: 1 1 auto;
+    background-color: transparent;
+    padding: .6rem 1rem;
+    outline: none;
+    font-size: 1rem;
+    border: none;
+}

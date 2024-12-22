@@ -20,7 +20,7 @@
         <span class="i_icon">&#xe051;</span>
         Blogs Listings
       </a>
-      <a href="/product" class=" <?= $page == "product_listings" ? "active" : ""; ?>">
+      <a href="/market" class=" <?= $page == "product_listings" ? "active" : ""; ?>">
         <span class="i_icon">&#xe85d;</span>
         Product Listings
       </a>
@@ -54,10 +54,10 @@
         </a>
       <?php endif; ?>
       <?php if (access([getenv('ADMIN'), getenv('EDITOR')])): ?>
-        <a href="/blog/queue" class=" <?= $page == "blogs" ? "active" : ""; ?>">
+        <!-- <a href="/blog/queue" class=" <?= $page == "blogs" ? "active" : ""; ?>">
           <span class="i_icon">&#xe86e;</span>
           Pending Blogs
-        </a>
+        </a> -->
       <?php endif; ?>
       <?php if (access([getenv('ADMIN'), getenv('BLOGGER'), getenv('EDITOR')])): ?>
         <a href="/blog/comment" class=" <?= $page == "manage_comments" ? "active" : ""; ?>">

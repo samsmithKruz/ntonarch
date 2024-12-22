@@ -9,7 +9,7 @@ class Product extends Model
 {
     public function postProduct()
     {
-        
+
         Helpers::csrf_request();
         if (!in_array($_SESSION[APP]->user->role, [getenv('MARKETER'), getenv('ADMIN')])) {
             return ["state" => false, "message" => "You don't have permission for this operation, contact admin!!", "type" => "error"];
@@ -156,10 +156,105 @@ class Product extends Model
     }
     public function getProduct($id)
     {
-        if (!in_array($_SESSION[APP]->user->role, [getenv('MARKETER'), getenv('ADMIN')])) {
-            return ["state" => false, "message" => "You don't have permission for this operation, contact admin!!", "type" => "error"];
-        }
+        // if (!in_array($_SESSION[APP]->user->role, [getenv('MARKETER'), getenv('ADMIN')])) {
+        //     return ["state" => false, "message" => "You don't have permission for this operation, contact admin!!", "type" => "error"];
+        // }
         $product = $this->db->query("SELECT * FROM products where id=:id")->bind(":id", sanitize($id))->single();
         return ['state' => true, 'data' => $product];
+    }
+    public function getProducts($page = 1, $limit = 10)
+    {
+        // Sanitize inputs
+        $sort = sanitize($_POST['sort'] ?? "date"); // Default sort by date
+        $filters = explode(",", sanitize($_POST['filter'] ?? "")); // Sanitize and split filters
+        $searchQuery = sanitize($_POST['search'] ?? ""); // Sanitize search query
+
+        // Ensure the page is a positive integer
+        $page = max(1, $page);
+
+        // Calculate offset
+        $offset = ($page - 1) * $limit;
+
+        // Base query
+        $query = "SELECT * FROM products WHERE 1=1";
+        $countQuery = "SELECT COUNT(*) as total FROM products WHERE 1=1";
+
+        $params = []; // Collect named parameters for binding
+
+        // Add search condition if present
+        if (!empty($searchQuery)) {
+            $searchCondition = " AND MATCH(title, description, price, location, category) AGAINST(:searchQuery IN NATURAL LANGUAGE MODE)";
+            $query .= $searchCondition;
+            $countQuery .= $searchCondition;
+            $params[':searchQuery'] = $searchQuery;
+        }
+
+        // Add filters if present
+        if (!empty($filters[0])) {
+            $filterPlaceholders = [];
+            foreach ($filters as $index => $filter) {
+                $placeholder = ":filter$index";
+                $filterPlaceholders[] = $placeholder;
+                $params[$placeholder] = $filter;
+            }
+            $query .= " AND category IN (" . implode(", ", $filterPlaceholders) . ")";
+            $countQuery .= " AND category IN (" . implode(", ", $filterPlaceholders) . ")";
+        }
+
+        // Handle sorting logic
+        switch ($sort) {
+            case "high_low":
+                $query .= " ORDER BY price DESC"; // Sort by price, highest first
+                break;
+            case "low_high":
+                $query .= " ORDER BY price ASC"; // Sort by price, lowest first
+                break;
+            default:
+                $query .= " ORDER BY date DESC"; // Fallback to date sorting
+                break;
+        }
+
+        // Add pagination
+        $query .= " LIMIT :limit OFFSET :offset";
+        $params[':limit'] = $limit;
+        $params[':offset'] = $offset;
+
+        // Execute the main query
+        $stmt = $this->db->query($query);
+        foreach ($params as $key => $value) {
+            $stmt->bind($key, $value);
+        }
+        $product = $stmt->resultSet();
+
+        // Execute the count query
+        $countStmt = $this->db->query($countQuery);
+        foreach ($params as $key => $value) {
+            if ($key == ":limit" || $key == ":offset") {
+                continue;
+            }
+            $countStmt->bind($key, $value);
+        }
+        $totalProducts = $countStmt->single()->total;
+
+        // Determine range
+        $start = $offset + 1;
+        $end = min($offset + $limit, $totalProducts);
+
+        // Check if more products exist
+        $hasMore = $end < $totalProducts;
+
+        // Prepare results
+        $result['product'] = (object)$product;
+        $result['pagination'] = (object)[
+            'start' => $start,
+            'end' => $end,
+            'hasMore' => $hasMore,
+            'total' => $totalProducts
+        ];
+
+        return [
+            'state' => true,
+            'data' => (object)$result
+        ];
     }
 }

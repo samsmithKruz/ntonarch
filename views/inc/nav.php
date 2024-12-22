@@ -13,7 +13,7 @@
                 </div>
                 <div class="items">
                     <a href="/blog">Blog & Media</a>
-                    <a href="/product">Market</a>
+                    <a href="/market">Market</a>
                     <a href="/engineering">Engineering</a>
                     <a href="/farm">Farm</a>
                 </div>

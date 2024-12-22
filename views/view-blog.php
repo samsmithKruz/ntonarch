@@ -15,61 +15,32 @@ require_once __DIR__ . "/inc/Header.php";
   <section id="blogs">
     <div class="head">
       <h1>
-        The Difference Between Knowledge And Wisdom In Software Development
+        <?= $blog->title; ?>
       </h1>
       <div class="info">
         <div>
-          <span><b>Author:</b> Smith Kruz</span>
+          <span><b>Author:</b><?=$blog->fullname;?></span>
         </div>
         <div>
           <span class="i_icon"></span>
-          <span> 10.04.2024</span>
+          <span> <?= (new DateTime($blog->created_at))->format('d.m.y'); ?></span>
         </div>
         <a
-          href="#"
-          class="share"
-          data-url="#"
-          data-title="Title"
-          data-text="#">
-          <span>Share</span>
-          <span class="i_icon" style="transform: rotateY(180deg);"></span>
-        </a>
+              href="#"
+              class="share"
+              data-url="<?= DOMAIN ?>/blog/show/<?= $blog->id ?>"
+              data-title="<?= htmlspecialchars($blog->title); ?>"
+              data-text="Read amazing content on <?= DOMAIN ?>">
+              <span>Share</span>
+              <span class="i_icon" style="transform: rotateY(180deg);">&#xE15E;</span>
+            </a>
       </div>
     </div>
     <div class="content">
-      <img src="/public/assets/equip.webp" alt="" class="banner" />
-      <p>
-        Knowledge is to know technology, wisdom is to understand it of
-        whatever you feel like including but this will only serve as a dummy
-        text and I don’t expect you to read this as it makes no meaning but
-        just for testing purpose and content filling
-      </p>
-      <p>
-        Knowledge is to know technology, wisdom is to understand it of
-        whatever you feel like including but this will only serve as a dummy
-        text and I don’t expect you to read this as it makes no meaning but
-        just for testing purpose and content filling
-      </p>
-      <p>
-        Knowledge is to know technology, wisdom is to understand it of
-        whatever you feel like including but this will only serve as a dummy
-        text and I don’t expect you to read this as it makes no meaning but
-        just for testing purpose and content filling
-      </p>
-      <p>
-        Knowledge is to know technology, wisdom is to understand it of
-        whatever you feel like including but this will only serve as a dummy
-        text and I don’t expect you to read this as it makes no meaning but
-        just for testing purpose and content filling
-      </p>
-      <p>
-        Knowledge is to know technology, wisdom is to understand it of
-        whatever you feel like including but this will only serve as a dummy
-        text and I don’t expect you to read this as it makes no meaning but
-        just for testing purpose and content filling
-      </p>
+    <img class="banner" src="/public/uploads/<?= htmlspecialchars($blog->thumbnail); ?>" alt="<?= htmlspecialchars($blog->title); ?>" />
+      <?=$blog->content;?>
     </div>
-    <div class="comments">
+    <div class="comments" style="display: none;">
       <h3>Comments <span>(36)</span></h3>
       <div class="comment">
         <div>
@@ -96,9 +67,9 @@ require_once __DIR__ . "/inc/Header.php";
       </div>
     </div>
   </section>
-  <section id="blog" class="container">
+  <section id="blog" class="container" style="display: none;">
     <div class="top">
-      <h3>More from Smith Kruz</h3>
+      <h3>More from <?=$blog->fullname;?></h3>
     </div>
     <div id="cards">
       <div class="card">
@@ -116,68 +87,8 @@ require_once __DIR__ . "/inc/Header.php";
           locations.
         </p>
       </div>
-      <div class="card">
-        <div class="img">
-          <img src="/public/assets/service_man.webp" alt="" />
-        </div>
-        <div class="author">
-          <a href="#">GreenerFuture</a>
-          <p>10.04.2024</p>
-        </div>
-        <a href="#" class="head truncate" style="--line: 2;">Off-Grid Cabin Renewable Energy Setup</a>
-        <p class="truncate" style="--line: 3;">
-          An off-grid cabin renewable energy setup provides independence,
-          sustainability, and peace of mind by generating power in remote
-          locations.
-        </p>
-      </div>
-      <div class="card">
-        <div class="img">
-          <img src="/public/assets/service_man.webp" alt="" />
-        </div>
-        <div class="author">
-          <a href="#">GreenerFuture</a>
-          <p>10.04.2024</p>
-        </div>
-        <a href="#" class="head truncate" style="--line: 2;">Off-Grid Cabin Renewable Energy Setup</a>
-        <p class="truncate" style="--line: 3;">
-          An off-grid cabin renewable energy setup provides independence,
-          sustainability, and peace of mind by generating power in remote
-          locations.
-        </p>
-      </div>
-      <div class="card">
-        <div class="img">
-          <img src="/public/assets/service_man.webp" alt="" />
-        </div>
-        <div class="author">
-          <a href="#">GreenerFuture</a>
-          <p>10.04.2024</p>
-        </div>
-        <a href="#" class="head truncate" style="--line: 2;">Off-Grid Cabin Renewable Energy Setup</a>
-        <p class="truncate" style="--line: 3;">
-          An off-grid cabin renewable energy setup provides independence,
-          sustainability, and peace of mind by generating power in remote
-          locations.
-        </p>
-      </div>
-      <div class="card">
-        <div class="img">
-          <img src="/public/assets/service_man.webp" alt="" />
-        </div>
-        <div class="author">
-          <a href="#">GreenerFuture</a>
-          <p>10.04.2024</p>
-        </div>
-        <a href="#" class="head truncate" style="--line: 2;">Off-Grid Cabin Renewable Energy Setup</a>
-        <p class="truncate" style="--line: 3;">
-          An off-grid cabin renewable energy setup provides independence,
-          sustainability, and peace of mind by generating power in remote
-          locations.
-        </p>
-      </div>
     </div>
-    <a href="#" class="btn primary mobile">view more</a>
+    <a href="/blog" class="btn primary mobile">view more</a>
   </section>
 </main>
 <?php

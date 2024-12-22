@@ -34,12 +34,14 @@
 .box .card h4 {
     font-weight: 500;
     font-size: clamp(12px, 1rem, 24px);
+    text-transform: uppercase;
 }
 
 .box .card h3 {
     font-size: clamp(14px, 1.1rem, 24px);
     display: flex;
-    gap: 1rem;
+    gap: .1em 1rem;
+    flex-wrap: wrap;
 }
 
 .box .card h3 span.old {
@@ -68,6 +70,7 @@
 .filter input[type="checkbox"] {
     accent-color: var(--primary);
     color: #fff !important;
+    display: inline-flex;
 }
 
 .filter label {
@@ -77,9 +80,18 @@
     gap: .3rem;
     margin: .5rem auto;
 }
+input[type="checkbox"]:checked + span::after{
+    display: none;
+}
 
 .filter span {
     text-transform: capitalize;
+    border: none !important;
+}
+label:has([type="checkbox"]):hover span{
+    border: none !important;
+    background-color: transparent;
+
 }
 
 .products {

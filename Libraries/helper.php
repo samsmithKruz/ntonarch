@@ -97,3 +97,18 @@ function access($roles)
 {
     return in_array($_SESSION[APP]->user->role, $roles);
 }
+// Function to extract text content from the first <p> tag
+function getFirstParagraphContent($html)
+{
+    $dom = new DOMDocument();
+    // Suppress warnings due to malformed HTML and load the string
+    libxml_use_internal_errors(true);
+    $dom->loadHTML($html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+    libxml_clear_errors();
+
+    // Find the first <p> tag
+    $pTag = $dom->getElementsByTagName('p')->item(0);
+
+    // Return the text content if the <p> tag exists, otherwise return null
+    return $pTag ? $pTag->textContent : null;
+}

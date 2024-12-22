@@ -131,7 +131,7 @@ let tb1 = new DataTable("#user_management", {
       {
         data: "title",
         render: function (data, type, row) {
-          return `<a href="/product/view/${row.id}">${data}</a>`;
+          return `<a href="/market/show/${row.id}">${data}</a>`;
         },
       },
       {

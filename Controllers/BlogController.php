@@ -10,19 +10,16 @@ class BlogController extends Controller
     private $data;
     public function __construct()
     {
-        
+
         $this->model("Blog");
         $this->data = [];
-        
     }
     public function index()
     {
         $page = isset($_GET['page']) ? Helpers::get('page') : 1;
-        $data['blog_data'] = $this->model->getBlogs($page);
-        $data['blog_data']->current_page = $page;
-        // d($data);
-        // $data['popular'] = $this->model->getPopularBlogs();
-        $this->view("blogs", $data);
+        $this->data['blog_data'] = $this->model->getBlogs($page, 1);
+        $this->data['blog_data']->current_page = $page;
+        $this->view("blogs", $this->data);
     }
     public function add()
     {
@@ -50,7 +47,7 @@ class BlogController extends Controller
             flashMessage((object)['type' => "error", "message" => "The requested blog was not found."]);
             redirect('blog');
         }
-        // d($blog);
+        // print_r($blog);exit();
         $this->data['blog'] = $blog;
         $this->view("view-blog", $this->data);
     }
@@ -76,7 +73,7 @@ class BlogController extends Controller
             flashMessage(['state' => false, 'message' => "Blog not found", 'type' => "error"]);
             back("/blog/manage");
         }
-        $blogInfo->tags = explode(",",$blogInfo->tags);
+        $blogInfo->tags = explode(",", $blogInfo->tags);
         $blogInfo = (array)$blogInfo;
         $this->data = $this->data + $blogInfo;
 

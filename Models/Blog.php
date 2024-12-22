@@ -38,13 +38,13 @@ class Blog extends Model
 
         return ["state" => true, "message" => "Blog published and pending review.", "type" => "success"];
     }
-    public function getBlogs($page)
+    public function getBlogs($page, $status = "", $limit = 10)
     {
-        $limit = 2;
+        $statusQuery = $status != "" ? " where blogs.status=" . $status : "";
         $offset = ($page - 1) * $limit;
-        $blogs = $this->db->query("select blogs.*,users.fullname,users.avatar from blogs left join users on blogs.author_id=users.id LIMIT $limit OFFSET $offset")->resultSet();
-        $total = $this->db->query("Select count(id) as total from blogs")->single()->total;
-        return (object)['total' => intdiv($total, $limit), 'blogs' => $blogs];
+        $blogs = $this->db->query("select blogs.*,users.fullname,users.avatar from blogs left join users on blogs.author_id=users.id $statusQuery LIMIT $limit OFFSET $offset")->resultSet();
+        $total = $this->db->query("Select count(id) as total from blogs $statusQuery")->single()->total;
+        return (object)['total' => $total, 'blogs' => $blogs];
     }
     public function getBlogById($id)
     {

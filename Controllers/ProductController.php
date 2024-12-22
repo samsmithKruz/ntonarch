@@ -53,4 +53,5 @@ class ProductController extends Controller
     {
         $this->view('manage-product', $this->data);
     }
+    
 }

@@ -196,6 +196,15 @@ class ApiController extends Controller
         }
         $this->render(['state' => false, 'message' => 'Failed to update the Blog.']);
     }
+    public function loadProducts($params)
+    {
+        $this->model('Product');
+        $page = max(1, (int)($params[0] ?? 1));
+        $product = $this->model->getProducts($page);
+        $product['data'] = !$product['state'] ? (new stdClass) : $product['data'];
+        $product['data']->product = (array)$product['data']->product;
+        $this->render($product['data'], 200);
+    }
     private function render($data, $statusCode = 200)
     {
         http_response_code($statusCode);
