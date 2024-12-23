@@ -43,12 +43,14 @@ class BlogController extends Controller
             redirect('blog');
         }
         $blog = $this->model->getBlogById(Helpers::safe_data($params[0]));
+        // $comments = $this->model->getCommentsById(Helpers::safe_data($params[0]));
         if (empty($blog)) {
             flashMessage((object)['type' => "error", "message" => "The requested blog was not found."]);
             redirect('blog');
         }
         // print_r($blog);exit();
         $this->data['blog'] = $blog;
+        // $this->data['comments']= $comments;
         $this->view("view-blog", $this->data);
     }
     public function update($params)

@@ -109,4 +109,12 @@ class Blog extends Model
         }
         return ["state" => false, "message" => "No valid fields to update.", "type" => "error"];
     }
+    public function getCommentsById($blogId)
+    {
+
+        // Check if the blog exists
+        return $this->db->query("SELECT id, comment, date FROM comments WHERE id = :blog_id")
+            ->bind(":blog_id", $blogId)
+            ->resultSet();
+    }
 }

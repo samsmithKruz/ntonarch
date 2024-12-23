@@ -19,44 +19,48 @@ require_once __DIR__ . "/inc/Header.php";
       </h1>
       <div class="info">
         <div>
-          <span><b>Author:</b><?=$blog->fullname;?></span>
+          <span><b>Author:</b><?= $blog->fullname; ?></span>
         </div>
         <div>
           <span class="i_icon"></span>
           <span> <?= (new DateTime($blog->created_at))->format('d.m.y'); ?></span>
         </div>
         <a
-              href="#"
-              class="share"
-              data-url="<?= DOMAIN ?>/blog/show/<?= $blog->id ?>"
-              data-title="<?= htmlspecialchars($blog->title); ?>"
-              data-text="Read amazing content on <?= DOMAIN ?>">
-              <span>Share</span>
-              <span class="i_icon" style="transform: rotateY(180deg);">&#xE15E;</span>
-            </a>
+          href="#"
+          class="share"
+          data-url="<?= DOMAIN ?>/blog/show/<?= $blog->id ?>"
+          data-title="<?= htmlspecialchars($blog->title); ?>"
+          data-text="Read amazing content on <?= DOMAIN ?>">
+          <span>Share</span>
+          <span class="i_icon" style="transform: rotateY(180deg);">&#xE15E;</span>
+        </a>
       </div>
     </div>
     <div class="content">
-    <img class="banner" src="/public/uploads/<?= htmlspecialchars($blog->thumbnail); ?>" alt="<?= htmlspecialchars($blog->title); ?>" />
-      <?=$blog->content;?>
+      <img class="banner" src="/public/uploads/<?= htmlspecialchars($blog->thumbnail); ?>" alt="<?= htmlspecialchars($blog->title); ?>" />
+      <?= $blog->content; ?>
     </div>
-    <div class="comments" style="display: none;">
-      <h3>Comments <span>(36)</span></h3>
+    <div class="comments">
+      <h3>Comments <span>(<?= count($comments); ?>)</span></h3>
       <div class="comment">
-        <div>
-          <div class="info">
-            <div>
-              <span class="avatar">S</span>
-              <span>Smith Kruz</span>
+        <?php foreach ($comments as $comment): ?>
+          <div>
+            <div class="info">
+              <div>
+                <span class="avatar">S</span>
+                <span>Smith Kruz</span>
+              </div>
             </div>
+            <p class="content">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Aperiam aliquam totam tenetur praesentium, perferendis iste?
+            </p>
           </div>
-          <p class="content">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Aperiam aliquam totam tenetur praesentium, perferendis iste?
-          </p>
-        </div>
-        <form action="#">
+        <?php endforeach; ?>
+        <form action="">
           <div class="input">
+            <input type="hidden" name="blog_id" value="">
+            <input type="hidden" name="csrf" value="<?=csrf_token();?>">
             <input type="text" placeholder="Name" />
           </div>
           <div class="input">
@@ -69,7 +73,7 @@ require_once __DIR__ . "/inc/Header.php";
   </section>
   <section id="blog" class="container" style="display: none;">
     <div class="top">
-      <h3>More from <?=$blog->fullname;?></h3>
+      <h3>More from <?= $blog->fullname; ?></h3>
     </div>
     <div id="cards">
       <div class="card">
