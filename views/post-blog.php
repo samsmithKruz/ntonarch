@@ -1,7 +1,9 @@
 <?php
 // print_r($data);exit();
 $blogTitle = $title ?? "";
-$header_include = "<script src=\"/public/js/ckeditor5-build-custom-1.1/build/ckeditor.js\"></script>";
+$header_include = "<script src=\"https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.umd.js\" crossorigin></script>
+<link rel=\"stylesheet\" href=\"https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css\" crossorigin>
+";
 $title = "Dashboard";
 $page = "post_blogs";
 

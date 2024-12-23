@@ -82,3 +82,7 @@
 [2024-12-07 22:19:26] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Smith_K\Documents\ntonarch\Libraries\App.php on line 33
 [2024-12-07 22:36:29] [WARNING] Undefined property: stdClass::$user in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 159
 [2024-12-07 22:36:38] [WARNING] Undefined property: stdClass::$user in C:\Users\Smith_K\Documents\ntonarch\Models\Product.php on line 159
+[2024-12-24 00:15:52] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
+[2024-12-24 00:34:23] [WARNING] Array to string conversion in C:\Users\Max\Herd\ntonarch\Libraries\Controller.php on line 13
+[2024-12-24 00:34:34] [WARNING] Undefined variable $comments in C:\Users\Max\Herd\ntonarch\views\view-blog.php on line 44
+[2024-12-24 00:36:18] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
