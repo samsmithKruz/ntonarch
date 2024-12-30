@@ -86,3 +86,33 @@
 [2024-12-24 00:34:23] [WARNING] Array to string conversion in C:\Users\Max\Herd\ntonarch\Libraries\Controller.php on line 13
 [2024-12-24 00:34:34] [WARNING] Undefined variable $comments in C:\Users\Max\Herd\ntonarch\views\view-blog.php on line 44
 [2024-12-24 00:36:18] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
+[2024-12-24 01:25:44] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
+[2024-12-24 01:27:58] [WARNING] Array to string conversion in C:\Users\Max\Herd\ntonarch\Libraries\Controller.php on line 13
+[2024-12-24 01:28:07] [WARNING] Undefined variable $comments in C:\Users\Max\Herd\ntonarch\views\view-blog.php on line 44
+[2024-12-24 01:30:35] [WARNING] Undefined variable $comments in C:\Users\Max\Herd\ntonarch\views\view-blog.php on line 44
+[2024-12-24 01:30:38] [WARNING] Undefined variable $comments in C:\Users\Max\Herd\ntonarch\views\view-blog.php on line 44
+[2024-12-30 10:29:34] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
+[2024-12-30 10:30:29] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
+[2024-12-30 10:33:38] [WARNING] Undefined variable $comments in C:\Users\Max\Herd\ntonarch\views\view-blog.php on line 44
+[2024-12-30 10:36:39] [WARNING] Undefined property: stdClass::$comments in C:\Users\Max\Herd\ntonarch\views\view-blog.php on line 44
+[2024-12-30 10:45:03] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
+[2024-12-30 10:49:35] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
+[2024-12-30 10:49:37] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
+[2024-12-30 10:49:39] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
+[2024-12-30 10:49:41] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
+[2024-12-30 10:50:05] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
+[2024-12-30 10:51:02] [WARNING] Undefined variable $blog in C:\Users\Max\Herd\ntonarch\views\view-blog.php on line 18
+[2024-12-30 10:54:33] [WARNING] Undefined variable $blog in C:\Users\Max\Herd\ntonarch\views\view-blog.php on line 18
+[2024-12-30 12:50:14] [WARNING] Undefined variable $blog in C:\Users\Max\Herd\ntonarch\views\view-blog.php on line 18
+[2024-12-30 12:51:59] [WARNING] Undefined variable $blog in C:\Users\Max\Herd\ntonarch\views\view-blog.php on line 18
+[2024-12-30 19:43:49] [EXCEPTION] Call to undefined method Models\Blog::postComment() in C:\Users\Max\Herd\ntonarch\Controllers\BlogController.php on line 56
+[2024-12-30 19:50:26] [WARNING] Undefined array key "content" in C:\Users\Max\Herd\ntonarch\Controllers\BlogController.php on line 55
+[2024-12-30 19:50:58] [WARNING] Undefined array key "content" in C:\Users\Max\Herd\ntonarch\Controllers\BlogController.php on line 55
+[2024-12-30 19:59:04] [WARNING] Undefined array key "body" in C:\Users\Max\Herd\ntonarch\Controllers\BlogController.php on line 55
+[2024-12-30 20:07:09] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
+[2024-12-30 20:28:55] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
+[2024-12-30 20:40:49] [WARNING] Undefined property: stdClass::$name in C:\Users\Max\Herd\ntonarch\views\view-blog.php on line 57
+[2024-12-30 20:45:04] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
+[2024-12-30 21:37:16] [USER ERROR] Method 'comment' not found in BlogController in C:\Users\Max\Herd\ntonarch\Libraries\App.php on line 33
+[2024-12-30 21:39:25] [WARNING] Undefined array key 0 in C:\Users\Max\Herd\ntonarch\Controllers\ApiController.php on line 46
+[2024-12-30 21:39:25] [WARNING] Undefined array key 0 in C:\Users\Max\Herd\ntonarch\Controllers\ApiController.php on line 46

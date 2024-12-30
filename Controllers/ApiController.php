@@ -41,10 +41,41 @@ class ApiController extends Controller
     {
         $this->render(['message' => 'something']);
     }
+    public function manage_comments($params)
+    {
+        Helpers::isLoggedIn();
+        if (!in_array($_SESSION[APP]->user->role, [getenv('BLOGGER'), getenv('EDITOR'), getenv('ADMIN')])) {
+            $this->render(['state' => false, 'message' => 'Unauthorized access.'], 401);
+        }
+        $start = $_POST['start'] ?? 0;
+        $length = $_POST['length'] ?? 10;
+        $search = $_POST['search']['value'] ?? '';
+        $orderCol = isset($_POST['order'][0]) && isset($_POST['columns'][$_POST['order'][0]['column']]['data'])
+            ? $_POST['columns'][$_POST['order'][0]['column']]['data']
+            : 'id';
+        $orderDir = isset($_POST['order'][0]['dir']) ? $_POST['order'][0]['dir'] : 'ASC';
+
+
+        $searchQuery = $search ? " AND (LOWER(comments.name) LIKE LOWER(:search) OR LOWER(comments.body) LIKE LOWER(:search))" : "";
+        $params = $search ? [':search' => "%" . strtolower($search) . "%"] : [];
+        $userId = $_SESSION[APP]->user->id;
+        $recordsFiltered = $this->db->query("SELECT COUNT(comments.id) AS total FROM comments LEFT JOIN blogs on blogs.id=comments.blog_id WHERE 1=1 $searchQuery");
+        array_map(fn($key, $val) => $this->db->bind($key, $val), array_keys($params), $params);
+        $filteredTotal = $recordsFiltered->single()->total;
+        $recordsTotal = $this->db->query("SELECT COUNT(id) AS total FROM comments")->single()->total;
+
+        $productsQuery = $this->db->query("SELECT id, name, body, create_time, blog_id, status FROM comments WHERE 1=1 $searchQuery ORDER BY $orderCol $orderDir LIMIT :start, :length");
+        $params[':start'] = (int)$start;
+        $params[':length'] = (int)$length;
+        array_map(fn($key, $val) => $this->db->bind($key, $val), array_keys($params), $params);
+        $products = $productsQuery->resultSet();
+
+        $this->render(['recordsTotal' => $recordsTotal, 'recordsFiltered' => $filteredTotal, 'data' => $products]);
+    }
     public function manage_blogs()
     {
         Helpers::isLoggedIn();
-        if (!in_array($_SESSION[APP]->user->role, [getenv('BLOGGER'), getenv('ADMIN')])) {
+        if (!in_array($_SESSION[APP]->user->role, [getenv('BLOGGER'), getenv('EDITOR'), getenv('ADMIN')])) {
             $this->render(['state' => false, 'message' => 'Unauthorized access.'], 401);
         }
         $start = $_POST['start'] ?? 0;
@@ -136,6 +167,33 @@ class ApiController extends Controller
         }
         $this->render(['state' => false, 'message' => 'Failed to delete the product.']);
     }
+    public function delete_comment($params)
+    {
+        Helpers::isLoggedIn();
+        if (!in_array($_SESSION[APP]->user->role, [getenv('BLOGGER'), getenv('ADMIN')])) {
+            $this->render(['state' => false, 'message' => 'Unauthorized access.'], 401);
+        }
+        if (!isset($params[0])) {
+            $this->render(['state' => false, 'message' => 'Comment ID not found.'], 404);
+        }
+        $blogId = sanitize($params[0]);
+        // Check if the product exists
+        $blog = $this->db->query("SELECT id FROM comments WHERE id = :blog_id")
+            ->bind(":blog_id", $blogId)
+            ->single();
+        if (!$blog) {
+            $this->render(["state" => false, "message" => "Comment not found."], 404);
+        }
+        // Delete the product from the database
+        $this->db->query("DELETE FROM comments WHERE id = :blog_id")
+            ->bind(":blog_id", $blogId)
+            ->execute();
+
+        if ($this->db->rowCount() > 0) {
+            $this->render(["state" => true, "message" => "Blog deleted successfully."]);
+        }
+        $this->render(['state' => false, 'message' => 'Failed to delete the Blog.']);
+    }
     public function delete_blog($params)
     {
         Helpers::isLoggedIn();
@@ -167,6 +225,34 @@ class ApiController extends Controller
             $this->render(["state" => true, "message" => "Blog deleted successfully."]);
         }
         $this->render(['state' => false, 'message' => 'Failed to delete the Blog.']);
+    }
+    public function toggle_comment($params)
+    {
+        Helpers::isLoggedIn();
+        if (!in_array($_SESSION[APP]->user->role, [getenv('EDITOR'), getenv('ADMIN')])) {
+            $this->render(['state' => false, 'message' => 'Unauthorized access.'], 401);
+        }
+        if (!isset($params[0])) {
+            $this->render(['state' => false, 'message' => 'Comment ID not found.'], 404);
+        }
+        $blogId = sanitize($params[0]);
+        // Check if the product exists
+        $blog = $this->db->query("SELECT id, status FROM comments WHERE id = :blog_id")
+            ->bind(":blog_id", $blogId)
+            ->single();
+        if (!$blog) {
+            $this->render(["state" => false, "message" => "Comment not found."], 404);
+        }
+        // Delete the product from the database
+        $this->db->query("UPDATE comments SET status=:status WHERE id = :blog_id")
+            ->bind(":blog_id", $blogId)
+            ->bind(":status", $blog->status == 'Approved' ? 'Pending' : 'Approved')
+            ->execute();
+
+        if ($this->db->rowCount() > 0) {
+            $this->render(["state" => true, "message" => "Comment status updated successfully."]);
+        }
+        $this->render(['state' => false, 'message' => 'Failed to update the comment status.']);
     }
     public function toggle_blog($params)
     {
