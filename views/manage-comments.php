@@ -12,14 +12,14 @@ require_once __DIR__ . "/inc/userHeader.php";
 ?>
 
 <div class="content">
-  <h2>Blog Management</h2>
+  <h2>Comments Management</h2>
   <div class="table">
-    <table id="blog_management">
+    <table id="comment_management">
       <thead>
         <tr>0
           <th>#</th>
-          <th>Title</th>
-          <th>Author</th>
+          <th>Name</th>
+          <th>Body</th>
           <th>Status</th>
           <th>Date</th>
           <th>Action</th>
@@ -29,7 +29,6 @@ require_once __DIR__ . "/inc/userHeader.php";
       </tbody>
     </table>
   </div>
-  <a href="/blog/add" class="btn primary">Post Blog</a>
 </div>
 
 

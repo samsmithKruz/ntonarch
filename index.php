@@ -20,7 +20,7 @@ foreach ($_ENV as $key => $value) {
     putenv("$key=$value");
 }
 define("APP", getenv('APP_NAME') ?: "App");
-define('DOMAIN', getenv("APP_URL")?:'http://localhost:8000');
+define('DOMAIN', getenv("APP_URL")?:'http://localhost:7000');
 $_SESSION[APP] = $_SESSION[APP] ?? new stdClass;
 
 

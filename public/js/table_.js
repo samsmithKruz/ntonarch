@@ -26,10 +26,71 @@ let tb1 = new DataTable("#user_management", {
     columnDefs: [
       {
         orderable: false,
-        targets: [0, 3],
+        targets: [0, 5],
       },
     ],
     order: [[1, "asc"]],
+    ajax: {
+      url: "/api/manage_comments/",
+      type: "POST",
+      dataFilter: function (data) {
+        console.log(data);
+        return data;
+      },
+    },
+    processing: true,
+    serverSide: true,
+    columns: [
+      {
+        data: null,
+        orderable: false,
+        render: function (data, type, row, meta) {
+          return meta.row + 1 + meta.settings._iDisplayStart;
+        },
+      },
+      {
+        data: "name",
+        render: function (data, type, row) {
+          return `<a class="truncate" style="--line:1;" href="/blog/show/${row.blog_id}">${data}</a>`;
+        },
+      },
+      {
+        data: "body",
+        render: function (data, type, row) {
+          return `<a class="truncate" style="--line:1;" href="/blog/show/${row.blog_id}">${data}</a>`;
+        },
+      },
+      {
+        data: "status",
+        render: function (data, type, row) {
+          let action = row.status == 'Pending' ? "pending" : "approved",
+            actionText = row.status != 'Pending' ? "Approved" : "Pending",
+            actionClass = row.status != 'Approved' ? "primary" : "";
+          return `
+          <a onclick="toggleComment(event)" data-id="${row.id}" href="#" class="btn small ${actionClass}">${actionText}</a>
+          `;
+        },
+      },
+      {
+        data: "create_time",
+        render: function (data, type, row) {
+          let date = new Date(data);
+          let day = String(date.getDate()).padStart(2, "0");
+          let month = String(date.getMonth() + 1).padStart(2, "0");
+          let year = date.getFullYear();
+          return `${day}/${month}/${year} `;
+        },
+      },
+      {
+        data: null,
+        render: function (data, type, row) {
+          return `<div class="btn-group" style="flex-wrap: nowrap;">
+              <a href="#" onclick="deleteComment(event)" data-id="${row.id}" class="btn small red">Delete</a>
+            </div>
+            `;
+        },
+      },
+    ],
   }),
   tb3 = new DataTable("#blog_management", {
     columnDefs: [
@@ -60,7 +121,7 @@ let tb1 = new DataTable("#user_management", {
       {
         data: "title",
         render: function (data, type, row) {
-          return `<a class="truncate" style="--line:1;" href="/blog/view/${row.id}">${data}</a>`;
+          return `<a class="truncate" style="--line:1;" href="/blog/show/${row.id}">${data}</a>`;
         },
       },
       {
@@ -215,6 +276,37 @@ let deleteProduct = (e) => {
     }
   });
 };
+let deleteComment = (e) => {
+  e.preventDefault();
+  const blogId = e.target.dataset.id;
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(`/api/delete_comment/${blogId}`, {
+        method: "POST",
+      })
+        // .then(async(response) => console.log(await response.text()))
+        .then((response) => response.json())
+        .then((data) => {
+          let header = data.state ? "Successfully" : "Error";
+          Swal.fire(header, data.message, "success");
+        })
+        .catch((error) => {
+          Swal.fire("Error", error, "error");
+        })
+        .finally(() => {
+          tb2.ajax.reload();
+        });
+    }
+  });
+};
 let deleteBlog = (e) => {
   e.preventDefault();
   const blogId = e.target.dataset.id;
@@ -242,6 +334,38 @@ let deleteBlog = (e) => {
         })
         .finally(() => {
           tb3.ajax.reload();
+        });
+    }
+  });
+};
+let toggleComment = (e) => {
+  e.preventDefault();
+  const blogId = e.target.dataset.id;
+  Swal.fire({
+    title: "Are you sure?",
+    text: "confirm this action!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(`/api/toggle_comment/${blogId}`, {
+        method: "POST",
+      })
+        // .then(async(response) => console.log(await response.text()))
+        .then((response) => response.json())
+        .then((data) => {
+          let header = data.state ? "Successfully" : "Error";
+          Swal.fire(header, data.message, "success");
+        })
+        .catch((error) => {
+          console.log(error);
+          Swal.fire("Error", error, "error");
+        })
+        .finally(() => {
+          tb2.ajax.reload();
         });
     }
   });
