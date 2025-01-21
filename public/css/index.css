@@ -548,3 +548,36 @@ section h3 {
     font-size: 1.2rem;
     text-align: center;
 }
+
+/* Farm Page */
+
+#farm .cards{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+#farm .cards h4{
+    font-size: 1.5rem;
+    width: 40%;
+    margin-bottom: 0px;
+}
+
+#farm .cards h5{
+    font-size: 1.2rem;
+    color: #27272788;
+    margin-bottom: 15px;
+}
+
+#farm .cards li{
+    margin: 1rem 0 0 2rem;
+    list-style: none;
+    border-left: 3px solid var(--primary);
+    padding-left: 15px;
+}
+
+@media (max-width: 768px) {
+    #farm .cards h4{
+        width: 100%;
+    }
+}

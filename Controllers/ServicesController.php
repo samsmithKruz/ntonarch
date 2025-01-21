@@ -9,4 +9,9 @@ class ServicesController extends Controller
     {
         $this->view('engineering');
     }
+
+    public function farm()
+    {
+        $this->view('farm');
+    }
 }

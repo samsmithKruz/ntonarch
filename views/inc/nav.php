@@ -14,8 +14,8 @@
                 <div class="items">
                     <a href="/blog">Blog & Media</a>
                     <a href="/market">Market</a>
-                    <a href="/engineering">Engineering</a>
-                    <a href="/farm">Farm</a>
+                    <a href="/services/engineering">Engineering</a>
+                    <a href="/services/farm">Farm</a>
                 </div>
             </div>
             <a href="/motivation">Motivation</a>
