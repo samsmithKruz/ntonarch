@@ -24,7 +24,7 @@ require_once __DIR__ . "/inc/Header.php";
     </div>
     <div class="content">
       <h3 class="price">
-        N <?= number_format($price, 2); ?>
+        N <?= $price, 2; ?>
       </h3>
       <h2><?= $title; ?></h2>
       <h5><?= $location; ?></h5>

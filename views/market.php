@@ -140,6 +140,7 @@ require_once __DIR__ . "/inc/Header.php";
             <h3 class="price">
               <span class="old">N <?= number_format((int)$stock->price + (0.483 * (int)$stock->price), 2); ?></span>
               <span>N <?= number_format($stock->price, 2) ?></span>
+              <span>N <?= $stock->price, 2 ?></span>
             </h3>
             <h5><?= $stock->location; ?></h5>
           </a>
