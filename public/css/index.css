@@ -519,7 +519,7 @@ section h3 {
 }
 
 #about-container{
-    padding: 2.5rem 0;
+    padding: 2.5rem 1rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -577,6 +577,9 @@ section h3 {
 }
 
 @media (max-width: 768px) {
+    #farm .container{
+        padding: 1rem;
+    }
     #farm .cards h4{
         width: 100%;
     }
