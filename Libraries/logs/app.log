@@ -164,3 +164,4 @@
 [2025-01-20 10:21:26] [WARNING] Undefined variable $blogs in C:\Users\Max\Herd\ntonarch\views\engineering.php on line 259
 [2025-01-20 10:25:21] [WARNING] Undefined variable $blogs in C:\Users\Max\Herd\ntonarch\views\engineering.php on line 237
 [2025-01-20 10:27:34] [WARNING] Undefined variable $blogs in C:\Users\Max\Herd\ntonarch\views\engineering.php on line 200
+[2025-01-21 15:21:27] [EXCEPTION] Call to a member function prepare() on null in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Database.php on line 73
