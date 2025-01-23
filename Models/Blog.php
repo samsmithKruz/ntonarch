@@ -109,11 +109,32 @@ class Blog extends Model
         }
         return ["state" => false, "message" => "No valid fields to update.", "type" => "error"];
     }
+
+    public function postComment()
+    {
+        $name = Helpers::safe_data($_POST['name']);
+        $body = Helpers::safe_data($_POST['body']);
+        $blog_id = Helpers::safe_data($_POST['blog_id']);
+        if(empty($name) || empty($body) || empty($blog_id)){
+            return ["state" => false, "message" => "All fields are required.", "type" => "error"];
+        }
+        $this->db->query("INSERT INTO comments(blog_id, name, body, status) VALUES(:blog_id, :name, :body, :status)")
+            ->bind(":blog_id", $blog_id)
+            ->bind(":name", $name)
+            ->bind(":body", $body)
+            ->bind(":status", 'Pending')
+            ->execute();
+        if ($this->db->rowCount() == 0) {
+            return ["state" => false, "message" => "Something went wrong!!", "type" => "error"];
+        }
+
+        return ["state" => true, "message" => "Comment submitted for approval.", "type" => "info"];
+    }
     public function getCommentsById($blogId)
     {
 
         // Check if the blog exists
-        return $this->db->query("SELECT id, comment, date FROM comments WHERE id = :blog_id")
+        return $this->db->query("SELECT id, name, body, create_time, status FROM comments WHERE blog_id = :blog_id")
             ->bind(":blog_id", $blogId)
             ->resultSet();
     }

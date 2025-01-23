@@ -1,4 +1,7 @@
 <?php
+
+use Models\Comment;
+
 $header_include = "<link rel=\"stylesheet\" href=\"/public/css/view_blog.css\" />";
 $title = "Ntornarch's Blog";
 $page = "blog";
@@ -41,30 +44,32 @@ require_once __DIR__ . "/inc/Header.php";
       <?= $blog->content; ?>
     </div>
     <div class="comments">
-      <h3>Comments <span>(<?= count($comments); ?>)</span></h3>
+      <h3>Comments <span>(<?= count(array_filter($comments, function($comment){
+        return $comment->status === 'Approved';
+      })); ?>)</span></h3>
       <div class="comment">
         <?php foreach ($comments as $comment): ?>
+          <?php if($comment->status != 'Approved') continue; ?>
           <div>
             <div class="info">
               <div>
-                <span class="avatar">S</span>
-                <span>Smith Kruz</span>
+                <span class="avatar"><?= substr($comment->name, 0, 1) ?></span>
+                <span><?= $comment->name; ?></span>
               </div>
             </div>
             <p class="content">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Aperiam aliquam totam tenetur praesentium, perferendis iste?
+              <?= $comment->body; ?>
             </p>
           </div>
         <?php endforeach; ?>
-        <form action="">
+        <form action="" method="post">
           <div class="input">
-            <input type="hidden" name="blog_id" value="">
+            <input type="hidden" name="blog_id" value="<?=$blog->id?>">
             <input type="hidden" name="csrf" value="<?=csrf_token();?>">
-            <input type="text" placeholder="Name" />
+            <input type="text" name="name" placeholder="Name" />
           </div>
           <div class="input">
-            <input type="text" placeholder="Enter your comments here" />
+            <input type="text" name="body" placeholder="Enter your comments here" />
             <input type="submit" value="Comment" />
           </div>
         </form>

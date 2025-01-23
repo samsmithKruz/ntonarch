@@ -43,14 +43,21 @@ class BlogController extends Controller
             redirect('blog');
         }
         $blog = $this->model->getBlogById(Helpers::safe_data($params[0]));
-        // $comments = $this->model->getCommentsById(Helpers::safe_data($params[0]));
+        $comments = $this->model->getCommentsById(Helpers::safe_data($params[0]));
+        // print_r($comments);exit();
         if (empty($blog)) {
             flashMessage((object)['type' => "error", "message" => "The requested blog was not found."]);
             redirect('blog');
         }
+        if (Helpers::getMethod() == "POST") {
+            Helpers::csrf_request();
+            
+            $response = (object) $this->model->postComment();
+            flashMessage($response);
+        }
         // print_r($blog);exit();
         $this->data['blog'] = $blog;
-        // $this->data['comments']= $comments;
+        $this->data['comments']= $comments;
         $this->view("view-blog", $this->data);
     }
     public function update($params)
@@ -90,4 +97,14 @@ class BlogController extends Controller
         $this->data['avatar'] = $user->avatar;
         $this->view('manage-blogs', $this->data);
     }
+    public function comment()
+    {
+        Helpers::isLoggedIn();
+        $user = Base::loadUser();
+        $this->data['name'] = explode(" ", $user->fullname)[0];
+        $this->data['tel'] = $user->tel;
+        $this->data['avatar'] = $user->avatar;
+        $this->view('manage-comments', $this->data);
+    }
+    
 }
