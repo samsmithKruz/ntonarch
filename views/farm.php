@@ -1,132 +1,153 @@
 <?php
-$header_include = "<link rel=\"stylesheet\" href=\"/public/css/index.css\" />";
+// $header_include = "<link rel=\"stylesheet\" href=\"/public/css/index.css\" />";
 $title = "Welcome to Ntornarch";
 $page = "index";
 
 require_once __DIR__ . "/inc/Header.php";
+require_once __DIR__ . "/inc/nav.php"; ?>
 
-?>
+<section class="page-title"
+    style="background-image: url('/public/assets/images/services/img-0.jpg'); background-attachment: fixed;">
+    <div class="overlay"
+        style="position: absolute; top: 0;left:0; width:100%; height:100%; background-color:#4e1d066f; mix-blend-mode:multiply;">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12">
+                <h2>Services</h2>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Services</li>
+                </ol>
+            </div>
+        </div> <!-- end row -->
+    </div> <!-- end container -->
+</section>
 
-<div id="engineering">
+<section class="service-single-section section-padding">
+    <div class="container">
+        <div class="row">
+            <style>
+                .service-single-content img {
+                    width: 100%;
+                    height: 470px;
+                    object-fit: cover;
+                }
+            </style>
+            <div class="col col-md-9 col-md-push-3">
+                <div class="service-single-content">
+                    <div class="service-single-img-holder">
+                        <img src="/public/assets/images/services/img-3.jpg" alt="Agriculture & Farming">
+                    </div>
+                    <h2>Agriculture & Farming</h2>
+                    <p>Our Agriculture & Farming services are dedicated to enhancing food security and promoting
+                        sustainable farming practices. With a focus on innovative agricultural solutions, we provide
+                        comprehensive support to farmers, from crop management to resource optimization, ensuring that
+                        agriculture thrives for generations to come. We leverage technology, modern farming methods, and
+                        sustainable practices to increase productivity and efficiency.</p>
+                    <blockquote>
+                        <p>"Revolutionizing agriculture for a sustainable and prosperous future."</p>
+                        <span>- Samuel Benny</span>
+                    </blockquote>
+                    <div class="clearfix benefit">
+                        <div class="img-holder">
+                            <img src="/public/assets/images/services/benefit.jpg" alt="Benefits of our services">
+                        </div>
+                        <div class="details">
+                            <h3>Key Benefits</h3>
+                            <ul>
+                                <li><span>1</span> Sustainable farming methods that protect the environment</li>
+                                <li><span>2</span> Advanced agricultural technology for improved crop yield</li>
+                                <li><span>3</span> Expert consultation on farm management and growth optimization</li>
+                            </ul>
+                            <p>Our team brings a wealth of experience in agriculture, providing tailored solutions to
+                                meet the unique needs of each farm. We focus on improving soil health, reducing water
+                                waste, and introducing cutting-edge technologies that increase yield and efficiency.</p>
+                        </div>
+                    </div>
+                    <div class="research">
+                        <h3>Research & Development</h3>
+                        <p>We continuously research and adopt the latest agricultural innovations, including precision
+                            farming, climate-smart practices, and crop breeding technologies. Our goal is to provide
+                            farmers with the tools they need to overcome challenges like climate change, resource
+                            scarcity, and fluctuating market demands.</p>
+                    </div>
+                    <div class="problem-solution-section">
+                        <div class="panel-group theme-accordion-s2" id="accordion">
+                            <div class="panel panel-default active-bg-color">
+                                <div class="panel-heading">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-1"
+                                        aria-expanded="true">What challenges do we solve?</a>
+                                </div>
+                                <div id="collapse-1" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <p>We address critical challenges in agriculture such as soil degradation, water
+                                            scarcity, pest control, and climate unpredictability. Our solutions are
+                                            designed to enhance productivity while ensuring long-term sustainability for
+                                            farmers and their communities.</p>
+                                    </div>
+                                </div>
+                            </div>
 
-</div>
-<div id="hero">
-    <?php require_once __DIR__ . "/inc/nav.php"; ?>
-    <section class="hero">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide" style="--bg: url('/public/assets/equip.webp');">
-                <div class="overlay"></div>
-                <div class="container">
-                    <h2>
-                        Welcome to <br />
-                        <span>Ntonarch Farm</span>
-                    </h2>
-                    <p>
-                    Cultivating Health and Sustainability Through Progressive Agriculture
-                    </p>
-                    <a href="#" class="btn secondary">Explore </a>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse-2">How do we improve farming outcomes?</a>
+                                </div>
+                                <div id="collapse-2" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>Through a combination of innovative farming techniques, advanced equipment,
+                                            and personalized consulting, we optimize farming practices for higher
+                                            yields, improved soil health, and better water management. Our solutions
+                                            help farmers enhance productivity with minimal environmental impact.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse-3">Are our clients satisfied?</a>
+                                </div>
+                                <div id="collapse-3" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>Our clients benefit from improved crop yield, healthier soil, and optimized
+                                            farm management practices. With a track record of success stories, our
+                                            clients consistently report better outcomes and a more sustainable approach
+                                            to farming.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="theme-btn">Get the Service</a>
+                </div>
+
+            </div>
+            <div class="col col-md-3 col-md-pull-9">
+                <div class="service-sidebar">
+                    <div class="widget service-list-widget">
+                        <ul>
+                            <li><a href="/services">All Service</a></li>
+                            <li><a href="/services/engineering">Engineering & Constructions</a></li>
+                            <li class="current"><a href="/services/farm">Agriculture & Farming</a></li>
+                            <li><a href="/services/it">Information Technology</a></li>
+                            <li>
+                                <a href="/services/web_development">Web Development</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget contact-widget">
+                        <div>
+                            <h5>We are industrial <span>Experts</span></h5>
+                            <a href="/contact">Contact with us</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="swiper-slide" style="--bg: url('/public/assets/choose.webp');">
-                <div class="overlay"></div>
-
-            </div>
-    </section>
-</div>
-<main id="farm">
-    <section id="about-container" class="container">
-        <div class="main">
-            <h3>About Ntonarch Farm</h3>
-            <p>
-            Ntonarch Farm is a dedicated branch of Ntonarch, focused on sustainable farming practices. We specialize in producing a wide range of essential crops, including yam, plantain, rice, beans, pepper, palm oil, okoro, ogbono, and green leafy vegetables—healthy foods that are perfect for a balanced diet.
-            </p>
-            <!-- <a href="#" class="btn primary">About Us</a> -->
-        </div>
-        <div class="cards">
-            <div>
-                <h4>Our Commitment to Sustainability</h4>
-                <h5>Sustainable Farming for a Healthier Future</h5>
-                <p> At Ntonarch Farm, we prioritize sustainable farming methods, ensuring all products are grown without harmful chemicals. Our practices align with our core values of health and environmental stewardship, allowing us to produce premium crops while protecting the planet.</p>
-            </div>
-            <div>
-                <h4>Our Farm Services</h4>
-                <h5>What We Offer
-                </h5>
-                <ul>
-                    <li><b>Crop Production:</b> Specializing in essential crops such as yam, rice, and vegetables.</li>
-                    <li><b>Sustainable Practices:</b> Growing healthy produce using eco-friendly methods.</li>
-                    <li><b>E-commerce Platform:</b> Offering transparent access to our products through Ntonarch Market.</li>
-                    <li><b>Farm Management Consulting:</b> Helping businesses optimize their agricultural practices.</li>
-                </ul>
-            </div>
-            <div>
-                <h4>Farm and Market Integration</h4>
-                <h5>Seamless Farm to Market Solutions</h5>
-                <p>  As part of the Ntonarch ecosystem, Ntonarch Farm works hand-in-hand with Ntonarch Market. We not only provide fresh produce but also valuable cash crops, such as cocoa and timber, ensuring that businesses and consumers have access to high-quality agricultural products.</p>
-            </div>
-            <div>
-                <h4>Innovation in Agriculture</h4>
-                <h5>Revolutionizing Farming with Technology</h5>
-                <p>Ntonarch Farm integrates modern technology with traditional farming practices to enhance productivity and sustainability. Our digital transformation ensures we meet the evolving needs of our customers and provide consistent premium-quality products.</p>
-            </div>
-            <div>
-                <h4>Digital Transparency</h4>
-                <h5>Explore Our Crops Online</h5>
-                <p>Through our Ntonarch Market platform, you can explore the variety of crops we produce. Learn about our farming processes and the natural benefits of our products—ensuring every purchase is made with confidence and transparency.</p>
-            </div>
-        </div>
-        <div class="more-details">
-
-        </div>
-    </section>
-    <section id="services">
-        <div class="container">
-            <div class="service">
-                <h3>Our Vision and Mission</h3>
-                <span class="service-headline"><b>Dedicated to Health, Sustainability, and Quality</b></span>
-                <div class="t">
-                    <p>
-                    Ntonarch Farm embodies the vision of Ntonarch to provide health-conscious, sustainable agricultural products. We strive for excellence in every operation, ensuring that we contribute to a healthier and more sustainable world for future generations.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="choose" class="container">
-        <h3>Why Choose Ntonarch Farm?</h3>
-        <h4>Excellence in Every Harvest</h4>
-        <p>
-        Ntonarch Farm is more than just a supplier. Whether you're a food enthusiast seeking organically grown products, a business needing bulk provisions, or interested in agricultural education, we are committed to meeting your needs with professionalism and quality.
-        </p>
-
-    </section>
-    <section id="service-cta" class="container">
-        <h3>Join Us on Our Green Journey</h3>
-        <p>We invite you to join us at Ntonarch Farm, where we are fostering a future where agriculture nourishes the body and protects the planet. Visit us or explore our digital platforms to experience the richness of our products.</p>
-        <h3>Start Your Sustainable Farming Journey Today</h3>
-        <p>Contact Us or Visit Ntonarch Farm</p>
-        <a href="#" class="btn primary">Get in Touch </a>
-    </section>
-    <section id="touch">
-        <div class="container">
-            <h3>Get in Touch with Us Today</h3>
-            <p>
-                Contact us today to start your journey towards sustainable energy
-                solutions with Greener Future. Our team is ready to provide
-                personalized support and answer all your questions.
-            </p>
-            <div>
-                <img src="/public/assets/choose.webp" alt="" />
-                <form action="">
-                    <input type="text" placeholder="Name" />
-                    <input type="text" placeholder="Email" />
-                    <textarea name="" rows="9" id="" placeholder="Message"></textarea>
-                    <input type="submit" value="Send Message" />
-                </form>
-            </div>
-        </div>
-    </section>
-</main>
+        </div> <!-- end row -->
+    </div> <!-- end container -->
+</section>
 
 <?php
 $footer_include = "";

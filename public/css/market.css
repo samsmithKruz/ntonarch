@@ -1,8 +1,9 @@
 @import url('./theme.css');
+/* 
 @import url('./header.css');
-@import url('./footer.css');
+@import url('./footer.css'); */
 @import url('./product-listing.css');
-#hero {
+/* #hero {
     min-height: 350px;
     position: relative;
     display: flex;
@@ -18,7 +19,7 @@
 #hero h2{
     color: var(--white);
     font-size: 4.5rem;
-}
+} */
 form#search {
     padding: 2rem;
     display: flex;

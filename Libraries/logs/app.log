@@ -165,3 +165,14 @@
 [2025-01-20 10:25:21] [WARNING] Undefined variable $blogs in C:\Users\Max\Herd\ntonarch\views\engineering.php on line 237
 [2025-01-20 10:27:34] [WARNING] Undefined variable $blogs in C:\Users\Max\Herd\ntonarch\views\engineering.php on line 200
 [2025-01-21 15:21:27] [EXCEPTION] Call to a member function prepare() on null in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Database.php on line 73
+[2025-01-25 12:48:13] [EXCEPTION] Call to a member function prepare() on null in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Database.php on line 73
+[2025-01-25 12:49:34] [EXCEPTION] Call to a member function prepare() on null in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Database.php on line 73
+[2025-01-25 12:59:17] [EXCEPTION] Call to a member function prepare() on null in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Database.php on line 73
+[2025-01-25 12:59:20] [EXCEPTION] Call to a member function prepare() on null in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Database.php on line 73
+[2025-01-25 12:59:21] [EXCEPTION] Call to a member function prepare() on null in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Database.php on line 73
+[2025-01-25 15:45:00] [WARNING] Undefined variable $blogs in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/about.php on line 160
+[2025-01-25 15:45:18] [WARNING] Undefined variable $blogs in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/about.php on line 160
+[2025-01-25 16:36:16] [WARNING] Undefined variable $blogs in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/about.php on line 243
+[2025-01-25 16:46:31] [USER ERROR] Method 'assets' not found in ServicesController in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/App.php on line 33
+[2025-01-25 16:46:32] [USER ERROR] Method 'assets' not found in ServicesController in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/App.php on line 33
+[2025-01-25 17:19:29] [USER ERROR] Method 'index' not found in ServicesController in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/App.php on line 33

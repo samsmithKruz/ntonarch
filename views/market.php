@@ -5,14 +5,26 @@ $title = "Ntornarch Market";
 $page = "market";
 
 require_once __DIR__ . "/inc/Header.php";
+require_once __DIR__ . "/inc/nav.php";
 
 ?>
-<div id="hero">
-  <?php require_once __DIR__ . "/inc/nav.php"; ?>
-  <section class="container">
-    <h2>Market</h2>
-  </section>
-</div>
+<section class="page-title"
+  style="background-image: url('/public/assets/images/hero-bg-blog.jpg'); background-attachment: fixed;">
+  <div class="overlay"
+    style="position: absolute; top: 0;left:0; width:100%; height:100%; background-color:#4e1d066f; mix-blend-mode:multiply;">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col col-xs-12">
+        <h2>Market</h2>
+        <ol class="breadcrumb">
+          <li><a href="/">Home</a></li>
+          <li>Market</li>
+        </ol>
+      </div>
+    </div> <!-- end row -->
+  </div> <!-- end container -->
+</section>
 <form id="search" method="get" class="container">
   <div class="input" style="flex-direction: row;">
     <input type="text" name="search" value="<?= old('search'); ?>" placeholder="X52 Mobile Phone Cooler">
