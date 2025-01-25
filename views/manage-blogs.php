@@ -16,7 +16,7 @@ require_once __DIR__ . "/inc/userHeader.php";
   <div class="table">
     <table id="blog_management">
       <thead>
-        <tr>0
+        <tr>
           <th>#</th>
           <th>Title</th>
           <th>Author</th>

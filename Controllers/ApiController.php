@@ -65,8 +65,8 @@ class ApiController extends Controller
         $recordsTotal = $this->db->query("SELECT COUNT(id) AS total FROM comments")->single()->total;
 
         $productsQuery = $this->db->query("SELECT id, name, body, create_time, blog_id, status FROM comments WHERE 1=1 $searchQuery ORDER BY $orderCol $orderDir LIMIT :start, :length");
-        $params[':start'] = (int)$start;
-        $params[':length'] = (int)$length;
+        $params[':start'] = (int) $start;
+        $params[':length'] = (int) $length;
         array_map(fn($key, $val) => $this->db->bind($key, $val), array_keys($params), $params);
         $products = $productsQuery->resultSet();
 
@@ -96,12 +96,48 @@ class ApiController extends Controller
         $recordsTotal = $this->db->query("SELECT COUNT(id) AS total FROM blogs WHERE author_id=$userId")->single()->total;
 
         $productsQuery = $this->db->query("SELECT blogs.id, blogs.title, blogs.created_at,blogs.author_id,users.fullname as author_name, blogs.status FROM blogs LEFT JOIN users on blogs.author_id=users.id WHERE author_id=$userId $searchQuery ORDER BY blogs.$orderCol $orderDir LIMIT :start, :length");
-        $params[':start'] = (int)$start;
-        $params[':length'] = (int)$length;
+        $params[':start'] = (int) $start;
+        $params[':length'] = (int) $length;
         array_map(fn($key, $val) => $this->db->bind($key, $val), array_keys($params), $params);
         $products = $productsQuery->resultSet();
 
         $this->render(['recordsTotal' => $recordsTotal, 'recordsFiltered' => $filteredTotal, 'data' => $products]);
+    }
+    public function manage_users()
+    {
+        Helpers::isLoggedIn();
+        Helpers::Auth([getenv('ADMIN')]);
+        $start = $_POST['start'] ?? 0;
+        $length = $_POST['length'] ?? 10;
+        $search = $_POST['search']['value'] ?? '';
+        $orderCol = isset($_POST['order'][0]) && isset($_POST['columns'][$_POST['order'][0]['column']]['data'])
+            ? $_POST['columns'][$_POST['order'][0]['column']]['data']
+            : 'id';
+        $orderDir = isset($_POST['order'][0]['dir']) ? $_POST['order'][0]['dir'] : 'ASC';
+
+
+        $searchQuery = $search ? " AND (users.email LIKE :search OR users.fullname LIKE :search)" : "";
+        $params = $search ? [':search' => "%$search%"] : [];
+        $recordsFiltered = $this->db->query("SELECT COUNT(users.id) AS total FROM users $searchQuery");
+        array_map(fn($key, $val) => $this->db->bind($key, $val), array_keys($params), $params);
+        $filteredTotal = $recordsFiltered->single()->total;
+        $recordsTotal = $this->db->query("SELECT COUNT(id) AS total FROM users")->single()->total;
+
+        $usersQuery = $this->db->query("
+        SELECT 
+            users.*,
+            NULL as password 
+        FROM users $searchQuery ORDER BY users.$orderCol $orderDir LIMIT :start, :length");
+        $params[':start'] = (int) $start;
+        $params[':length'] = (int) $length;
+        array_map(fn($key, $val) => $this->db->bind($key, $val), array_keys($params), $params);
+        $users = $usersQuery->resultSet();
+        $roles = explode(',', getenv('ROLES'));
+        foreach ($users as $user) {
+            $user->role = $roles[(int) $user->role] ?? "Unknown"; // Map role number to name, default if out of range
+        }
+
+        $this->render(['recordsTotal' => $recordsTotal, 'recordsFiltered' => $filteredTotal, 'data' => $users]);
     }
     public function manage_products()
     {
@@ -127,8 +163,8 @@ class ApiController extends Controller
         $recordsTotal = $this->db->query("SELECT COUNT(id) AS total FROM products")->single()->total;
 
         $productsQuery = $this->db->query("SELECT id, title, price, category, date FROM products WHERE 1=1 $searchQuery ORDER BY $orderCol $orderDir LIMIT :start, :length");
-        $params[':start'] = (int)$start;
-        $params[':length'] = (int)$length;
+        $params[':start'] = (int) $start;
+        $params[':length'] = (int) $length;
         array_map(fn($key, $val) => $this->db->bind($key, $val), array_keys($params), $params);
         $products = $productsQuery->resultSet();
 
@@ -226,6 +262,35 @@ class ApiController extends Controller
         }
         $this->render(['state' => false, 'message' => 'Failed to delete the Blog.']);
     }
+    public function delete_user($params)
+    {
+        Helpers::isLoggedIn();
+        Helpers::Auth([getenv('ADMIN')]);
+        if (!isset($params[0])) {
+            $this->render(['state' => false, 'message' => 'User ID not found.'], 404);
+        }
+        if($_SESSION[APP]->user->id == $params[0]){
+            $this->render(['state' => false, 'message' => 'You cannot delete yourself.'], 401);
+        }
+        $userId = sanitize($params[0]);
+        // Check if the product exists
+        $user = $this->db->query("SELECT id FROM users WHERE id = :user_id")
+            ->bind(":user_id", $userId)
+            ->single();
+        if (!$user) {
+            $this->render(["state" => false, "message" => "User not found."], 404);
+        }
+
+        // Delete the product from the database
+        $this->db->query("DELETE FROM users WHERE id = :user_id")
+            ->bind(":user_id", $userId)
+            ->execute();
+
+        if ($this->db->rowCount() > 0) {
+            $this->render(["state" => true, "message" => "User deleted successfully."]);
+        }
+        $this->render(['state' => false, 'message' => 'Failed to delete the User.']);
+    }
     public function toggle_comment($params)
     {
         Helpers::isLoggedIn();
@@ -285,10 +350,10 @@ class ApiController extends Controller
     public function loadProducts($params)
     {
         $this->model('Product');
-        $page = max(1, (int)($params[0] ?? 1));
+        $page = max(1, (int) ($params[0] ?? 1));
         $product = $this->model->getProducts($page);
         $product['data'] = !$product['state'] ? (new stdClass) : $product['data'];
-        $product['data']->product = (array)$product['data']->product;
+        $product['data']->product = (array) $product['data']->product;
         $this->render($product['data'], 200);
     }
     private function render($data, $statusCode = 200)

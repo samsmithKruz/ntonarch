@@ -176,3 +176,12 @@
 [2025-01-25 16:46:31] [USER ERROR] Method 'assets' not found in ServicesController in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/App.php on line 33
 [2025-01-25 16:46:32] [USER ERROR] Method 'assets' not found in ServicesController in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/App.php on line 33
 [2025-01-25 17:19:29] [USER ERROR] Method 'index' not found in ServicesController in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/App.php on line 33
+[2025-01-25 18:22:18] [WARNING] Undefined variable $userFullname in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/add-user.php on line 20
+[2025-01-25 19:03:36] [EXCEPTION] in_array(): Argument #2 ($haystack) must be of type array, string given in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Helpers.php on line 205
+[2025-01-25 19:03:36] [EXCEPTION] in_array(): Argument #2 ($haystack) must be of type array, string given in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Helpers.php on line 205
+[2025-01-25 19:09:36] [EXCEPTION] Call to undefined method Models\User::getProduct() in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Controllers/AdminController.php on line 43
+[2025-01-25 19:19:39] [EXCEPTION] Call to undefined method Models\User::getProduct() in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Controllers/AdminController.php on line 43
+[2025-01-25 19:29:28] [EXCEPTION] Call to undefined method Models\User::getProduct() in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Controllers/AdminController.php on line 43
+[2025-01-25 19:39:13] [EXCEPTION] Call to undefined method Models\User::updateUser() in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Controllers/AdminController.php on line 40
+[2025-01-25 19:44:17] [WARNING] Array to string conversion in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Models/User.php on line 80
+[2025-01-25 19:55:33] [WARNING] Undefined array key "role" in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Models/User.php on line 87

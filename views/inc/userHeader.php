@@ -48,7 +48,7 @@
             </div>
         </div>
     </header>
-    <main>
+    <main style='overflow-x:auto;'>
 
         <?php
         require_once __DIR__ . "/userNav.php";

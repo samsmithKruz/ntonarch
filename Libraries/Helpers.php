@@ -199,6 +199,14 @@ class Helpers
             redirect("login");
         }
     }
+    public static function Auth($role)
+    {
+        self::isLoggedIn();
+        if (!in_array($_SESSION[APP]->user->role, $role)) {
+            flashMessage(['state' => false, 'message' => "You are not authorized to view this page", 'type' => "error"]);
+            back("/");
+        }
+    }
     public static function uploadthumbnail()
     {
         // Allowed file extensions

@@ -12,15 +12,73 @@ let tb1 = new DataTable("#user_management", {
     columnDefs: [
       {
         orderable: false,
-        targets: [0, 4],
+        targets: [0,3,5],
       },
       {
         orderDataType: "dom-select",
         orderable: true,
-        targets: 3,
+        targets: 1,
       },
     ],
     order: [[1, "asc"]],
+    ajax: {
+      url: "/api/manage_users",
+      type: "POST",
+      dataFilter: function (data) {
+        console.log(data);
+        return data;
+      },
+    },
+    processing: true,
+    serverSide: true,
+    columns:[
+      {
+        data: null,
+        orderable: false,
+        render: function (data, type, row, meta) {
+          return meta.row + 1 + meta.settings._iDisplayStart;
+        },
+      },
+      {
+        data: "fullname",
+        render: function (data, type, row) {
+          return `<a href="/author/${row.id}">${data}</a>`;
+        },
+      },
+      {
+        data: "email",
+        render: function (data, type, row) {
+          return data;
+        },
+      },
+      {
+        data: "role",
+        render: function (data, type, row) {
+          return `<span class="btn small">${data}</span>`;
+        },
+      },
+      {
+        data: "date",
+        render: function (data, type, row) {
+          console.log('data:',data)
+          let date = new Date(data);
+          let day = String(date.getDate()).padStart(2, "0");
+          let month = String(date.getMonth() + 1).padStart(2, "0");
+          let year = date.getFullYear();
+          return `${day}/${month}/${year} `;
+        },
+      },
+      {
+        data: null,
+        render: function (data, type, row) {
+          return `<div class="btn-group" style="flex-wrap: nowrap;">
+              <a href="/admin/update/${row.id}" class="btn small green">Update</a>
+              <a href="#" onclick="deleteUser(event)" data-id="${row.id}" class="btn small red">Delete</a>
+            </div>
+            `;
+        },
+      },
+    ],
   }),
   tb2 = new DataTable("#comment_management", {
     columnDefs: [
@@ -334,6 +392,37 @@ let deleteBlog = (e) => {
         })
         .finally(() => {
           tb3.ajax.reload();
+        });
+    }
+  });
+};
+let deleteUser = (e) => {
+  e.preventDefault();
+  const userId = e.target.dataset.id;
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(`/api/delete_user/${userId}`, {
+        method: "POST",
+      })
+        // .then(async(response) => console.log(await response.text()))
+        .then((response) => response.json())
+        .then((data) => {
+          let header = data.state ? "Successfully" : "Error";
+          Swal.fire(header, data.message, "success");
+        })
+        .catch((error) => {
+          Swal.fire("Error", error, "error");
+        })
+        .finally(() => {
+          tb1.ajax.reload();
         });
     }
   });

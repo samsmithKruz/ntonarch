@@ -18,7 +18,7 @@ require_once __DIR__ . "/inc/userHeader.php";
     <form action="" method="post" enctype="multipart/form-data">
         <div class="input">
             <label for="#">Product Title</label>
-            <input type="text" name="title" value="<?= $productTitle; ?>" placeholder="Enter Product title." />
+            <input type="text" name="title" value="<?= $productTitle ?? ""; ?>" placeholder="Enter Product title." />
         </div>
         <div class="input">
             <label for="#">Product Price</label>
@@ -28,12 +28,10 @@ require_once __DIR__ . "/inc/userHeader.php";
             <label for="#">Product Category</label>
             <select name="category" id="">
                 <option disabled <?= !isset($category) ? "selected" : ""; ?>>-- Select Product Category --</option>
-                <option <?= isset($category) && $category == "cloth" ? "selected" : ""; ?> value="cloth">Cloth</option>
-                <option <?= isset($category) && $category == "food" ? "selected" : ""; ?> value="food">Food</option>
-                <option <?= isset($category) && $category == "appliances" ? "selected" : ""; ?> value="appliances">Appliances</option>
-                <option <?= isset($category) && $category == "electronics" ? "selected" : ""; ?> value="electronics">Electronics</option>
-                <option <?= isset($category) && $category == "phones" ? "selected" : ""; ?> value="phones">Phones</option>
-                <option <?= isset($category) && $category == "others" ? "selected" : ""; ?> value="others">Others</option>
+                <?php foreach (explode(",", getenv("PRODUCT_CATEGORIES")) as $value): ?>
+                    <option <?= isset($category) && $category == $value ? "selected" : ""; ?> value="<?= $value ?>">
+                        <?= ucfirst($value) ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
         <div class="input">
@@ -42,14 +40,14 @@ require_once __DIR__ . "/inc/userHeader.php";
         </div>
         <div class="input">
             <label for="#">Seller's Contact</label>
-            <input type="text" value="<?= $sellers_contact ?? ""; ?>" name="sellers_contact" value="<?= isset($tel) ? $tel : ""; ?>" placeholder="Enter seller's contact" />
+            <input type="text" value="<?= $sellers_contact ?? ""; ?>" name="sellers_contact"
+                value="<?= isset($tel) ? $tel : ""; ?>" placeholder="Enter seller's contact" />
         </div>
         <div class="input">
             <label for="">Description</label>
             <textarea name="editor" name="description" class="editor" id="editor"><?= $description ?? ""; ?></textarea>
         </div>
-        <div
-            style="
+        <div style="
               gap: 1rem;
               display: grid;
               grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -57,9 +55,11 @@ require_once __DIR__ . "/inc/userHeader.php";
             <?php for ($i = 1; $i <= 4; $i++): ?>
                 <div class="input">
                     <label for="#">Image (<?= $i; ?>)</label>
-                    <input type="file" <?= $i == 1 && !isset($productTitle) ? "required" : ""; ?> name="img[]" onchange="previewImage(event)" />
+                    <input type="file" <?= $i == 1 && !isset($productTitle) ? "required" : ""; ?> name="img[]"
+                        onchange="previewImage(event)" />
                     <?php if (!empty($img[$i - 1])): ?>
-                        <img src="/public/uploads/<?= $img[$i - 1]; ?>" class="img-preview" alt="Preview of Image " style="width: auto; height: 142px; margin-top: 0.5rem; object-fit:contain; align-self: flex-start" />
+                        <img src="/public/uploads/<?= $img[$i - 1]; ?>" class="img-preview" alt="Preview of Image "
+                            style="width: auto; height: 142px; margin-top: 0.5rem; object-fit:contain; align-self: flex-start" />
                     <?php endif; ?>
                 </div>
             <?php endfor; ?>
@@ -73,21 +73,21 @@ require_once __DIR__ . "/inc/userHeader.php";
 
 <script>
     ClassicEditor.create(document.querySelector("#editor"), {
-            removePlugins: [
-                "style",
-                "Title",
-                "ImageStyle",
-                "ImageCaption",
-                "ImageToolbar",
-                "MediaEmbed",
-                "ImageUpload",
-            ],
-            updateSourceElementOnDestroy: true,
-            fontSize: {
-                options: [10, 12, 14, "default", 18, 20, 22],
-                supportAllValues: true,
-            },
-        })
+        removePlugins: [
+            "style",
+            "Title",
+            "ImageStyle",
+            "ImageCaption",
+            "ImageToolbar",
+            "MediaEmbed",
+            "ImageUpload",
+        ],
+        updateSourceElementOnDestroy: true,
+        fontSize: {
+            options: [10, 12, 14, "default", 18, 20, 22],
+            supportAllValues: true,
+        },
+    })
         .then((editor) => {
             window.editor = editor;
         })
