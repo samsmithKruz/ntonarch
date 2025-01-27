@@ -195,3 +195,8 @@
 [2025-01-27 03:48:58] [WARNING] Undefined property: stdClass::$content in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/view-blog.php on line 44
 [2025-01-27 04:12:02] [WARNING] Undefined property: stdClass::$content in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/about.php on line 339
 [2025-01-27 04:12:10] [WARNING] Undefined property: stdClass::$content in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/about.php on line 339
+[2025-01-27 04:34:37] [EXCEPTION] Call to a member function prepare() on null in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Database.php on line 73
+[2025-01-27 04:37:38] [WARNING] mkdir(): Read-only file system in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Helpers.php on line 233
+[2025-01-27 04:38:41] [WARNING] mkdir(): Read-only file system in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Helpers.php on line 233
+[2025-01-27 04:42:23] [WARNING] mkdir(): Read-only file system in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Helpers.php on line 233
+[2025-01-27 04:42:27] [WARNING] mkdir(): Read-only file system in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Helpers.php on line 233

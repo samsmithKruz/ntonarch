@@ -214,7 +214,7 @@ class Helpers
         if (strlen($_FILES['thumbnail']['full_path']) > 0) {
 
             // Step 2: Handle the file upload
-            $uploadDir = "/public/uploads/";
+            $uploadDir = __DIR__ . "/../public/uploads/";
             $fileTmpPath = $_FILES['thumbnail']['tmp_name'];
             $fileOriginalName = $_FILES['thumbnail']['name'];
             $fileExtension = strtolower(pathinfo($fileOriginalName, PATHINFO_EXTENSION));
@@ -228,7 +228,7 @@ class Helpers
             }
 
             $newFileName =  bin2hex(random_bytes(4)) . date('Y_m_d_is') . '.' . $fileExtension;
-            $dest_path = __DIR__ . "/.." . $uploadDir . $newFileName;
+            $dest_path =  $uploadDir . $newFileName;
             if (!is_dir($uploadDir)) {
                 mkdir($uploadDir, 0777, true);
             }

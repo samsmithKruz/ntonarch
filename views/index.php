@@ -429,15 +429,15 @@ require_once __DIR__ . "/inc/nav.php"; ?>
                 <img src="/public/uploads/<?= htmlspecialchars($blog->thumbnail); ?>"
                   alt="<?= htmlspecialchars($blog->title); ?>">
               </div>
-              <div class="author">
-                <a href="/author/<?= $blog->author_id ?>"><?= htmlspecialchars($blog->fullname); ?></a>
-              </div>
               <div class="details">
                 <h3 class="truncate head">
                   <a href="/blog/show/<?= $blog->id ?>">
                     <?= htmlspecialchars($blog->title); ?>
                   </a>
                 </h3>
+                <div class="author">
+                  Author: <a href="/author/<?= $blog->author_id ?>"><?= htmlspecialchars($blog->fullname); ?></a>
+                </div>
                 <p class="date"><?= (new DateTime($blog->created_at))->format('d.m.y'); ?></p>
                 <p class="truncate" style="--line: 3;">
                   <?= htmlspecialchars(getFirstParagraphContent($blog->body)); ?>

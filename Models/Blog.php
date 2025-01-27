@@ -12,7 +12,7 @@ class Blog extends Model
         if (!in_array($_SESSION[APP]->user->role, [0, 1, 3])) {
             return ["state" => false, "message" => "You don't have permission for this operation, contact admin!!", "type" => "error"];
         }
-        $this->db->query("SELECT id from blogs where title=:title and content=:content")
+        $this->db->query("SELECT id from blogs where title=:title and body=:content")
             ->bind(":title", Helpers::get("title"))
             ->bind(":content", $_POST['editor'])
             ->execute();
@@ -24,7 +24,7 @@ class Blog extends Model
             return ["state" => false, "message" => $thumbnail['message'], "type" => "error"];
         }
         $thumbnail = $thumbnail['filename'];
-        $this->db->query("INSERT INTO blogs(author_id,title,thumbnail,content,tags) values(:author_id,:title,:thumbnail,:content,:tags)")
+        $this->db->query("INSERT INTO blogs(author_id,title,thumbnail,body,tags) values(:author_id,:title,:thumbnail,:content,:tags)")
             ->bind(":author_id", $_SESSION[APP]->user->id)
             ->bind(":title", Helpers::get("title"))
             ->bind(":thumbnail", $thumbnail)
@@ -42,7 +42,7 @@ class Blog extends Model
     {
         $statusQuery = $status != "" ? " where blogs.status=" . $status : "";
         $offset = ($page - 1) * $limit;
-        $blogs = $this->db->query("select blogs.*,users.fullname,users.avatar from blogs left join users on blogs.author_id=users.id $statusQuery LIMIT $limit OFFSET $offset")->resultSet();
+        $blogs = $this->db->query("select blogs.*,users.fullname,users.avatar from blogs left join users on blogs.author_id=users.id $statusQuery ORDER BY created_at desc LIMIT $limit OFFSET $offset")->resultSet();
         $total = $this->db->query("Select count(id) as total from blogs $statusQuery")->single()->total;
         return (object)['total' => $total, 'blogs' => $blogs];
     }

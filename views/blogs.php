@@ -28,6 +28,13 @@ require_once __DIR__ . "/inc/nav.php";
   <div class="container">
     <div class="row">
       <div class="col col-md-8">
+        <style>
+          .blog-content .entry-media img{
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+          }
+        </style>
         <div class="blog-content">
           <?php foreach ($blog_data->blogs as $blog): ?>
             <?php // print_r($blog);exit(); ?>
