@@ -294,6 +294,34 @@ class ApiController extends Controller
         }
         $this->render(['state' => false, 'message' => 'Failed to delete the Blog.']);
     }
+    public function delete_motivation($params)
+    {
+        Helpers::isLoggedIn();
+        if (!isset($params[0])) {
+            $this->render(['state' => false, 'message' => 'Motivation ID not found.'], 404);
+        }
+        $blogId = sanitize($params[0]);
+        $adminFilter = $_SESSION[APP]->user->role == getenv('ADMIN') ? "" : " AND author_id=:author_id";
+        // Check if the product exists
+        $blog = $this->db->query("SELECT id FROM motivations WHERE id = :id $adminFilter")
+            ->bind(":id", $blogId);
+            if($adminFilter){
+                $blog->bind(":author_id", $_SESSION[APP]->user->id);
+            }
+        $blog = $blog->single();
+        if (!$blog) {
+            $this->render(["state" => false, "message" => "Motivation not found."], 404);
+        }
+        // Delete the product from the database
+        $this->db->query("DELETE FROM motivations WHERE id = :id")
+            ->bind(":id", $blogId)
+            ->execute();
+
+        if ($this->db->rowCount() > 0) {
+            $this->render(["state" => true, "message" => "Motivation deleted successfully."]);
+        }
+        $this->render(['state' => false, 'message' => 'Failed to delete the Motivation.']);
+    }
     public function delete_user($params)
     {
         Helpers::isLoggedIn();

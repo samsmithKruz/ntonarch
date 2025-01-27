@@ -467,6 +467,37 @@ let deleteBlog = (e) => {
     }
   });
 };
+let deleteMotivation = (e) => {
+  e.preventDefault();
+  const blogId = e.target.dataset.id;
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(`/api/delete_motivation/${blogId}`, {
+        method: "POST",
+      })
+        // .then(async(response) => console.log(await response.text()))
+        .then((response) => response.json())
+        .then((data) => {
+          let header = data.state ? "Successfully" : "Error";
+          Swal.fire(header, data.message, "success");
+        })
+        .catch((error) => {
+          Swal.fire("Error", error, "error");
+        })
+        .finally(() => {
+          tb5.ajax.reload();
+        });
+    }
+  });
+};
 let deleteUser = (e) => {
   e.preventDefault();
   const userId = e.target.dataset.id;
