@@ -112,17 +112,18 @@ class Blog extends Model
 
     public function postComment()
     {
-        $name = Helpers::safe_data($_POST['name']);
-        $body = Helpers::safe_data($_POST['body']);
-        $blog_id = Helpers::safe_data($_POST['blog_id']);
+        $name = Helpers::get('name');
+        $body = Helpers::get('body');
+        $blog_id = Helpers::get('blog_id');
         if(empty($name) || empty($body) || empty($blog_id)){
             return ["state" => false, "message" => "All fields are required.", "type" => "error"];
         }
+
         $this->db->query("INSERT INTO comments(blog_id, name, body, status) VALUES(:blog_id, :name, :body, :status)")
             ->bind(":blog_id", $blog_id)
             ->bind(":name", $name)
             ->bind(":body", $body)
-            ->bind(":status", 'Pending')
+            ->bind(":status", '0')
             ->execute();
         if ($this->db->rowCount() == 0) {
             return ["state" => false, "message" => "Something went wrong!!", "type" => "error"];

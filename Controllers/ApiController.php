@@ -87,15 +87,17 @@ class ApiController extends Controller
         $orderDir = isset($_POST['order'][0]['dir']) ? $_POST['order'][0]['dir'] : 'ASC';
 
 
-        $searchQuery = $search ? " AND (blogs.title LIKE :search OR blogs.content LIKE :search OR users.fullname LIKE :search)" : "";
+        $searchQuery = $search ? " AND (blogs.title LIKE :search OR blogs.body LIKE :search OR users.fullname LIKE :search)" : "";
         $params = $search ? [':search' => "%$search%"] : [];
         $userId = $_SESSION[APP]->user->id;
-        $recordsFiltered = $this->db->query("SELECT COUNT(blogs.id) AS total FROM blogs LEFT JOIN users on blogs.author_id=users.id WHERE blogs.author_id=$userId $searchQuery");
+        $adminFilter = $_SESSION[APP]->user->role == getenv('ADMIN') ? "" : " AND blogs.author_id=$userId";
+        $adminFilter_ = $_SESSION[APP]->user->role == getenv('ADMIN') ? "" : " AND author_id=$userId";
+        $recordsFiltered = $this->db->query("SELECT COUNT(blogs.id) AS total FROM blogs LEFT JOIN users on blogs.author_id=users.id WHERE 1=1 $adminFilter $searchQuery");
         array_map(fn($key, $val) => $this->db->bind($key, $val), array_keys($params), $params);
         $filteredTotal = $recordsFiltered->single()->total;
-        $recordsTotal = $this->db->query("SELECT COUNT(id) AS total FROM blogs WHERE author_id=$userId")->single()->total;
+        $recordsTotal = $this->db->query("SELECT COUNT(id) AS total FROM blogs WHERE 1=1 $adminFilter_")->single()->total;
 
-        $productsQuery = $this->db->query("SELECT blogs.id, blogs.title, blogs.created_at,blogs.author_id,users.fullname as author_name, blogs.status FROM blogs LEFT JOIN users on blogs.author_id=users.id WHERE blogs.author_id=$userId $searchQuery ORDER BY blogs.$orderCol $orderDir LIMIT :start, :length");
+        $productsQuery = $this->db->query("SELECT blogs.id, blogs.title, blogs.created_at,blogs.author_id,users.fullname as author_name, blogs.status FROM blogs LEFT JOIN users on blogs.author_id=users.id WHERE 1=1 $adminFilter $searchQuery ORDER BY blogs.$orderCol $orderDir LIMIT :start, :length");
         $params[':start'] = (int) $start;
         $params[':length'] = (int) $length;
         array_map(fn($key, $val) => $this->db->bind($key, $val), array_keys($params), $params);
@@ -333,15 +335,15 @@ class ApiController extends Controller
         $blogId = sanitize($params[0]);
         // Check if the product exists
         $blog = $this->db->query("SELECT id, status FROM comments WHERE id = :blog_id")
-            ->bind(":blog_id", $blogId)
-            ->single();
+        ->bind(":blog_id", $blogId)
+        ->single();
         if (!$blog) {
             $this->render(["state" => false, "message" => "Comment not found."], 404);
         }
-        // Delete the product from the database
+        // updatw the comment from the database
         $this->db->query("UPDATE comments SET status=:status WHERE id = :blog_id")
             ->bind(":blog_id", $blogId)
-            ->bind(":status", $blog->status == 'Approved' ? 'Pending' : 'Approved')
+            ->bind(":status", $blog->status == '1' ? '0' : '1')
             ->execute();
 
         if ($this->db->rowCount() > 0) {

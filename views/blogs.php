@@ -30,6 +30,7 @@ require_once __DIR__ . "/inc/nav.php";
       <div class="col col-md-8">
         <div class="blog-content">
           <?php foreach ($blog_data->blogs as $blog): ?>
+            <?php // print_r($blog);exit(); ?>
             <div class="post format-standard-image">
               <div class="entry-media">
                 <img src="/public/uploads/<?= htmlspecialchars($blog->thumbnail); ?>"
@@ -55,7 +56,7 @@ require_once __DIR__ . "/inc/nav.php";
                       style="--line: 1;"><?= htmlspecialchars($blog->title); ?></a></h3>
                 </div>
               </div>
-              <p><?= htmlspecialchars(getFirstParagraphContent($blog->content)); ?></p>
+              <p><?= htmlspecialchars(getFirstParagraphContent($blog->body)); ?></p>
               <a href="/blog/show/<?= $blog->id ?>" class="theme-btn">Read More</a>
             </div>
           <?php endforeach; ?>

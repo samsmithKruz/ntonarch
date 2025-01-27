@@ -49,7 +49,7 @@ class BlogController extends Controller
         }
         $blog = $this->model->getBlogById(Helpers::safe_data($params[0]));
         $comments = $this->model->getCommentsById(Helpers::safe_data($params[0]));
-        // print_r($comments);exit();
+        // dd($blog);
         if (empty($blog)) {
             flashMessage((object) ['type' => "error", "message" => "The requested blog was not found."]);
             redirect('blog');

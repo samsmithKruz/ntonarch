@@ -188,3 +188,10 @@
 [2025-01-27 01:23:18] [WARNING] Attempt to read property "total" on false in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Models/Motivation.php on line 46
 [2025-01-27 02:10:47] [WARNING] Attempt to read property "total" on false in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Models/Motivation.php on line 46
 [2025-01-27 02:42:42] [WARNING] Undefined variable $motivationTitle in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/post-motivation.php on line 20
+[2025-01-27 03:41:54] [WARNING] Undefined property: stdClass::$content in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/blogs.php on line 58
+[2025-01-27 03:42:05] [WARNING] Undefined property: stdClass::$content in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/blogs.php on line 58
+[2025-01-27 03:43:19] [WARNING] Undefined property: stdClass::$content in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/blogs.php on line 58
+[2025-01-27 03:48:46] [WARNING] Undefined property: stdClass::$content in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/view-blog.php on line 44
+[2025-01-27 03:48:58] [WARNING] Undefined property: stdClass::$content in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/view-blog.php on line 44
+[2025-01-27 04:12:02] [WARNING] Undefined property: stdClass::$content in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/about.php on line 339
+[2025-01-27 04:12:10] [WARNING] Undefined property: stdClass::$content in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/about.php on line 339

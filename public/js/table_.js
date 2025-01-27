@@ -121,9 +121,9 @@ let tb1 = new DataTable("#user_management", {
       {
         data: "status",
         render: function (data, type, row) {
-          let action = row.status == 'Pending' ? "pending" : "approved",
-            actionText = row.status != 'Pending' ? "Approved" : "Pending",
-            actionClass = row.status != 'Approved' ? "primary" : "";
+          let action = row.status == '0' ? "pending" : "approved",
+            actionText = row.status != '0' ? "Approved" : "Pending",
+            actionClass = row.status != '1' ? "primary" : "";
           return `
           <a onclick="toggleComment(event)" data-id="${row.id}" href="#" class="btn small ${actionClass}">${actionText}</a>
           `;
@@ -162,7 +162,7 @@ let tb1 = new DataTable("#user_management", {
       url: "/api/manage_blogs",
       type: "POST",
       dataFilter: function (data) {
-        // console.log(data);
+        console.log(data);
         return data;
       },
     },

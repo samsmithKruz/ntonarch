@@ -7,15 +7,11 @@ $title = "Ntornarch's Blog";
 $page = "blog";
 
 require_once __DIR__ . "/inc/Header.php";
-
+require_once __DIR__ . "/inc/nav.php"; 
 ?>
 
-<div id="hero">
-  <?php require_once __DIR__ . "/inc/nav.php"; ?>
-
-</div>
 <main class="container">
-  <section id="blogs">
+  <section id="blogs" style="padding-bottom: 2em;">
     <div class="head">
       <h1>
         <?= $blog->title; ?>
@@ -28,28 +24,26 @@ require_once __DIR__ . "/inc/Header.php";
           <span class="i_icon"></span>
           <span> <?= (new DateTime($blog->created_at))->format('d.m.y'); ?></span>
         </div>
-        <a
-          href="#"
-          class="share"
-          data-url="<?= DOMAIN ?>/blog/show/<?= $blog->id ?>"
-          data-title="<?= htmlspecialchars($blog->title); ?>"
-          data-text="Read amazing content on <?= DOMAIN ?>">
+        <a href="#" class="share" data-url="<?= DOMAIN ?>/blog/show/<?= $blog->id ?>"
+          data-title="<?= htmlspecialchars($blog->title); ?>" data-text="Read amazing content on <?= DOMAIN ?>">
           <span>Share</span>
           <span class="i_icon" style="transform: rotateY(180deg);">&#xE15E;</span>
         </a>
       </div>
     </div>
     <div class="content">
-      <img class="banner" src="/public/uploads/<?= htmlspecialchars($blog->thumbnail); ?>" alt="<?= htmlspecialchars($blog->title); ?>" />
-      <?= $blog->content; ?>
+      <img class="banner" src="/public/uploads/<?= htmlspecialchars($blog->thumbnail); ?>"
+        alt="<?= htmlspecialchars($blog->title); ?>" />
+      <?= $blog->body; ?>
     </div>
     <div class="comments">
-      <h3>Comments <span>(<?= count(array_filter($comments, function($comment){
-        return $comment->status === 'Approved';
+      <h3>Comments <span>(<?= count(array_filter($comments, function ($comment) {
+        return $comment->status === '1';
       })); ?>)</span></h3>
       <div class="comment">
         <?php foreach ($comments as $comment): ?>
-          <?php if($comment->status != 'Approved') continue; ?>
+          <?php if ($comment->status != '1')
+            continue; ?>
           <div>
             <div class="info">
               <div>
@@ -64,8 +58,8 @@ require_once __DIR__ . "/inc/Header.php";
         <?php endforeach; ?>
         <form action="" method="post">
           <div class="input">
-            <input type="hidden" name="blog_id" value="<?=$blog->id?>">
-            <input type="hidden" name="csrf" value="<?=csrf_token();?>">
+            <input type="hidden" name="blog_id" value="<?= $blog->id ?>">
+            <input type="hidden" name="csrf" value="<?= csrf_token(); ?>">
             <input type="text" name="name" placeholder="Name" />
           </div>
           <div class="input">
@@ -89,7 +83,7 @@ require_once __DIR__ . "/inc/Header.php";
           <a href="#">GreenerFuture</a>
           <p>10.04.2024</p>
         </div>
-        <a href="#" class="head truncate" style="--line: 2;">Off-Grid Cabin Renewable Energy Setup</a>
+        <a href="#" class="truncate head" style="--line: 2;">Off-Grid Cabin Renewable Energy Setup</a>
         <p class="truncate" style="--line: 3;">
           An off-grid cabin renewable energy setup provides independence,
           sustainability, and peace of mind by generating power in remote

@@ -440,7 +440,7 @@ require_once __DIR__ . "/inc/nav.php"; ?>
                 </h3>
                 <p class="date"><?= (new DateTime($blog->created_at))->format('d.m.y'); ?></p>
                 <p class="truncate" style="--line: 3;">
-                  <?= htmlspecialchars(getFirstParagraphContent($blog->content)); ?>
+                  <?= htmlspecialchars(getFirstParagraphContent($blog->body)); ?>
                 </p>
                 <a href="/blog/show/<?= $blog->id ?>" class="more">Read more</a>
               </div>
