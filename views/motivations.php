@@ -1,7 +1,7 @@
 <?php
 $header_include = "<link rel=\"stylesheet\" href=\"/public/css/blog.css\" />";
-$title = "Ntornarch Blogs";
-$page = "blog";
+$title = "Ntornarch Motivations";
+$page = "motivations";
 
 require_once __DIR__ . "/inc/Header.php";
 require_once __DIR__ . "/inc/nav.php";
@@ -14,10 +14,10 @@ require_once __DIR__ . "/inc/nav.php";
   <div class="container">
     <div class="row">
       <div class="col col-xs-12">
-        <h2>Blog & Media</h2>
+        <h2>Motivations</h2>
         <ol class="breadcrumb">
           <li><a href="index.html">Home</a></li>
-          <li>Blog & Media</li>
+          <li>Motivations</li>
         </ol>
       </div>
     </div> <!-- end row -->
@@ -29,20 +29,18 @@ require_once __DIR__ . "/inc/nav.php";
     <div class="row">
       <div class="col col-md-8">
         <div class="blog-content">
-          <?php foreach ($blog_data->blogs as $blog): ?>
-            <div class="post format-standard-image">
-              <div class="entry-media">
-                <img src="/public/uploads/<?= htmlspecialchars($blog->thumbnail); ?>"
-                  alt="<?= htmlspecialchars($blog->title); ?>">
-              </div>
+          <?php foreach ($motivation_data->motivations as $motivation): ?>
+            <div class="post format-standard">
               <div class="meta-title">
                 <div class="meta">
                   <ul class="entry-meta">
-                    <li><a href="/author/<?= $blog->author_id ?>"><?= htmlspecialchars($blog->fullname); ?></a></li>
-                    <li><?= (new DateTime($blog->created_at))->format('d.m.y'); ?></li>
+                    <li><?= (new DateTime($motivation->create_at))->format('d.m.y'); ?></li>
+                    <li><a
+                        href="/author/<?= $motivation->author_id ?>"><?= htmlspecialchars($motivation->fullname); ?></a>
+                    </li>
                     <li>
-                      <a href="#" class="share" data-url="<?= DOMAIN ?>/blog/show/<?= $blog->id ?>"
-                        data-title="<?= htmlspecialchars($blog->title); ?>"
+                      <a href="#" class="share" data-url="<?= DOMAIN ?>/motivations?search=<?= htmlspecialchars($motivation->title); ?>"
+                        data-title="<?= htmlspecialchars($motivation->title); ?>"
                         data-text="Read amazing content on <?= DOMAIN ?>">
                         <span>Share</span>
                         <span class="i_icon" style="transform: rotateY(180deg);">&#xE15E;</span>
@@ -51,27 +49,25 @@ require_once __DIR__ . "/inc/nav.php";
                   </ul>
                 </div>
                 <div class="title">
-                  <h3><a href="/blog/show/<?= $blog->id ?>" class="truncate"
-                      style="--line: 1;"><?= htmlspecialchars($blog->title); ?></a></h3>
+                  <h3><?= htmlspecialchars($motivation->title); ?></h3>
                 </div>
               </div>
-              <p><?= htmlspecialchars(getFirstParagraphContent($blog->content)); ?></p>
-              <a href="/blog/show/<?= $blog->id ?>" class="theme-btn">Read More</a>
+              <p><q><?= htmlspecialchars(getFirstParagraphContent($motivation->content)); ?></q></p>
             </div>
           <?php endforeach; ?>
           <div class="pagination-wrapper pagination-wrapper-left">
             <ul class="pg-pagination">
-              <?php $totalPages = ceil($blog_data->total / 10); ?>
+              <?php $totalPages = ceil($motivation_data->total / 10); ?>
 
               <li>
-                <a href="<?= $blog_data->current_page > 1 ? "/blog?page=" . ($blog_data->current_page - 1) : "#"; ?>"" aria-label="
+                <a href="<?= $motivation_data->current_page > 1 ? "/motivation?page=" . ($motivation_data->current_page - 1) : "#"; ?>"" aria-label="
                   Previous">
                   <i class="fi flaticon-back"></i>
                 </a>
               </li>
-              <li><?= $totalPages>0? $blog_data->current_page . " of " . $totalPages:"No blog found"; ?></li>
+              <li><?= $totalPages>0? $motivation_data->current_page . " of " . $totalPages:"No Motivation found"; ?></li>
               <li>
-                <a href="<?= $blog_data->current_page < $totalPages ? "/blog?page=" . ($blog_data->current_page + 1) : '#'; ?>"" aria-label="
+                <a href="<?= $motivation_data->current_page < $totalPages ? "/motivation?page=" . ($motivation_data->current_page + 1) : '#'; ?>"" aria-label="
                   Next">
                   <i class="fi flaticon-next"></i>
                 </a>
@@ -90,16 +86,6 @@ require_once __DIR__ . "/inc/nav.php";
                 <button type="submit"><i class="ti-search"></i></button>
               </div>
             </form>
-          </div>
-          <div class="widget category-widget">
-            <h3>Categories</h3>
-            <ul>
-              <li><a href="#">Industry (2)</a></li>
-              <li><a href="#">Factory (5)</a></li>
-              <li><a href="#">Construction (12)</a></li>
-              <li><a href="#">Oil & gas (12)</a></li>
-              <li><a href="#">Repearing (8)</a></li>
-            </ul>
           </div>
         </div>
       </div>

@@ -58,4 +58,14 @@ CREATE TABLE `products` (
   FULLTEXT KEY `fulltext_search` (`title`,`description`,`price`,`location`,`category`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+DROP TABLE IF EXISTS `motivations`;
+CREATE TABLE motivations(  
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
+    author_id int NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    create_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE,
+    FULLTEXT KEY `fulltext_search` (`title`,`content`)
+) COMMENT '';
 ";

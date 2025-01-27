@@ -1,9 +1,7 @@
 <?php
 // print_r($data);exit();
 $blogTitle = $title ?? "";
-$header_include = "<script src=\"https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.umd.js\" crossorigin></script>
-<link rel=\"stylesheet\" href=\"https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css\" crossorigin>
-";
+$header_include = "<script src=\"/public/js/ckeditor.js\" ></script>";
 $title = "Dashboard";
 $page = "post_blogs";
 
@@ -19,13 +17,16 @@ require_once __DIR__ . "/inc/userHeader.php";
     <form action="" method="post" enctype="multipart/form-data">
         <div class="input">
             <label for="#">Blog Title</label>
-            <input type="text" required value="<?= $blogTitle; ?>" name="title" placeholder="Enter blog title for post.">
+            <input type="text" required value="<?= $blogTitle ?? ""; ?>" name="title"
+                placeholder="Enter blog title for post.">
         </div>
         <div class="input">
             <label for="#">Thumbnail</label>
-            <input type="file" <?= !isset($blogTitle) ? "required" : ""; ?> name="thumbnail" onchange="previewImage(event)">
+            <input type="file" <?= !isset($blogTitle) ? "required" : ""; ?> name="thumbnail"
+                onchange="previewImage(event)">
             <?php if (!empty($thumbnail)): ?>
-                <img src="/public/uploads/<?= $thumbnail; ?>" class="img-preview" alt="Preview of Image " style="width: auto; height: 142px; margin-top: 0.5rem; object-fit:contain; align-self: flex-start" />
+                <img src="/public/uploads/<?= $thumbnail; ?>" class="img-preview" alt="Preview of Image "
+                    style="width: auto; height: 142px; margin-top: 0.5rem; object-fit:contain; align-self: flex-start" />
             <?php endif; ?>
         </div>
 
@@ -35,16 +36,19 @@ require_once __DIR__ . "/inc/userHeader.php";
         <div class="input blog-tags" style="justify-content: flex-start; flex-wrap:wrap;gap:.5em;">
             <b for="#">Tags</b>:
             <span class="tag btn small">
-                <input type="checkbox" <?= in_array("politics", $tags ?? []) ? "checked" : ""; ?> id="politics" name="tags[]" value="politics">
+                <input type="checkbox" <?= in_array("politics", $tags ?? []) ? "checked" : ""; ?> id="politics"
+                    name="tags[]" value="politics">
                 <label for="politics">Politics</label>
 
             </span>
             <span class="tag btn small">
-                <input type="checkbox" <?= in_array("fame", $tags ?? []) ? "checked" : ""; ?> id="fame" name="tags[]" value="fame">
+                <input type="checkbox" <?= in_array("fame", $tags ?? []) ? "checked" : ""; ?> id="fame" name="tags[]"
+                    value="fame">
                 <label for="fame">Fame</label>
             </span>
             <span class="tag btn small">
-                <input type="checkbox" <?= in_array("story", $tags ?? []) ? "checked" : ""; ?> id="story" name="tags[]" value="story">
+                <input type="checkbox" <?= in_array("story", $tags ?? []) ? "checked" : ""; ?> id="story" name="tags[]"
+                    value="story">
                 <label for="story">Story</label>
             </span>
         </div>
@@ -58,13 +62,13 @@ require_once __DIR__ . "/inc/userHeader.php";
 
 <script>
     ClassicEditor.create(document.querySelector("#editor"), {
-            removePlugins: ['Title', 'ImageStyle', 'ImageCaption', 'ImageToolbar', 'MediaEmbed', 'ImageUpload'],
-            updateSourceElementOnDestroy: true,
-            fontSize: {
-                options: [10, 12, 14, "default", 18, 20, 22],
-                supportAllValues: true,
-            }
-        })
+        removePlugins: ['Title', 'ImageStyle', 'ImageCaption', 'ImageToolbar', 'MediaEmbed', 'ImageUpload'],
+        updateSourceElementOnDestroy: true,
+        fontSize: {
+            options: [10, 12, 14, "default", 18, 20, 22],
+            supportAllValues: true,
+        }
+    })
         .then((editor) => {
             window.editor = editor;
         })

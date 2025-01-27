@@ -291,6 +291,77 @@ let tb1 = new DataTable("#user_management", {
       },
     ],
   }),
+  tb5 = new DataTable("#motivation_management", {
+    columnDefs: [
+      {
+        orderable: false,
+        targets: [0,2, 5],
+      },
+    ],
+    order: [[1, "asc"]],
+    ajax: {
+      url: "/api/manage_motivations",
+      type: "POST",
+      dataFilter: function (data) {
+        console.log(data);
+        return data;
+      },
+    },
+    processing: true,
+    serverSide: true,
+    columns: [
+      {
+        data: null,
+        orderable: false,
+        render: function (data, type, row, meta) {
+          return meta.row + 1 + meta.settings._iDisplayStart;
+        },
+      },
+      {
+        data: "title",
+        render: function (data, type, row) {
+          return `<a class="truncate" style="--line:1;" href="/motivation?id=${row.id}">${data}</a>`;
+        },
+      },
+      {
+        data: "author_name",
+        render: function (data, type, row) {
+          return `<a class="truncate" style="--line:1;" href="/author/${row.author_id}">${data}</a>`;
+        },
+      },
+      {
+        data: "status",
+        render: function (data, type, row) {
+          let action = row.status == 1 ? "pending" : "approve",
+            actionText = row.status != 1 ? "Pending" : "Approved",
+            actionClass = row.status != 1 ? "primary" : "";
+          return `
+          <a data-id="${row.id}" href="#" class="btn small ${actionClass}">${actionText}</a>
+          `;
+        },
+      },
+      {
+        data: "create_at",
+        render: function (data, type, row) {
+          let date = new Date(data);
+          let day = String(date.getDate()).padStart(2, "0");
+          let month = String(date.getMonth() + 1).padStart(2, "0");
+          let year = date.getFullYear();
+          return `${day}/${month}/${year} `;
+        },
+      },
+      {
+        data: null,
+        render: function (data, type, row) {
+          return `<div class="btn-group" style="flex-wrap: nowrap;">
+              <a href="/motivation/update/${row.id}" class="btn small green">Update</a>
+              <a href="#" onclick="deleteMotivation(event)" data-id="${row.id}" class="btn small red">Delete</a>
+            </div>
+            `;
+        },
+      },
+    ],
+  }),
   sn = (tbs) => {
     tbs.forEach((tb) => {
       tb.on("order.dt search.dt", function () {
@@ -302,7 +373,7 @@ let tb1 = new DataTable("#user_management", {
       }).draw();
     });
   };
-sn([tb1, tb2, tb3, tb4]);
+sn([tb1, tb2, tb3, tb4,tb5]);
 let deleteProduct = (e) => {
   e.preventDefault();
   const productId = e.target.dataset.id;

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Seeder;
 use Models\Migration;
 use Dotenv\Dotenv;
 require_once __DIR__."/../vendor/autoload.php";
@@ -17,18 +18,18 @@ $command = $argv[1] ?? null;
 $action = $argv[2] ?? null;
 
 $migration = new Migration();
-// $seeder = new Seeder();
+$seeder = new Seeder();
 
 switch ($command) {
     case 'make':
         if ($action === 'migration') {
             $migration->make($argv[3] ?? 'new_migration');
         } 
-        // elseif ($action === 'seed') {
-        //     $seeder->make($argv[3] ?? 'new_seeder');
-        // } 
+        elseif ($action === 'seeder') {
+            $seeder->make($argv[3] ?? 'new_seeder');
+        } 
         else {
-            echo "Usage: php script.php make migration [name]\n";
+            echo "Usage: php script.php make migration|seeder [name]\n";
         }
         break;
 
@@ -36,11 +37,11 @@ switch ($command) {
         $migration->migrate();
         break;
 
-    // case 'seed':
-    //     $seeder->seed($argv[2] ?? null);
-    //     break;
+    case 'seed':
+        $seeder->seed();
+        break;
 
     default:
-        echo "Usage: php script.php make|migrate [name]\n";
+        echo "Usage: php script.php make|migrate|seed [name]\n";
         break;
 }

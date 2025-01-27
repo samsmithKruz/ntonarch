@@ -1,5 +1,5 @@
 <?php
-$header_include = "";
+$header_include = "<script src=\"/public/js/ckeditor.js\" ></script>";
 $title = "Account Settings";
 $page = "";
 

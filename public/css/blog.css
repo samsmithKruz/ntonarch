@@ -1,6 +1,6 @@
 @import url('./theme.css');
-@import url('./header.css');
-@import url('./footer.css');
+/* @import url('./header.css'); */
+/* @import url('./footer.css');
 #hero {
     min-height: 350px;
     position: relative;
@@ -171,5 +171,5 @@
     background-color: var(--primary);
     color: var(--white);
     border-color: transparent;
-}
+} */
 

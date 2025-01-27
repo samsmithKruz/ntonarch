@@ -2,8 +2,7 @@
 // print_r($data);
 // exit();
 $productTitle = $title ?? "";
-$header_include = "<script src=\"https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.umd.js\" crossorigin></script>
-<link rel=\"stylesheet\" href=\"https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css\" crossorigin>";
+$header_include = "<script src=\"/public/js/ckeditor.js\"></script>";
 $title = "Dashboard";
 $page = "post_products";
 
@@ -30,7 +29,8 @@ require_once __DIR__ . "/inc/userHeader.php";
                 <option disabled <?= !isset($category) ? "selected" : ""; ?>>-- Select Product Category --</option>
                 <?php foreach (explode(",", getenv("PRODUCT_CATEGORIES")) as $value): ?>
                     <option <?= isset($category) && $category == $value ? "selected" : ""; ?> value="<?= $value ?>">
-                        <?= ucfirst($value) ?></option>
+                        <?= ucfirst($value) ?>
+                    </option>
                 <?php endforeach; ?>
             </select>
         </div>

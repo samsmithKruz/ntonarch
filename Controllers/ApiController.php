@@ -95,7 +95,37 @@ class ApiController extends Controller
         $filteredTotal = $recordsFiltered->single()->total;
         $recordsTotal = $this->db->query("SELECT COUNT(id) AS total FROM blogs WHERE author_id=$userId")->single()->total;
 
-        $productsQuery = $this->db->query("SELECT blogs.id, blogs.title, blogs.created_at,blogs.author_id,users.fullname as author_name, blogs.status FROM blogs LEFT JOIN users on blogs.author_id=users.id WHERE author_id=$userId $searchQuery ORDER BY blogs.$orderCol $orderDir LIMIT :start, :length");
+        $productsQuery = $this->db->query("SELECT blogs.id, blogs.title, blogs.created_at,blogs.author_id,users.fullname as author_name, blogs.status FROM blogs LEFT JOIN users on blogs.author_id=users.id WHERE blogs.author_id=$userId $searchQuery ORDER BY blogs.$orderCol $orderDir LIMIT :start, :length");
+        $params[':start'] = (int) $start;
+        $params[':length'] = (int) $length;
+        array_map(fn($key, $val) => $this->db->bind($key, $val), array_keys($params), $params);
+        $products = $productsQuery->resultSet();
+
+        $this->render(['recordsTotal' => $recordsTotal, 'recordsFiltered' => $filteredTotal, 'data' => $products]);
+    }
+    public function manage_motivations()
+    {
+        Helpers::isLoggedIn();
+        $start = $_POST['start'] ?? 0;
+        $length = $_POST['length'] ?? 10;
+        $search = $_POST['search']['value'] ?? '';
+        $orderCol = isset($_POST['order'][0]) && isset($_POST['columns'][$_POST['order'][0]['column']]['data'])
+            ? $_POST['columns'][$_POST['order'][0]['column']]['data']
+            : 'id';
+        $orderDir = isset($_POST['order'][0]['dir']) ? $_POST['order'][0]['dir'] : 'ASC';
+
+
+        $searchQuery = $search ? " AND (motivations.title LIKE :search OR motivations.content LIKE :search OR users.fullname LIKE :search)" : "";
+        $params = $search ? [':search' => "%$search%"] : [];
+        $userId = $_SESSION[APP]->user->id;
+        $adminFilter = $_SESSION[APP]->user->role == getenv('ADMIN') ? "" : " AND motivations.author_id=$userId";
+        $adminFilter_ = $_SESSION[APP]->user->role == getenv('ADMIN') ? "" : " AND author_id=$userId";
+        $recordsFiltered = $this->db->query("SELECT COUNT(motivations.id) AS total FROM motivations LEFT JOIN users on motivations.author_id=users.id WHERE 1=1 $adminFilter $searchQuery");
+        array_map(fn($key, $val) => $this->db->bind($key, $val), array_keys($params), $params);
+        $filteredTotal = $recordsFiltered->single()->total;
+        $recordsTotal = $this->db->query("SELECT COUNT(id) AS total FROM motivations WHERE 1=1 $adminFilter_")->single()->total;
+
+        $productsQuery = $this->db->query("SELECT motivations.id, motivations.title, motivations.create_at,motivations.author_id,users.fullname as author_name, motivations.status FROM motivations LEFT JOIN users on motivations.author_id=users.id WHERE 1=1 $adminFilter_ $searchQuery ORDER BY motivations.$orderCol $orderDir LIMIT :start, :length");
         $params[':start'] = (int) $start;
         $params[':length'] = (int) $length;
         array_map(fn($key, $val) => $this->db->bind($key, $val), array_keys($params), $params);

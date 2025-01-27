@@ -185,3 +185,6 @@
 [2025-01-25 19:39:13] [EXCEPTION] Call to undefined method Models\User::updateUser() in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Controllers/AdminController.php on line 40
 [2025-01-25 19:44:17] [WARNING] Array to string conversion in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Models/User.php on line 80
 [2025-01-25 19:55:33] [WARNING] Undefined array key "role" in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Models/User.php on line 87
+[2025-01-27 01:23:18] [WARNING] Attempt to read property "total" on false in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Models/Motivation.php on line 46
+[2025-01-27 02:10:47] [WARNING] Attempt to read property "total" on false in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Models/Motivation.php on line 46
+[2025-01-27 02:42:42] [WARNING] Undefined variable $motivationTitle in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/views/post-motivation.php on line 20
