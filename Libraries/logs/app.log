@@ -200,3 +200,8 @@
 [2025-01-27 04:38:41] [WARNING] mkdir(): Read-only file system in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Helpers.php on line 233
 [2025-01-27 04:42:23] [WARNING] mkdir(): Read-only file system in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Helpers.php on line 233
 [2025-01-27 04:42:27] [WARNING] mkdir(): Read-only file system in /Users/victordavid/Downloads/nictory/nictoryshtml-10/nictorys/ntornarch/project/Libraries/Helpers.php on line 233
+[2025-01-30 10:40:37] [EXCEPTION] Call to a member function prepare() on null in D:\NTONARCHWEB2\Libraries\Database.php on line 73
+[2025-01-30 10:43:22] [EXCEPTION] Call to a member function prepare() on null in D:\NTONARCHWEB2\Libraries\Database.php on line 73
+[2025-01-30 11:09:09] [EXCEPTION] Call to a member function prepare() on null in D:\NTONARCHWEB2\Libraries\Database.php on line 73
+[2025-01-30 11:11:12] [EXCEPTION] Call to a member function prepare() on null in D:\NTONARCHWEB2\Libraries\Database.php on line 73
+[2025-01-30 11:37:45] [EXCEPTION] Call to a member function prepare() on null in D:\NTONARCHWEB2\Libraries\Database.php on line 73
